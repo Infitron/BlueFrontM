@@ -131,7 +131,7 @@
                                             <img src="images/icon/avatar-01.jpg" alt="John Doe" />
                                         </div>
                                         <div class="content">
-                                            <a class="js-acc-btn" href="#">john doe</a>
+                                            <a class="js-acc-btn" href="#"><?php echo $_SESSION['email']; ?></a>
                                         </div>
                                         <div class="account-dropdown js-dropdown">
                                             <div class="info clearfix">
@@ -142,27 +142,27 @@
                                                 </div>
                                                 <div class="content">
                                                     <h5 class="name">
-                                                        <a href="#">john doe</a>
+                                                        <a href="#"><?php echo $_SESSION['email']; ?></a>
                                                     </h5>
-                                                    <span class="email">johndoe@example.com</span>
+                                                    <span class="email"><?php echo $_SESSION['email']; ?></span>
                                                 </div>
                                             </div>
                                             <div class="account-dropdown__body">
                                                 <div class="account-dropdown__item">
-                                                    <a href="#">
+                                                    <a href="index.php?up">
                                                         <i class="zmdi zmdi-account"></i>Account</a>
                                                 </div>
                                                 <div class="account-dropdown__item">
-                                                    <a href="#">
+                                                    <a href="index.php?uep">
                                                         <i class="zmdi zmdi-settings"></i>Setting</a>
                                                 </div>
                                                 <div class="account-dropdown__item">
-                                                    <a href="#">
+                                                    <a href="index.php?ue">
                                                         <i class="zmdi zmdi-money-box"></i>Earning</a>
                                                 </div>
                                             </div>
                                             <div class="account-dropdown__footer">
-                                                <a href="#">
+                                                <a href="../logout.php">
                                                     <i class="zmdi zmdi-power"></i>Logout</a>
                                             </div>
                                         </div>
@@ -182,7 +182,70 @@
                         
                        
 
+                        <?php
 
+                             // User Dashboard
+                            if (isset($_GET['db'])) {
+                                include("view/dashboard.php");
+                            } 
+
+                            // User Profilw
+                            if (isset($_GET['up'])) {
+                                include("view/profile.php");
+                            } if (isset($_GET['uep'])) {
+                                include("view/uprofile_setting.php");
+                            } if (isset($_GET['ui'])) {
+                                include("view/uimage.php");
+                            }
+
+                            // User Messaging System
+                            if (isset($_GET['um'])) {
+                                include("view/umessage.php");
+                            }if (isset($_GET['aum'])) {
+                                include("view/aumessage.php");
+                            }if (isset($_GET['vum'])) {
+                                include("view/vumessage.php");
+                            }
+
+                            // User Login log
+                            if (isset($_GET['ulh'])) {
+                                include("view/login_log.php");
+                            }
+
+                            // User Service and Product
+                            if (isset($_GET['ups'])) {
+                                include("view/uservice.php");
+                            }if (isset($_GET['aus'])) {
+                                include("view/auservice.php");
+                            }if (isset($_GET['eus'])) {
+                                include("view/euservice.php");
+                            }
+
+
+                            // User Eearning
+                            if (isset($_GET['ue'])) {
+                                include("view/uearning.php");
+                            }if (isset($_GET['vue'])) {
+                                include("view/vuearning.php");
+                            }
+
+                            // User Portfolio
+                              if (isset($_GET['upf'])) {
+                                include("view/uportfolio.php");
+                            }
+
+
+                            // User Job
+                              if (isset($_GET['uj'])) {
+                                include("view/ujob.php");
+                            }if (isset($_GET['vuj'])) {
+                                include("view/vujob.php");
+                            }
+
+
+
+
+                        ?>
 
 
 

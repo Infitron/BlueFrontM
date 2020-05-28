@@ -45,35 +45,37 @@
                 echo"</span>";
 
                if($result){
-                  
+                    
                     $testCheck = json_decode($result);
                     $status  = $testCheck->{'success'};
 
                     if(http_response_code(200) && $status == true ){
 
-                        echo "<script>alert('Registration Successful')</script>";
-                       	
+                        echo "<script>alert('User Login Successful')</script>";
                         $userRole = $testCheck->{'userRole'};
 
                        if($userRole == 'Artisan'){
 
-								$_SESSION['userId'] = $testCheck->{'userId'};
-								$_SESSION['token'] = $testCheck->{'token'};
+								$_SESSION['user_id'] =   $testCheck->{'userId'};
+								$_SESSION['token'] =    "Authorization: bearer " .$testCheck->{'token'};
 								$_SESSION['userRole'] = $testCheck->{'userRole'};
 								$_SESSION['userRoleId'] = 1;
+                                $_SESSION['email']      = $email;
+                                $session->check_the_login();
 
 
-								echo "<script> window.open('artisan/index.php','_self'); </script>";
+								echo "<script> window.open('artisan/index.php?db','_self'); </script>";
 
 						} if($userRole == 'Client'){
 
-								$_SESSION['userId'] = $testCheck->{'userId'};
-								$_SESSION['token'] = $testCheck->{'token'};
+								$_SESSION['user_id'] = $testCheck->{'userId'};
+								$_SESSION['token'] = "Authorization: bearer " .$testCheck->{'token'};
 								$_SESSION['userRole'] = $testCheck->{'userRole'};
 								$_SESSION['userRoleId'] = 2;
+                                $_SESSION['email']      = $email;
+                                $session->check_the_login();
 
-
-								echo "<script> window.open('client/index.php','_self'); </script>";
+								echo "<script> window.open('client/index.php?db','_self'); </script>";
 
 						}
 

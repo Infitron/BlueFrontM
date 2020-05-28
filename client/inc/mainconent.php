@@ -1,4 +1,13 @@
 
+
+    <?php 
+
+            $userD = new User();
+            $userD->getClientDetails($_SESSION['user_id']);
+            var_dump($userD);
+
+
+            ?>
         <!-- PAGE CONTAINER-->
         <div class="page-container">
             <!-- HEADER DESKTOP-->
@@ -7,7 +16,7 @@
                     <div class="container-fluid">
                         <div class="header-wrap">
                             <form class="form-header" action="" method="POST">
-                                <input class="au-input au-input--xl" type="text" name="search" placeholder="Search for datas &amp; reports..." />
+                                <input class="au-input au-input--xl" type="text" name="search" placeholder="Search for Service" />
                                 <button class="au-btn--submit" type="submit">
                                     <i class="zmdi zmdi-search"></i>
                                 </button>
@@ -144,16 +153,16 @@
                                                     <h5 class="name">
                                                         <a href="#">john doe</a>
                                                     </h5>
-                                                    <span class="email">johndoe@example.com</span>
+                                                    <span class="email"><?php echo $_SESSION['email']; ?></span>
                                                 </div>
                                             </div>
                                             <div class="account-dropdown__body">
                                                 <div class="account-dropdown__item">
-                                                    <a href="#">
+                                                    <a href="index.php?up">
                                                         <i class="zmdi zmdi-account"></i>Account</a>
                                                 </div>
                                                 <div class="account-dropdown__item">
-                                                    <a href="#">
+                                                    <a href="index.php?uep">
                                                         <i class="zmdi zmdi-settings"></i>Setting</a>
                                                 </div>
                                                 <div class="account-dropdown__item">
@@ -162,7 +171,7 @@
                                                 </div>
                                             </div>
                                             <div class="account-dropdown__footer">
-                                                <a href="#">
+                                                <a href="../logout.php">
                                                     <i class="zmdi zmdi-power"></i>Logout</a>
                                             </div>
                                         </div>
@@ -182,7 +191,37 @@
                         
                        
 
+                        <?php
 
+                            if (isset($_GET['db'])) {
+                                include("view/dashboard.php");
+                            } if (isset($_GET['up'])) {
+                                include("view/profile.php");
+                            } if (isset($_GET['uep'])) {
+                                include("view/uprofile_setting.php");
+                            }if (isset($_GET['ulh'])) {
+                                include("view/login_log.php");
+                            }
+
+                            // User Job
+                              if (isset($_GET['uj'])) {
+                                include("view/ujob.php");
+                            }if (isset($_GET['auj'])) {
+                                include("view/aujob.php");
+                            }
+
+
+                             // User Messaging System
+                            if (isset($_GET['um'])) {
+                                include("view/umessage.php");
+                            }if (isset($_GET['aum'])) {
+                                include("view/aumessage.php");
+                            }if (isset($_GET['vum'])) {
+                                include("view/vumessage.php");
+                            }
+
+
+                        ?>
 
 
 

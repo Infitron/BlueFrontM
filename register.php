@@ -1,91 +1,6 @@
 ﻿<?php
         include('model/init.php');
-        include('hnav.php'); 
-
-
-        if(isset($_POST['submit'])){
-
-                $username   = addslashes(trim($_POST['username']));
-                $email      = addslashes(trim($_POST['email']));
-                $password   = addslashes(trim($_POST['password']));
-                $password2   = addslashes(trim($_POST['password2']));
-                $user_role  = addslashes(trim($_POST['user_role']));
-                $date       =  date('Y/m/d');
-
-                if ($password != $password2) {
-                     echo "<script>alert('Password not match, Please fill in same password on both fields')</script>";
-                     echo "<script> window.open('register.php','_self'); </script>";
-                     die();
-                }
-
-
-                $url = "https://api.bluecollarhub.com.ng/api/Account/Register";
-
-                //Initiate cURL.
-                $ch = curl_init($url);
-
-                //The JSON data.
-                 $jsonData = array(
-                      'EmailAddress' => $email,
-                      'Password' =>  $password,
-                      'CreationDate' => $date,
-                      'RoleId' => $user_role,
-                      'UserName' =>  $username 
-                );
-
-                //Encode the array into JSON.
-                $jsonDataEncoded = json_encode($jsonData);
-
-
-                echo "<span style='display:none'>";
-                //Tell cURL that we want to send a POST request.
-                curl_setopt($ch, CURLOPT_POST, 1);
-
-                curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-
-                //Attach our encoded JSON string to the POST fields.
-                curl_setopt($ch, CURLOPT_POSTFIELDS, $jsonDataEncoded);
-
-                //Set the content type to application/json
-                curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json; charset=utf-8'));
-
-                //Execute the request
-                $result = curl_exec($ch);
-
-                //Close CURL
-                curl_close($ch);
-
-                echo"</span>";
-
-               if($result){
-                  
-                    $testCheck = json_decode($result);
-                    $status  = $testCheck->{'success'};
-
-                    if(http_response_code(200) && $status == true ){
-                        echo "<script>alert('Registration Successful')</script>";
-                        echo "<script> window.open('login.php','_self'); </script>";
-
-                    }else{
-                        echo "<script>alert('Error Input, Please make sure you enter correct data')</script>";
-                        echo "<script> window.open('register.php','_self'); </script>";
-                    }
-
-                }
-
-
-
-
-
-
-                
-                
-
-
-        }
-
-
-
+        include('hnav.php');
 ?>
 
 
@@ -117,8 +32,10 @@
 
                 <h2 class="mb-5 text-black">Register</h2>
 
-                <form action="#" method="POST" id="reguser-form" class="p-5 bg-white">
+                <form action="control/cregister.php" method="POST" id="reguser-form" class="p-5 bg-white" enctype="multipart/form-data">
 
+                     
+                 
                     <div class="row form-group">
 
                         <div class="col-md-12">
@@ -133,6 +50,7 @@
                             <input type="email" id="email" name="email" class="form-control">
                         </div>
                     </div>
+                   
                     <div class="row form-group">
                         <div class="col-md-12">
                             <label class="text-black" for="password">Password</label>
@@ -154,6 +72,7 @@
                             </select>
                         </div>
                     </div>
+                   
                     <div class="row form-group">
                         <div class="col-12">
                             <p>Already have an account? <a href="login.php">Log In Here</a></p>

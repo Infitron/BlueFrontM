@@ -1,4 +1,8 @@
-﻿<?php include('hnav.php'); ?>
+﻿<?php 
+        include('model/init.php'); 
+        include('hnav.php'); 
+
+?>
 
 <div class="site-blocks-cover overlay" style="background-image: url(images/banner1.png);" data-aos="fade" data-stellar-background-ratio="0.5">
     <div class="container">
@@ -18,7 +22,10 @@
                                 <div class="select-wrap">
                                     <span class="icon"><span class="icon-keyboard_arrow_down"></span></span>
                                     <select class="form-control rounded selectpicker" name="scat" id="scat" data-live-search="true" title="Select A Category">
-                                        <?php foreach ($showCat as $key => $value) {
+                                        <?php 
+
+                                       
+                                        foreach ($showCat as $key => $value) {
                                         echo "<option value=\"".$value["id"]."\">".$value["categoryName"] . "-" .$value["subCategories"]."</option>";
 
                                         }

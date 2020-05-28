@@ -1,5 +1,5 @@
 <?php
-session_start(); 
+include 'model/init.php';
 $curl = curl_init();
 $ctime = date("Y-m-d",time());
 curl_setopt_array($curl, array(
@@ -7,7 +7,7 @@ curl_setopt_array($curl, array(
   CURLOPT_RETURNTRANSFER => true,
   CURLOPT_ENCODING => "",
   CURLOPT_MAXREDIRS => 10,
-  CURLOPT_TIMEOUT => 0,
+  CURLOPT_TIMEOUT => 30,
   CURLOPT_FOLLOWLOCATION => true,
   CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
   CURLOPT_CUSTOMREQUEST => "POST",
@@ -33,8 +33,8 @@ $derror = $datam->errorMessage;
 
 if (is_null($derror)){
 	$_SESSION["mID"] = $mid;
-	$_SESSION["mtoken"] = $mtoken;
-    $_SESSION["mauth"] = "Authorization: bearer " . $mtoken;
+	$_SESSION["token"] = $mtoken;
+  $_SESSION["mauth"] = "Authorization: bearer " . $mtoken;
 	$autht = "Authorization: bearer " . $mtoken;
    //echo $_SESSION["mtoken"];
     }else  {

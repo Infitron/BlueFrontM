@@ -36,7 +36,7 @@
                                 <script>
                                     document.write(new Date().getFullYear());
 
-                                </script> All rights reserved by <a href="#">Infitron Technologies Limited</a>
+                                </script> All rights reserved by <a href="#">Mytrix Solutions</a>
                             </p>
                         </div>
                     </div>

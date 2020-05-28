@@ -4,7 +4,7 @@
             <div class="header-mobile__bar">
                 <div class="container-fluid">
                     <div class="header-mobile-inner">
-                        <a class="logo" href="index.html">
+                        <a class="logo" href="index.php?db">
                             <img src="images/icon/logo1.png" alt="" />
                         </a>
                         <button class="hamburger hamburger--slider" type="button">
@@ -20,42 +20,49 @@
                     <ul class="navbar-mobile__list list-unstyled">
                         <li class="has-sub">
                             <a class="js-arrow" href="#">
-                                <i class="fas fa-tachometer-alt"></i>Dashboard</a>
+                                <i class="fas fa-tachometer-alt"></i>Control Panel</a>
                             <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
                                 <li>
-                                    <a href="index.html">Profile</a>
+                                    <a href="index.php?up">Profile</a>
                                 </li>
                                 <li>
-                                    <a href="index2.html">Setting</a>
+                                    <a href="index.php?ui">Upload Your Picture</a>
                                 </li>
                                 <li>
-                                    <a href="index2.html">Services</a>
+                                    <a href="index.php?uep">Setting</a>
+                                </li>
+                                <li>
+                                    <a href="index.php?us">Services</a>
                                 </li>
                                
                             </ul>
                         </li>
                         <li>
-                            <a href="chart.html">
+                            <a href="index.php?ue">
                                 <i class="fas fa-chart-bar"></i>Earning</a>
                         </li>
                         <li>
-                            <a href="table.html">
+                            <a href="index.php?um">
                                 <i class="fas fa-table"></i>Messages</a>
                         </li>
                         <li>
-                            <a href="form.html">
+                            <a href="index.php?uq">
                                 <i class="far fa-check-square"></i>Quotes</a>
                         </li>
                         <li>
-                            <a href="calendar.html">
+                            <a href="index.php?upf">
                                 <i class="fas fa-calendar-alt"></i>Portfolio</a>
                         </li>
                         <li>
-                            <a href="map.html">
+                            <a href="index.php?uj">
                                 <i class="fas fa-map-marker-alt"></i>Jobs</a>
                         </li>
+                        <li>
+                            <a href="index.php?ulh">
+                                <i class="fas fa-calendar-alt"></i>History</a>
+                        </li>
                          <li>
-                            <a href="map.html">
+                            <a href="../logout.php">
                                 <i class="fas fa-power-off"></i>Logout</a>
                         </li>
                        
@@ -69,51 +76,58 @@
         <!-- MENU SIDEBAR-->
         <aside class="menu-sidebar d-none d-lg-block">
             <div class="logo">
-                <a href="#">
+                <a href="index.php?db">
                     <img src="images/icon/logo1.png" alt="Cool Admin" />
                 </a>
             </div>
             <div class="menu-sidebar__content js-scrollbar1">
                 <nav class="navbar-sidebar">
                     <ul class="list-unstyled navbar__list">
-                       <li class="has-sub">
+                      <li class="has-sub">
                             <a class="js-arrow" href="#">
-                                <i class="fas fa-tachometer-alt"></i>Dashboard</a>
+                                <i class="fas fa-tachometer-alt"></i>Control Panel</a>
                             <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
                                 <li>
-                                    <a href="index.html">Profile</a>
+                                    <a href="index.php?up">Profile</a>
                                 </li>
                                 <li>
-                                    <a href="index2.html">Setting</a>
+                                    <a href="index.php?ui">Upload Your Picture</a>
                                 </li>
                                 <li>
-                                    <a href="index2.html">Services</a>
+                                    <a href="index.php?uep">Setting</a>
+                                </li>
+                                <li>
+                                    <a href="index.php?ups">Services</a>
                                 </li>
                                
                             </ul>
                         </li>
                         <li>
-                            <a href="chart.html">
+                            <a href="index.php?ue">
                                 <i class="fas fa-chart-bar"></i>Earning</a>
                         </li>
                         <li>
-                            <a href="table.html">
+                            <a href="index.php?um">
                                 <i class="fas fa-table"></i>Messages</a>
                         </li>
                         <li>
-                            <a href="form.html">
+                            <a href="index.php?uq">
                                 <i class="far fa-check-square"></i>Quotes</a>
                         </li>
                         <li>
-                            <a href="calendar.html">
+                            <a href="index.php?upf">
                                 <i class="fas fa-calendar-alt"></i>Portfolio</a>
                         </li>
                         <li>
-                            <a href="map.html">
+                            <a href="index.php?uj">
                                 <i class="fas fa-map-marker-alt"></i>Jobs</a>
                         </li>
                          <li>
-                            <a href="map.html">
+                            <a href="index.php?ulh">
+                                <i class="fas fa-calendar-alt"></i>History</a>
+                        </li>
+                         <li>
+                            <a href="../logout.php">
                                 <i class="fas fa-power-off"></i>Logout</a>
                         </li>
                        
