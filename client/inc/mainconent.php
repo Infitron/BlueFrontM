@@ -2,21 +2,36 @@
 
     <?php 
 
-            $userD = new User();
-            $userD->getClientDetails($_SESSION['user_id']);
-            var_dump($userD);
+        $user = new User();
+        $user->autht = $_SESSION['token'];
+        $user->userLogin($_SESSION['email'],$_SESSION['password']);
+        $user->autht = $_SESSION['token'];
+        
+
+            $cid                   = $_SESSION['cid'] ;
+            $userId                = $_SESSION['userId'];
+            $firstName             = $_SESSION['firstName'];
+            $lastName              = $_SESSION['lastName'];
+            $phoneNumber           = $_SESSION['phoneNumber'];
+            $idcardNo              = $_SESSION['idcardNo'];
+            $picturePath           = $_SESSION['picturePath'];
+            $address               = $_SESSION['address'];
+            $state                 = $_SESSION['state'];
+            $aboutMe               = $_SESSION['aboutMe'];
+            $createdDate           = $_SESSION['createdDate'];
+            $token                 = $_SESSION['token'];
 
 
-            ?>
+    ?>
         <!-- PAGE CONTAINER-->
-        <div class="page-container">
+                <div class="page-container">
             <!-- HEADER DESKTOP-->
             <header class="header-desktop">
                 <div class="section__content section__content--p30">
                     <div class="container-fluid">
                         <div class="header-wrap">
                             <form class="form-header" action="" method="POST">
-                                <input class="au-input au-input--xl" type="text" name="search" placeholder="Search for Service" />
+                                <input class="au-input au-input--xl" type="text" name="search" placeholder="Search for datas &amp; reports..." />
                                 <button class="au-btn--submit" type="submit">
                                     <i class="zmdi zmdi-search"></i>
                                 </button>
@@ -137,21 +152,21 @@
                                 <div class="account-wrap">
                                     <div class="account-item clearfix js-item-menu">
                                         <div class="image">
-                                            <img src="images/icon/avatar-01.jpg" alt="John Doe" />
+                                            <img src="../images/users/<?php echo $picturePath;  ?>" alt="<?php echo $firstName; ?>" />
                                         </div>
                                         <div class="content">
-                                            <a class="js-acc-btn" href="#">john doe</a>
+                                            <a class="js-acc-btn" href="#"><?php echo $firstName; ?></a>
                                         </div>
                                         <div class="account-dropdown js-dropdown">
                                             <div class="info clearfix">
                                                 <div class="image">
                                                     <a href="#">
-                                                        <img src="images/icon/avatar-01.jpg" alt="John Doe" />
+                                                        <img src="../images/users/<?php echo $picturePath;  ?>" alt="<?php echo $firstName; ?>" />
                                                     </a>
                                                 </div>
                                                 <div class="content">
                                                     <h5 class="name">
-                                                        <a href="#">john doe</a>
+                                                        <a href="#"><?php echo $firstName." ".$lastName; ?></a>
                                                     </h5>
                                                     <span class="email"><?php echo $_SESSION['email']; ?></span>
                                                 </div>
@@ -166,7 +181,7 @@
                                                         <i class="zmdi zmdi-settings"></i>Setting</a>
                                                 </div>
                                                 <div class="account-dropdown__item">
-                                                    <a href="#">
+                                                    <a href="index.php?ue">
                                                         <i class="zmdi zmdi-money-box"></i>Earning</a>
                                                 </div>
                                             </div>
@@ -201,6 +216,8 @@
                                 include("view/uprofile_setting.php");
                             }if (isset($_GET['ulh'])) {
                                 include("view/login_log.php");
+                            }if (isset($_GET['ui'])) {
+                                include("view/uimage.php");
                             }
 
                             // User Job

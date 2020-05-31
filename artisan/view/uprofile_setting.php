@@ -5,53 +5,77 @@
                                         <small> Profile Setting</small>
                                     </div>
                                     <div class="card-body card-block">
-                                        <form>
-                                              <div class="form-group">
+                                        <form method="POST" action="../control/cprofileupadte.php" enctype="multipart/form-data">
+                                          <div class="form-group">
                                             <label for="idn" class=" form-control-label">Identification Number</label>
-                                            <input type="text" id="idn" placeholder="" class="form-control" >
+                                            <input type="text" id="idn" placeholder="" name="idcardNo" class="form-control" value="<?php echo $idcardNo; ?>" >
                                         </div>
                                         <div class="form-group">
                                             <label for="f_name" class=" form-control-label">First Name</label>
-                                            <input type="text" id="f_name" placeholder="" class="form-control" >
+                                            <input type="text" id="f_name" placeholder="" name="f_name" class="form-control" value="<?php echo  $firstName; ?>" >
                                         </div>
                                          <div class="form-group">
                                             <label for="f_name" class=" form-control-label">Last Name</label>
-                                            <input type="text" id="l_name" placeholder="" class="form-control" >
+                                            <input type="text" id="l_name" placeholder="" name="l_name" class="form-control" value="<?php echo $lastName; ?>" >
                                         </div>
                                         <div class="form-group">
-                                            <label for="bank_name" class=" form-control-label">Bank Name</label>
-                                            <input type="text" id="bank_name" placeholder="" name="bank_name" class="form-control" >
+                                            <label for="phone" class=" form-control-label">Phone Number</label>
+                                            <input type="text" id="phone" placeholder="" name="phone" class="form-control" value="<?php echo $phoneNumber; ?>" >
                                         </div>
+                                        <div class="form-group">
+                                            <label for="email" class=" form-control-label">Email</label>
+                                            <input type="text" id="email" placeholder="" name="email" value="<?php echo $_SESSION['email']; ?>" class="form-control" >
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="about_me" class=" form-control-label">Information About Me</label>
+                                            <textarea name="about_me" id="about_me" rows="9" placeholder=""  class="form-control"  ><?php echo $aboutMe; ?></textarea>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="loc" class=" form-control-label">Location / City</label>
+                                           
+                                                    <select name="loc" id="loc" class="form-control">
+                                                     <?php  
+
+                                                            $loc = new Location();
+                                                            $loc->autht = $_SESSION['token'];
+                                                            $loca = $loc->getLocation();
+
+                                                            foreach ($loca as $locas) {
+                                                                $loc_id = $locas['id'];
+                                                                $loc_lga = $locas['area'];
+
+                                                                echo " <option value='$loc_id'>$loc_lga</option>";
+                                                            }
+
+
+                                                    ?>
+                                                </select>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="address" class=" form-control-label">Address</label>
+                                            <textarea name="address" id="address" rows="9" placeholder=""  class="form-control" ><?php echo $address; ?></textarea>
+                                        </div>
+                                         <div class="form-group">
+                                            <label for="state" class=" form-control-label">State</label>
+                                            <input type="text" id="state" placeholder="" name="state" value="<?php echo $state; ?>" class="form-control" >
+                                        </div>
+                                         <div class="form-group">
+                                            <label for="country" class=" form-control-label">Country</label>
+                                            <input type="text" id="country" placeholder="" name="country" value="Nigeria" class="form-control" >
+                                        </div>
+
+
                                         <div class="form-group">
                                             <label for="ban" class=" form-control-label">Bank Account Number</label>
-                                            <input type="text" id="ban" placeholder="" class="form-control" >
+                                            <input type="text" id="ban" placeholder="" name="bacc_no" class="form-control" >
                                         </div>
                                          <div class="form-group">
                                             <label for="bacc_name" class=" form-control-label">Bank Account Name</label>
                                             <input type="text" id="bacc_name" name="bacc_name" placeholder="" class="form-control" >
                                         </div>
-                                      
-                                         <div class="form-group">
-                                            <label for="ban" class=" form-control-label">Bank Account Number</label>
-                                            <input type="text" id="ban" placeholder="" class="form-control" >
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="address" class=" form-control-label">Address</label>
-                                            <textarea name="address" id="address" rows="9" placeholder="Content..." class="form-control" ></textarea>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="phone" class=" form-control-label">Phone Number</label>
-                                            <input type="text" id="phone" placeholder="" name="phone" class="form-control" >
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="email" class=" form-control-label">Email</label>
-                                            <input type="text" id="email" placeholder="" name="email" class="form-control" >
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="about_me" class=" form-control-label">Information About Me</label>
-                                            <textarea name="about_me" id="about_me" rows="9" placeholder="Content..." class="form-control" ></textarea>
-                                        </div>
-
+                                        
                                          <div class="form-group">
                                             <label for="profession" class=" form-control-label">Profession</label>
                                             <input type="text" id="profession" placeholder="" name="profession" class="form-control" >
@@ -59,17 +83,27 @@
 
                                          <div class="form-group">
                                             <label for="category" class=" form-control-label">Category</label>
-                                            <input type="text" id="category" placeholder="" name="category" class="form-control" >
+                                        
+                                               <select name="cat" id="category"  class="form-control">
+                                                     <?php  
+
+                                                            $cat = new Category();
+                                                            $cat->autht = $_SESSION['token'];
+                                                            $cate = $cat->getCategory();
+
+                                                            foreach ($cate as $cates) {
+                                                                $cat_id = $cates['id'];
+                                                                $cat_lga = $cates['subCategories'];
+
+                                                                echo " <option value='$cat_id'>$cat_lga</option>";
+                                                            }
+
+
+                                                    ?>
+                                                </select>
                                         </div>
                                      
-                                        <div class="form-group">
-                                            <label for="state" class=" form-control-label">State</label>
-                                            <input type="text" id="state" placeholder="" name="state" class="form-control" >
-                                        </div>
-                                         <div class="form-group">
-                                            <label for="country" class=" form-control-label">Country</label>
-                                            <input type="text" id="country" placeholder="" name="country" class="form-control" >
-                                        </div>
+                                       
                                         <div class="form-group">
                                             <label for="facebook" class=" form-control-label">Facebook</label>
                                             <input type="text" id="facebook" placeholder="" name="facebook" class="form-control" >
@@ -87,8 +121,11 @@
                                             <label for="ufile" class=" form-control-label">User Picture Upload</label>
                                             <input type="file" id="ufile" placeholder="" name="ufile" class="form-control" >
                                         </div>
-                                                 <div class="form-group">
-                                                     <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+                                                 <input type="hidden"  placeholder="" name="aid" class="form-control"  value="<?php echo $aid; ?>" >
+                                                 <input type="hidden"  placeholder="" name="user_id" class="form-control" value="<?php echo $userId; ?>">
+                                                  <input type="hidden"  placeholder="" name="token" class="form-control" value="<?php echo $token; ?>">
+                                                <div class="form-group">
+                                                      <input type="submit" class="btn btn-primary btn-lg" name="submit" value="Submit" >
                                                 </div>
                                         </form>
                                        

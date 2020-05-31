@@ -1,4 +1,4 @@
-<?php
+w<?php
 
 
 class User extends Api{
@@ -24,7 +24,7 @@ class User extends Api{
 		public $type;
 		public $size;
 		public $tmp_path;
-		public $upload_directory = "images/users";
+		public $upload_directory = "../images/users";
 		public $image_placeholder = "http://placehold.it/400x400&text=image";
 
 
@@ -60,6 +60,8 @@ class User extends Api{
 				$this->type     = $file['type'];
 				$this->size     = $file['size'];
 
+				$this->save_users_images();
+
 			}
 			
 		}
@@ -81,7 +83,7 @@ class User extends Api{
 					$this->errors[] = "File not available";
 				}
 
-				$target_path = "../".$this->upload_directory."/".$this->PicturePath;
+				$target_path = $this->upload_directory."/".$this->PicturePath;
 
 				if(file_exists($target_path)){
 					$this->errors[] = "The file {$this->PicturePath} already exists";
@@ -141,7 +143,7 @@ class User extends Api{
 	                    $testCheck = json_decode($result);
 	                    $status  = $testCheck->{'success'};
 
-	                    if(http_response_code(200) && $status == true ){
+	                    if( $status == true ){
 
 							 $userRole = $testCheck->{'userRole'};
 
@@ -153,8 +155,19 @@ class User extends Api{
 										$_SESSION['userRoleId'] = 1;
 		                                $_SESSION['email']      = $email;
 
-		                                echo "<script>alert('User Login Created')</script>";
-								} 
+		                                
+								}if($userRole == 'Client'){
+
+										$_SESSION['user_id'] =   $testCheck->{'userId'};
+										$_SESSION['token'] =    "Authorization: bearer " .$testCheck->{'token'};
+										$_SESSION['userRole'] = $testCheck->{'userRole'};
+										$_SESSION['userRoleId'] = 1;
+		                                $_SESSION['email']      = $email;
+
+		                                
+								}  
+
+
 						}
 
 					}
@@ -165,8 +178,14 @@ class User extends Api{
 
 		   public function createClient(){
 
-					$data_array =  array(
-					      "FirstName" 		=> $this->FirstName,
+				$url = $this->url_user_client;
+					
+					 //Initiate cURL.
+                $ch = curl_init($url);
+
+                //The JSON data.
+                 $jsonData = array(
+					     "FirstName" 		=> $this->FirstName,
 						  "LastName" 		=> $this->LastName,
 						 "PhoneNumber" 		=> $this->PhoneNumber,
 					    "IdcardNo"			=> $this->IdcardNo,
@@ -176,21 +195,48 @@ class User extends Api{
 						 "UserId" 			=> $this->UserId
 				   );
 
-					$url = $this->url_user_client.$this->UserId;
-					$make_call = $this->callAPI('POST', $url, json_encode($data_array), $this->autht);
-					$response = json_decode($make_call, true);
-					$status  = $response->{'status'};
-					$message = $response->{'message'};
-					
-					if(http_response_code(200) && $status == 200 ){
+                //Encode the array into JSON.
+                $jsonDataEncoded = json_encode($jsonData);
 
-							 echo "<script>alert('Client Data Created')</script>";
+
+                echo "<span style='display:none'>";
+                //Tell cURL that we want to send a POST request.
+                curl_setopt($ch, CURLOPT_POST, 1);
+
+                curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+                //Attach our encoded JSON string to the POST fields.
+                curl_setopt($ch, CURLOPT_POSTFIELDS, $jsonDataEncoded);
+
+                //Set the content type to application/json
+                curl_setopt($ch, CURLOPT_HTTPHEADER, array($this->autht,'Content-Type: application/json; charset=utf-8'));
+
+                //Execute the request
+                $result = curl_exec($ch);
+
+                //Close CURL
+                curl_close($ch);
+
+                echo"</span>";
+
+               if($result){
+                    
+                    $testCheck = json_decode($result);
+                    $status  = $testCheck->{'status'};
+                    $message  = $testCheck->{'message'};
+
+                    if(http_response_code(200) || $status == 200 ||  $status == 201){
+
+						 echo "<script>alert('Client Data Created')</script>";
 					}
 
-			}
+			  }
 
 
-			public function updateClient(){
+		}
+
+
+			public function updateClient($id){
 
 					$data_array =  array(
 					      "FirstName" 		=> $this->FirstName,
@@ -203,15 +249,28 @@ class User extends Api{
 						 "UserId" 			=> $this->UserId
 				   );
 
-					$url = $this->url_user_client.$this->UserId;
+					$url = $this->url_user_client."/".$id;
 					$make_call = $this->callAPI('PUT', $url, json_encode($data_array), $this->autht);
 					$response = json_decode($make_call, true);
-					$status  = $response->{'status'};
-					$message = $response->{'message'};
+					$status  = $response['status'];
+					$message = $response['message'];
 					
 					if(http_response_code(200) && $status == 200 ){
 
-							 echo "<script>alert('Client Data Created')</script>";
+							
+
+							    $_SESSION['cid']                   = $id;
+                                $_SESSION['userId']                = $this->UserId;
+                                $_SESSION['firstName']             = $this->FirstName;
+                                $_SESSION['lastName']              = $this->LastName;
+                                $_SESSION['phoneNumber']           = $this->PhoneNumber;
+                                $_SESSION['idcardNo']              = $this->IdcardNo;
+                                $_SESSION['picturePath']           = $this->PicturePath;
+                                $_SESSION['address']               = $this->Address;
+                                $_SESSION['state']                 = $this->State;
+
+                                 echo "<script>alert('Client Data Updated')</script>";
+                              
 					}
 
 			}
@@ -222,8 +281,8 @@ class User extends Api{
 					$url = $this->url_user_client.'/'.$id;
 					$make_call = $this->callAPI('GET', $url, false, $this->autht);
 					$response = json_decode($make_call, true);
-					$status  =  $response['response']['status'];
-					$message = $response['response']['message'];
+					$status  =  $response['status'];
+					$message = $response['message'];
 					
 					if(http_response_code(200) && $status == 200 ){
 
@@ -239,18 +298,32 @@ class User extends Api{
 			public function getUserArtisan($id){
 
 					$url = $this->url_user_artisan."/".$id;
-					$make_call = $this->callAPI('GET', $url, false, $this->autht);
-					var_dump($make_call);
+
+						 //Initiate cURL.
+             		 $ch = curl_init();
+
+					curl_setopt_array($ch, array(
+					  CURLOPT_URL => $url,
+					  CURLOPT_RETURNTRANSFER => true,
+					  CURLOPT_ENCODING => "",
+					  CURLOPT_MAXREDIRS => 10,
+					  CURLOPT_TIMEOUT => 50,
+					  CURLOPT_FOLLOWLOCATION => true,
+					  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+					  CURLOPT_CUSTOMREQUEST => "GET",
+					  CURLOPT_HTTPHEADER => array($this->autht,'Content-Type: application/json; charset=utf-8'),
+					  
+					));
+
+					$make_call = curl_exec($ch);
+					curl_close($ch);
+
 					$response = json_decode($make_call, true);
-					$status  =  $response->{'status'};
-					$message = $response->{'message'};
+					$status  =  $response['status'];
+					$message = $response['message'];
 
 					if(http_response_code(200) || $status == 200 ){
-
-							 return $message;
-					}else{
-
-						echo "<script>alert('User Have no data, Please Update Your Data')</script>";
+					     return $message;
 					}
 
 			}
@@ -259,6 +332,66 @@ class User extends Api{
 
 			public  function createArtisan(){
 
+
+				$url = $this->url_user_artisan;
+					
+					 //Initiate cURL.
+                $ch = curl_init($url);
+
+                //The JSON data.
+                 $jsonData = array(
+					     "FirstName" 		 => $this->FirstName,
+						  "LastName" 		 => $this->LastName,
+						 "PhoneNumber" 		 => $this->PhoneNumber,
+						 "AreaLocationId" 	 => $this->AreaLocation,
+						"ArtisanCategoryId"  => $this->ArtisanCategoryId,
+					    "IdcardNo"			=> $this->IdcardNo,
+					    "PicturePath" 		=> $this->PicturePath,
+					    "Address"			=> $this->Address,
+					    "State" 			=> $this->State,
+					    "AboutMe" 			=> $this->AboutMe,
+						 "UserId" 			=> $this->UserId
+				   );
+
+                //Encode the array into JSON.
+                $jsonDataEncoded = json_encode($jsonData);
+
+
+                echo "<span style='display:none'>";
+                //Tell cURL that we want to send a POST request.
+                curl_setopt($ch, CURLOPT_POST, 1);
+
+                curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+                //Attach our encoded JSON string to the POST fields.
+                curl_setopt($ch, CURLOPT_POSTFIELDS, $jsonDataEncoded);
+
+                //Set the content type to application/json
+                curl_setopt($ch, CURLOPT_HTTPHEADER, array($this->autht,'Content-Type: application/json; charset=utf-8'));
+
+                //Execute the request
+                $result = curl_exec($ch);
+
+                //Close CURL
+                curl_close($ch);
+
+                echo"</span>";
+
+               if($result){
+                    
+                    $testCheck = json_decode($result);
+                    $status  = $testCheck->{'status'};
+                    $message  = $testCheck->{'message'};
+
+                    return $result;
+			  }
+		    }
+
+
+			
+
+
+			public function updateArtisan($id){
 
 					$data_array =  array(
 					     "FirstName" 		 => $this->FirstName,
@@ -274,54 +407,85 @@ class User extends Api{
 						 "UserId" 			=> $this->UserId
 				   );
 
-					foreach ($data_array as $key => $value) {
-						echo "$key => $value <br>";
-					}
-
-					$url = $this->url_user_artisan;
-					
-					$make_call = $this->callAPI('POST', $url, json_encode($data_array),$this->autht);
-					var_dump($make_call); die();
-					$response = json_decode($make_call, true);
-					$status  = $response->{'status'};
-					$message = $response->{'message'};
-
-					if ($status == 201 || $status == 200) {
-						 echo "<script>alert('Artisan Data Created')</script>";
-					}
-			}
 
 
-			
-
-
-			public function updateArtisan(){
-
-					$data_array =  array(
-					     "FirstName" 		=> $this->FirstName,
-						  "LastName" 		=> $this->LastName,
-						 "PhoneNumber" 		=> $this->PhoneNumber,
-						 "AreaLocation" 	=> $this->AreaLocation,
-					    "IdcardNo"			=> $this->IdcardNo,
-					    "PicturePath" 		=> $this->PicturePath,
-					    "Address"			=> $this->Address,
-					    "State" 			=> $this->State,
-					    "AboutMe" 			=> $this->AboutMe,
-						 "UserId" 			=> $this->UserId
-				   );
-
-					$url = $this->url_user_artisan.$this->UserId;
+					$url = $this->url_user_artisan."/".$id;
 					$make_call = $this->callAPI('PUT', $url, json_encode($data_array),$this->autht);
 					$response = json_decode($make_call, true);
-					$status  = $response->{'status'};
-					$message = $response->{'message'};
+					$status  = $response['status'];
+					$message = $response['message'];
 					
-					if(http_response_code(200) && $status == 200 ){
+					if(http_response_code(200) || $status == 200 ){
 
-							 echo "<script>alert('Artisan Data Created')</script>";
+							
+
+                                $_SESSION['aid']                   = $id;
+                                $_SESSION['userId']                = $this->UserId;
+                                $_SESSION['firstName']             = $this->FirstName;
+                                $_SESSION['lastName']              = $this->LastName;
+                                $_SESSION['phoneNumber']           = $this->PhoneNumber;
+                                $_SESSION['idcardNo']              = $this->IdcardNo;
+                                $_SESSION['picturePath']           = $this->PicturePath;
+                                $_SESSION['address']               = $this->Address;
+                                $_SESSION['state']                 = $this->State;
+                                $_SESSION['aboutMe']               = $this->AboutMe;
+
+                                 echo "<script>alert('Artisan Data Update')</script>";
+                                
 					}
 
 			}
+
+
+			public function findArtisanById($id){
+
+						$url = $this->url_user_artisan;
+						$get_data = $this->callAPI("GET", $url, false, $this->autht);
+						$response = json_decode($get_data, true);
+						$errors = $response['status'];
+						
+						if ($errors == 200){
+							$data = $response['message'];
+
+							foreach ($data as $datas) {
+
+								if ($datas['userId'] == $id) {
+									
+									$artisan_id = $datas['id'];
+								}
+								
+							}
+
+						}
+
+						return $artisan_id;
+
+		  }
+
+		  public function findClientById($id){
+
+						$url = $this->url_user_client;
+						$get_data = $this->callAPI("GET", $url, false, $this->autht);
+						$response = json_decode($get_data, true);
+						$errors = $response['status'];
+						
+						if ($errors == 200){
+							$data = $response['message'];
+
+							foreach ($data as $datas) {
+
+								if ($datas['userId'] == $id) {
+									
+									$client_id = $datas['id'];
+								}
+								
+							}
+
+						}
+
+						return $client_id;
+
+		  }
 
 
 

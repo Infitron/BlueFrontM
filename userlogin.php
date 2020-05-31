@@ -1,6 +1,6 @@
 <?php
         include('model/init.php');
-        include('hnav.php'); 
+
 
 
         if(isset($_POST['submit'])){
@@ -51,8 +51,9 @@
 
                     if(http_response_code(200) && $status == true ){
 
-                        echo "<script>alert('User Login Successful')</script>";
+                       
                         $userRole = $testCheck->{'userRole'};
+
 
                        if($userRole == 'Artisan'){
 
@@ -61,7 +62,31 @@
 								$_SESSION['userRole'] = $testCheck->{'userRole'};
 								$_SESSION['userRoleId'] = 1;
                                 $_SESSION['email']      = $email;
+                                $_SESSION['password']   = $password;
                                 $session->check_the_login();
+
+                               
+
+                                $user = new User();
+                                $user->autht = $_SESSION['token'];
+                                $artisanId = $user->findArtisanById($_SESSION['user_id']);
+                                $user_data = $user->getUserArtisan($artisanId);
+
+                                $_SESSION['aid']                   = $user_data['id'];
+                                $_SESSION['userId']                = $user_data['userId'];
+                                $_SESSION['firstName']             = $user_data['firstName'];
+                                $_SESSION['lastName']              = $user_data['lastName'];
+                                $_SESSION['phoneNumber']           = $user_data['phoneNumber'];
+                                $_SESSION['idcardNo']              = $user_data['idcardNo'];
+                                $_SESSION['picturePath']           = $user_data['picturePath'];
+                                $_SESSION['address']               = $user_data['address'];
+                                $_SESSION['category']              = $user_data['category'];
+                                $_SESSION['state']                 = $user_data['state'];
+                                $_SESSION['aboutMe']               = $user_data['aboutMe'];
+                                $_SESSION['createdDate']           = $user_data['createdDate'];
+                                $_SESSION['areaLocation']          = $user_data['areaLocation'];
+                                $_SESSION['artisanCategory']       = $user_data['artisanCategory'];
+                                
 
 
 								echo "<script> window.open('artisan/index.php?db','_self'); </script>";
@@ -73,7 +98,29 @@
 								$_SESSION['userRole'] = $testCheck->{'userRole'};
 								$_SESSION['userRoleId'] = 2;
                                 $_SESSION['email']      = $email;
+                                $_SESSION['password']   = $password;
                                 $session->check_the_login();
+
+
+
+
+                                $user = new User();
+                                $user->autht = $_SESSION['token'];
+                                $clientId = $user->findClientById($_SESSION['user_id']);
+                                $user_data = $user->getClientDetails($clientId);
+
+                                $_SESSION['cid']                   = $user_data['id'];
+                                $_SESSION['userId']                = $user_data['userId'];
+                                $_SESSION['firstName']             = $user_data['firstName'];
+                                $_SESSION['lastName']              = $user_data['lastName'];
+                                $_SESSION['phoneNumber']           = $user_data['phoneNumber'];
+                                $_SESSION['idcardNo']              = $user_data['idcardNo'];
+                                $_SESSION['picturePath']           = $user_data['picturePath'];
+                                $_SESSION['address']               = $user_data['address'];
+                                $_SESSION['state']                 = $user_data['state'];
+                                $_SESSION['aboutMe']               = $user_data['aboutMe'];
+                                $_SESSION['createdDate']           = $user_data['createdDate'];
+                              
 
 								echo "<script> window.open('client/index.php?db','_self'); </script>";
 

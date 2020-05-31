@@ -2,6 +2,7 @@
     
 include('gettoken.php');
 $ctime = date("Y-m-d",time());
+
 function callAPI($method, $url, $data, $authuser){
    $curl = curl_init();
    switch ($method){
@@ -30,6 +31,7 @@ function callAPI($method, $url, $data, $authuser){
       $authuser,
       'Content-Type: application/json'
    ));
+   curl_setopt($curl,CURLOPT_TIMEOUT,50);
     curl_setopt($curl,CURLOPT_FOLLOWLOCATION,1);
     curl_setopt($curl,CURLOPT_HTTP_VERSION,CURL_HTTP_VERSION_1_1);
     curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);

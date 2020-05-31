@@ -11,8 +11,10 @@
         if (isset($_POST['submit'])) {
         
                  $userLogin = new User();
-                 $userAccess = $userLogin-> userLogin($email,$password);
+                 $userLogin->userLogin($email,$password);
                  $token =  $_SESSION['token'];
+
+                 
 
 
                 $fname      = addslashes(trim($_POST['fname']));
@@ -26,7 +28,6 @@
                 $address    = addslashes(trim($_POST['address']));
                 $aboutme    = addslashes(trim($_POST['aboutme']));
 
-               
 
                  $user_reg = new User();
                  $user_reg->autht                  = $token;
@@ -43,7 +44,6 @@
                  $user_reg->AboutMe                = $aboutme;
                  $user_reg->createArtisan();
 
-                echo "<script>alert('Artisan Creation Successful')</script>";
                 echo "<script> window.open('../login.php','_self'); </script>";
         }
 

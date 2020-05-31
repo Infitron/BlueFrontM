@@ -1,4 +1,34 @@
+<?php  
 
+        $user = new User();
+        $user->autht = $_SESSION['token'];
+        $user->userLogin($_SESSION['email'],$_SESSION['password']);
+        $user->autht = $_SESSION['token'];
+        
+        //var_dump($artisanId); die();
+        //$user->autht = $_SESSION['token'];
+        //$user->userLogin($_SESSION['email'],$_SESSION['password']);
+        //$artisanId = $user->findArtisanById($_SESSION['user_id']);
+        //$user_data = $user->getUserArtisan($artisanId);
+
+            $aid                   = $_SESSION['aid'] ;
+            $userId                = $_SESSION['userId'];
+            $firstName             = $_SESSION['firstName'];
+            $lastName              = $_SESSION['lastName'];
+            $phoneNumber           = $_SESSION['phoneNumber'];
+            $idcardNo              = $_SESSION['idcardNo'];
+            $picturePath           = $_SESSION['picturePath'];
+            $address               = $_SESSION['address'];
+            $category              = $_SESSION['category'];
+            $state                 = $_SESSION['state'];
+            $aboutMe               = $_SESSION['aboutMe'];
+            $createdDate           = $_SESSION['createdDate'];
+            $areaLocation          = $_SESSION['areaLocation'];
+            $artisanCategory       = $_SESSION['artisanCategory'];
+            $token                 = $_SESSION['token'];
+    
+
+?>
         <!-- PAGE CONTAINER-->
         <div class="page-container">
             <!-- HEADER DESKTOP-->
@@ -128,21 +158,21 @@
                                 <div class="account-wrap">
                                     <div class="account-item clearfix js-item-menu">
                                         <div class="image">
-                                            <img src="images/icon/avatar-01.jpg" alt="John Doe" />
+                                            <img src="../images/users/<?php echo $picturePath;  ?>" alt="<?php echo $firstName; ?>" />
                                         </div>
                                         <div class="content">
-                                            <a class="js-acc-btn" href="#"><?php echo $_SESSION['email']; ?></a>
+                                            <a class="js-acc-btn" href="#"><?php echo $firstName; ?></a>
                                         </div>
                                         <div class="account-dropdown js-dropdown">
                                             <div class="info clearfix">
                                                 <div class="image">
                                                     <a href="#">
-                                                        <img src="images/icon/avatar-01.jpg" alt="John Doe" />
+                                                        <img src="../images/users/<?php echo $picturePath;  ?>" alt="<?php echo $firstName; ?>" />
                                                     </a>
                                                 </div>
                                                 <div class="content">
                                                     <h5 class="name">
-                                                        <a href="#"><?php echo $_SESSION['email']; ?></a>
+                                                        <a href="#"><?php echo $firstName." ".$lastName; ?></a>
                                                     </h5>
                                                     <span class="email"><?php echo $_SESSION['email']; ?></span>
                                                 </div>
@@ -194,9 +224,7 @@
                                 include("view/profile.php");
                             } if (isset($_GET['uep'])) {
                                 include("view/uprofile_setting.php");
-                            } if (isset($_GET['ui'])) {
-                                include("view/uimage.php");
-                            }
+                            } 
 
                             // User Messaging System
                             if (isset($_GET['um'])) {

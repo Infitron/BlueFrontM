@@ -25,9 +25,7 @@
                                 <li>
                                     <a href="index.php?up">Profile</a>
                                 </li>
-                                <li>
-                                    <a href="index.php?ui">Upload Your Picture</a>
-                                </li>
+                              
                                 <li>
                                     <a href="index.php?uep">Setting</a>
                                 </li>
@@ -90,9 +88,7 @@
                                 <li>
                                     <a href="index.php?up">Profile</a>
                                 </li>
-                                <li>
-                                    <a href="index.php?ui">Upload Your Picture</a>
-                                </li>
+                               
                                 <li>
                                     <a href="index.php?uep">Setting</a>
                                 </li>

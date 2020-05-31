@@ -90,6 +90,10 @@
 
                             } if($user_role == '2'){
 
+                                   $_SESSION['user_id']   =   $userId;
+                                    $_SESSION['email']    =   $email;
+                                    $_SESSION['password'] =   $password;
+
                             	  echo "<script>alert('Registration Successful and Create Your Profile')</script>";
                             	  echo "<script> window.open('../register/cregister.php','_self'); </script>";
                             }

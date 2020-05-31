@@ -20,10 +20,6 @@
 		 public $url_user_search 		= "https://api.bluecollarhub.com.ng/api/v1/Search";
 		 public $autht;
 
-		 function __construct(){
-			$this->getToken();
-		}
-
 
 
 		public function getToken(){
@@ -35,7 +31,7 @@
 						  CURLOPT_RETURNTRANSFER => true,
 						  CURLOPT_ENCODING => "",
 						  CURLOPT_MAXREDIRS => 10,
-						  CURLOPT_TIMEOUT => 30,
+						  CURLOPT_TIMEOUT => 50,
 						  CURLOPT_FOLLOWLOCATION => true,
 						  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
 						  CURLOPT_CUSTOMREQUEST => "POST",
@@ -61,8 +57,8 @@
 
 						if (is_null($derror)){
 							$_SESSION["mID"] = $mid;
-							$_SESSION["mtoken"] = $mtoken;
-						    $_SESSION["mauth"] = "Authorization: bearer " . $mtoken;
+							$_SESSION["token"] = $mtoken;
+						    $_SESSION["autht"] = "Authorization: bearer " . $mtoken;
 							$this->autht = "Authorization: bearer " . $mtoken;
 						   //echo $_SESSION["mtoken"];
 						}else  {

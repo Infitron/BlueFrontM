@@ -1,40 +1,42 @@
 <?php
         include('../model/init.php');
 
-        if (isset($_POST['submit'])) {
-            
+          $email =  $_SESSION['email'];
+          $userId = $_SESSION['user_id'];
+          $password = $_SESSION['password'];
+        
 
+        if (isset($_POST['submit'])) {
+        
+                 $userLogin = new User();
+                 $userLogin->userLogin($email,$password);
+                 $token =  $_SESSION['token'];
+
+        
 
                 $fname      = addslashes(trim($_POST['fname']));
                 $lname      = addslashes(trim($_POST['lname']));
                 $phone      = addslashes(trim($_POST['phone']));
-                $username   = addslashes(trim($_POST['username']));
-                $email      = addslashes(trim($_POST['email']));
                 $state      = addslashes(trim($_POST['state']));
-                $loc        = addslashes(trim($_POST['loc']));
-                $cat        = addslashes(trim($_POST['cat']));
-                $address     = addslashes(trim($_POST['address']));
-                $user_role  = addslashes(trim($_POST['user_role']));
-                $date       =  date('Y/m/d');
-
-
-
+                $address    = addslashes(trim($_POST['address']));
+               
+             
 
 
                  $user_reg = new User();
+                 $user_reg->autht                  = $token;
                  $user_reg->FirstName              = $fname;
                  $user_reg->LastName               = $lname;
                  $user_reg->PhoneNumber            = $phone;
-                 $user_reg->IdcardNo               = "";
+                 $user_reg->IdcardNo               = "200LAG";
+                 $user_reg->PicturePath            = "default.png";
                  $user_reg->Address                = $address;
                  $user_reg->State                  = $state;
                  $user_reg->UserId                 = $userId;
-                 $user_reg->AreaLocation           ="";
-                 $user_reg->ArtisanCategoryId      = 1;
-                 $user_reg->AboutMe                ="";
-                 $user_reg->set_file($_FILES['ufile']);
-                 $user_reg->save_users_images();
-                 $user_reg->createArtisan();
+                 $user_reg->createClient();
+
+                echo "<script>alert('Client Creation Successful')</script>";
+                echo "<script> window.open('../login.php','_self'); </script>";
         }
 
         
@@ -73,7 +75,7 @@
         <div class="wrapper wrapper--w790">
             <div class="card card-5">
                 <div class="card-heading">
-                    <h2 class="title">Artisan Profile Registration</h2>
+                    <h2 class="title">Client Profile Registration</h2>
                 </div>
                 <div class="card-body">
                     <form method="POST" action="" enctype="multipart/form-data">
@@ -96,19 +98,12 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="form-row">
-                            <div class="name">Username</div>
-                            <div class="value">
-                                <div class="input-group">
-                                    <input class="input--style-5" type="text" name="username">
-                                </div>
-                            </div>
-                        </div>
+                      
                         <div class="form-row">
                             <div class="name">Email</div>
                             <div class="value">
                                 <div class="input-group">
-                                    <input class="input--style-5" type="email" name="email">
+                                     <input class="input--style-5" type="email" name="email" value="<?php echo $email; ?>" readonly="">
                                 </div>
                             </div>
                         </div>
@@ -129,58 +124,7 @@
                             </div>
                         </div>
                        
-                        <div class="form-row">
-                            <div class="name">LGA / Location</div>
-                            <div class="value">
-                                <div class="input-group">
-                                    <div class="rs-select2 js-select-simple select--no-search">
-                                        <select name="loc">
-                                             <?php  
-
-                                                    $loc = new Location();
-                                                    $loca = $loc->getLocation();
-
-                                                    foreach ($loca as $locas) {
-                                                        $loc_id = $locas['id'];
-                                                        $loc_lga = $locas['lga'];
-
-                                                        echo " <option value='$loc_id'>$loc_lga</option>";
-                                                    }
-
-
-                                            ?>
-                                        </select>
-                                        <div class="select-dropdown"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="name">Categories</div>
-                            <div class="value">
-                                <div class="input-group">
-                                    <div class="rs-select2 js-select-simple select--no-search">
-                                        <select name="cat">
-                                             <?php  
-
-                                                    $loc = new Location();
-                                                    $loca = $loc->getLocation();
-
-                                                    foreach ($loca as $locas) {
-                                                        $loc_id = $locas['id'];
-                                                        $loc_lga = $locas['lga'];
-
-                                                        echo " <option value='$loc_id'>$loc_lga</option>";
-                                                    }
-
-
-                                            ?>
-                                        </select>
-                                        <div class="select-dropdown"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                       
                         <div class="form-row">
                             <div class="name">Address</div>
                             <div class="value">
@@ -192,7 +136,7 @@
                         
                        
                         <div>
-                            <button class="btn btn--radius-2 btn--red" type="submit" name="submit">Register</button>
+                            <input class="btn btn--radius-2 btn--red" type="submit" name="submit" value="Register" >
                         </div>
                     </form>
                 </div>

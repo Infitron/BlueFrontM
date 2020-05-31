@@ -5,26 +5,24 @@
                                         <small> Service</small>
                                     </div>
                                     <div class="card-body card-block">
-                                        <form>
+                                      <form method="POST" action="../control/caddservice.php" enctype="multipart/form-data">
                                             
                                         <div class="form-group">
-                                            <label for="name" class=" form-control-label">Name</label>
-                                            <input type="text" id="name" placeholder="" class="form-control" >
+                                            <label for="sname" class=" form-control-label">Name</label>
+                                            <input type="text" id="sname" name="sname" placeholder="" class="form-control" >
                                         </div>
                                         
                                         
                                         <div class="form-group">
-                                            <label for="about_me" class=" form-control-label">Information</label>
-                                            <textarea name="about_me" id="about_me" rows="9" placeholder="Content..." class="form-control" ></textarea>
+                                            <label for="sinfo" class=" form-control-label">Information</label>
+                                            <textarea name="sinfo" id="sinfo" rows="9" placeholder="Content..." class="form-control" ></textarea>
                                         </div>
-                                         <div class="form-group">
-                                            <label for="sfile" class=" form-control-label">Upload Image Filw</label>
-                                            <input type="file" id="sfile" placeholder="" class="form-control" >
-                                        </div>
-
                                         
+                                         <input type="hidden" id="status" name="status" placeholder="" class="form-control" value="1">
+                                         <input type="hidden" id="userId" name="userId" placeholder="" class="form-control" value="<?php echo $userId; ?>">
+                                          <input type="hidden" id="token" name="token" placeholder="" class="form-control" value="<?php echo $token; ?>">
                                                  <div class="form-group">
-                                                     <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+                                                     <input type="submit" class="btn btn-primary btn-lg" name="submit" value="Submit" >
                                                 </div>
                                         </form>
                                        
