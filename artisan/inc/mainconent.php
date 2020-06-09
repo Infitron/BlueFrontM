@@ -271,6 +271,15 @@
                             }
 
 
+                             // User Bank Details
+                              if (isset($_GET['ub'])) {
+                                include("view/ubank.php");
+                            }if (isset($_GET['aub'])) {
+                                include("view/aubank.php");
+                            }if (isset($_GET['vub'])) {
+                                include("view/vubank.php");
+                            }
+
 
 
                         ?>

@@ -9,6 +9,7 @@
 		 public $url_user_reg 			= "https://api.bluecollarhub.com.ng/api/Account/Register";
 		 public $url_user_artisan 		= "https://api.bluecollarhub.com.ng/api/v1/artisan";
 		 public $url_user_client 		= "https://api.bluecollarhub.com.ng/api/v1/Client";
+		 public $url_bank_code 			= "https://api.bluecollarhub.com.ng/api/v1/BankCode";
 		 public $url_user_bank 			= "https://api.bluecollarhub.com.ng/api/v1/BankDetail";
 		 public $url_user_service 		= "https://api.bluecollarhub.com.ng/api/v1/Service";
 		 public $url_user_article 		= "https://api.bluecollarhub.com.ng/api/v1/Article";

@@ -30,6 +30,9 @@
                                     <a href="index.php?uep">Setting</a>
                                 </li>
                                 <li>
+                                    <a href="index.php?ub">Bank Details</a>
+                                </li>
+                                <li>
                                     <a href="index.php?us">Services</a>
                                 </li>
                                
@@ -91,6 +94,9 @@
                                
                                 <li>
                                     <a href="index.php?uep">Setting</a>
+                                </li>
+                                <li>
+                                    <a href="index.php?ub">Bank Details</a>
                                 </li>
                                 <li>
                                     <a href="index.php?ups">Services</a>

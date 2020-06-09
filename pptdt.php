@@ -1,4 +1,4 @@
-<? php
+<?php
 include('gettoken.php');
 $ctime = date("Y-m-d",time());
 function callAPI($method, $url, $data, $authuser){
