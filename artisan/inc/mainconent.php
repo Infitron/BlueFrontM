@@ -26,7 +26,8 @@
             $areaLocation          = $_SESSION['areaLocation'];
             $artisanCategory       = $_SESSION['artisanCategory'];
             $token                 = $_SESSION['token'];
-    
+
+            
 
 ?>
         <!-- PAGE CONTAINER-->
@@ -224,6 +225,8 @@
                                 include("view/profile.php");
                             } if (isset($_GET['uep'])) {
                                 include("view/uprofile_setting.php");
+                            } if (isset($_GET['upc'])) {
+                                include("view/profile_creation.php");
                             } 
 
                             // User Messaging System

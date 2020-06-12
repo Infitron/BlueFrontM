@@ -210,11 +210,18 @@
 
                             if (isset($_GET['db'])) {
                                 include("view/dashboard.php");
-                            } if (isset($_GET['up'])) {
+                            }
+
+                             if (isset($_GET['up'])) {
                                 include("view/profile.php");
                             } if (isset($_GET['uep'])) {
                                 include("view/uprofile_setting.php");
-                            }if (isset($_GET['ulh'])) {
+                            } if (isset($_GET['upc'])) {
+                                include("view/profile_creation.php");
+                            }
+
+
+                            if (isset($_GET['ulh'])) {
                                 include("view/login_log.php");
                             }if (isset($_GET['ui'])) {
                                 include("view/uimage.php");

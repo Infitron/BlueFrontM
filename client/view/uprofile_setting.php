@@ -1,3 +1,21 @@
+<?php    
+
+        
+         if (empty($aid) || $aid == "" || empty($userId) || $userId == "" ) {
+                
+                echo "<script>alert('You have not created Your Client Profile')</script>";
+                echo "<script> window.open('index.php?upc','_self'); </script>";
+            }
+
+
+
+
+?>
+
+
+
+
+
                             <div class="col-lg-12">
                                 <div class="card">
                                     <div class="card-header">
