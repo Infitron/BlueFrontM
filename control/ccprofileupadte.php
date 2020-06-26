@@ -19,12 +19,8 @@
                 $phone              = addslashes(trim($_POST['phone'])); 
                 $address            = addslashes(trim($_POST['address'])); 
                 $state              = addslashes(trim($_POST['state']));  
-                $facebook           = addslashes(trim($_POST['facebook'])); 
-                $twitter            = addslashes(trim($_POST['twitter'])); 
-                $instagram          = addslashes(trim($_POST['instagram']));
                 $cid                = addslashes(trim($_POST['cid']));
                 $userId             = addslashes(trim($_POST['user_id']));
-                $idcardNo           = addslashes(trim($_POST['idcardNo']));
                 $token              = $_POST['token'];
                 $date               =  date('Y/m/d'); 
 
@@ -35,11 +31,9 @@
                  $user_reg->FirstName              = $fname;
                  $user_reg->LastName               = $lname;
                  $user_reg->PhoneNumber            = $phone;
-                 $user_reg->IdcardNo               = $idcardNo;
                  $user_reg->Address                = $address;
                  $user_reg->State                  = $state;
                  $user_reg->UserId                 = $userId;
-
                  $user_reg->updateClient($cid);
 
 

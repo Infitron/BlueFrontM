@@ -7,7 +7,7 @@
                                     <div class="card-body card-block">
                                         <form method="POST" action="../control/cartisancreation.php" enctype="multipart/form-data">
                                           <div class="form-group">
-                                            <label for="idn" class=" form-control-label">Identification Number</label>
+                                            <label for="idn" class=" form-control-label">Identification Number (Drivig Licence, National ID, Voters ID)</label>
                                             <input type="text" id="idn" placeholder="" name="idcardNo" class="form-control"  >
                                         </div>
                                         <div class="form-group">

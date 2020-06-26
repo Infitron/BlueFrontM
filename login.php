@@ -1,5 +1,5 @@
 ﻿<?php
-        include('model/init.php');
+        
         include('hnav.php');
        
 ?>

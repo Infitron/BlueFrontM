@@ -7,10 +7,7 @@
                                     </div>
                                     <div class="card-body card-block">
                                        <form method="POST" action="../control/cclientcreation.php" enctype="multipart/form-data">
-                                         <div class="form-group">
-                                            <label for="idn" class=" form-control-label">Identification Number</label>
-                                            <input type="text" id="idn" name="idcardNo" placeholder="" class="form-control" >
-                                        </div>
+                                      
                                         <div class="form-group">
                                             <label for="f_name" class=" form-control-label">First Name</label>
                                             <input type="text" id="f_name" name="f_name" placeholder="" class="form-control"  >

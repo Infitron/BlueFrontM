@@ -1,3 +1,16 @@
+<?php 
+
+        $CountUser = new User();
+        $CountUser->autht = $_SESSION['token'];
+        $auser = $CountUser->countUser("https://api.bluecollarhub.com.ng/api/v1.1/artisan");
+        $cuser = $CountUser->countUser("https://api.bluecollarhub.com.ng/api/v1/Client");
+        $totalMember = $auser + $cuser;
+
+
+?>
+
+
+
 <div class="row m-t-25">
                             <div class="col-sm-6 col-lg-3">
                                 <div class="overview-item overview-item--c1">
@@ -7,8 +20,8 @@
                                                 <i class="zmdi zmdi-account-o"></i>
                                             </div>
                                             <div class="text">
-                                                <h2>10368</h2>
-                                                <span>members online</span>
+                                                <h2><?php echo $totalMember; ?></h2>
+                                                <span>Total members</span>
                                             </div>
                                         </div>
                                         

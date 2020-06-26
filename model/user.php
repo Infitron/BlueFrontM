@@ -161,7 +161,7 @@ class User extends Api{
 										$_SESSION['user_id'] =   $testCheck->{'userId'};
 										$_SESSION['token'] =    "Authorization: bearer " .$testCheck->{'token'};
 										$_SESSION['userRole'] = $testCheck->{'userRole'};
-										$_SESSION['userRoleId'] = 1;
+										$_SESSION['userRoleId'] = 2;
 		                                $_SESSION['email']      = $email;
 
 		                                
@@ -188,12 +188,13 @@ class User extends Api{
 					     "FirstName" 		=> $this->FirstName,
 						  "LastName" 		=> $this->LastName,
 						 "PhoneNumber" 		=> $this->PhoneNumber,
-					    "IdcardNo"			=> $this->IdcardNo,
 					    "PicturePath" 		=> $this->PicturePath,
 					    "Address"			=> $this->Address,
 					    "State"				=> $this->State,
 						 "UserId" 			=> $this->UserId
 				   );
+
+
 
                 //Encode the array into JSON.
                 $jsonDataEncoded = json_encode($jsonData);
@@ -242,7 +243,6 @@ class User extends Api{
 					      "FirstName" 		=> $this->FirstName,
 						  "LastName" 		=> $this->LastName,
 						 "PhoneNumber" 		=> $this->PhoneNumber,
-					    "IdcardNo"			=> $this->IdcardNo,
 					    "PicturePath" 		=> $this->PicturePath,
 					    "Address"			=> $this->Address,
 					    "State"				=> $this->State,
@@ -264,7 +264,6 @@ class User extends Api{
                                 $_SESSION['firstName']             = $this->FirstName;
                                 $_SESSION['lastName']              = $this->LastName;
                                 $_SESSION['phoneNumber']           = $this->PhoneNumber;
-                                $_SESSION['idcardNo']              = $this->IdcardNo;
                                 $_SESSION['picturePath']           = $this->PicturePath;
                                 $_SESSION['address']               = $this->Address;
                                 $_SESSION['state']                 = $this->State;
@@ -290,6 +289,24 @@ class User extends Api{
 					}else{
 
 						echo "<script>alert('User Have no data')</script>";
+					}
+
+			}
+
+			public function countUser($urlDetails){
+
+					$url = $urlDetails;
+					$make_call = $this->callAPI('GET', $url, false, $this->autht);
+					$response = json_decode($make_call, true);
+					$status  =  $response['status'];
+					$message = $response['message'];
+					
+					if(http_response_code(200) || $status == 200 ||  $status == 201){
+
+							 return sizeof($message);
+					}else{
+
+						return 0;
 					}
 
 			}

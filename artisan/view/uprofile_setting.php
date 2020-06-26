@@ -21,7 +21,7 @@
                                     <div class="card-body card-block">
                                         <form method="POST" action="../control/cprofileupadte.php" enctype="multipart/form-data">
                                           <div class="form-group">
-                                            <label for="idn" class=" form-control-label">Identification Number</label>
+                                            <label for="idn" class=" form-control-label">Identification Number (Drivig Licence, National ID, Voters ID)</label>
                                             <input type="text" id="idn" placeholder="" name="idcardNo" class="form-control" value="<?php echo $idcardNo; ?>" >
                                         </div>
                                         <div class="form-group">
@@ -81,25 +81,14 @@
                                         </div>
 
 
-                                        <div class="form-group">
-                                            <label for="ban" class=" form-control-label">Bank Account Number</label>
-                                            <input type="text" id="ban" placeholder="" name="bacc_no" class="form-control" >
-                                        </div>
-                                         <div class="form-group">
-                                            <label for="bacc_name" class=" form-control-label">Bank Account Name</label>
-                                            <input type="text" id="bacc_name" name="bacc_name" placeholder="" class="form-control" >
-                                        </div>
+                                       
                                         
                                          <div class="form-group">
-                                            <label for="profession" class=" form-control-label">Profession</label>
-                                            <input type="text" id="profession" placeholder="" name="profession" class="form-control" >
-                                        </div>
+                                            <label for="profession" class=" form-control-label">Category</label>
+                                          
+                                             <select name="profession" id="profession"  class="form-control">
 
-                                         <div class="form-group">
-                                            <label for="category" class=" form-control-label">Category</label>
-                                        
-                                               <select name="cat" id="category"  class="form-control">
-                                                     <?php  
+                                                 <?php  
 
                                                             $cat = new Category();
                                                             $cat->autht = $_SESSION['token'];
@@ -107,7 +96,32 @@
 
                                                             foreach ($cate as $cates) {
                                                                 $cat_id = $cates['id'];
-                                                                $cat_lga = $cates['subCategories'];
+                                                                $cat_lga = $cates['categoryName'];
+
+                                                                echo " <option value='$cat_id'>$cat_lga</option>";
+                                                            }
+
+
+                                                    ?>
+                                                     
+                                                </select>
+                                        </div>
+
+                                         <div class="form-group">
+                                            <label for="category" class=" form-control-label">Sub Category</label>
+                                        
+                                               <select name="cat" id="category"  class="form-control">
+
+
+                                                    <?php  
+
+                                                            $scat = new SubCategory();
+                                                            $scat->autht = $_SESSION['token'];
+                                                            $scate = $scat->getSubCategory();
+
+                                                            foreach ($scate as $cates) {
+                                                                $cat_id = $cates['id'];
+                                                                $cat_lga = $cates['name'];
 
                                                                 echo " <option value='$cat_id'>$cat_lga</option>";
                                                             }
@@ -117,7 +131,7 @@
                                                 </select>
                                         </div>
                                      
-                                       
+                                    <!--     
                                         <div class="form-group">
                                             <label for="facebook" class=" form-control-label">Facebook</label>
                                             <input type="text" id="facebook" placeholder="" name="facebook" class="form-control" >
@@ -130,6 +144,8 @@
                                             <label for="instagram" class=" form-control-label">Instagram</label>
                                             <input type="text" id="instagram" placeholder="" name="instagram" class="form-control" >
                                         </div>
+
+                                    -->
 
                                          <div class="form-group">
                                             <label for="ufile" class=" form-control-label">User Picture Upload</label>

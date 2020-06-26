@@ -1,22 +1,23 @@
 <?php 
+        include('model/init.php'); 
+
+        $user = new User();
+        $user->userLogin('tymax@max.com','@infoBlue2');
+        $user->autht = $_SESSION['token'];
 
 
-include('processd.php'); 
 
+        
+
+       
+        
 
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <title><?php 
-if(isset($title) && !empty($title)) { 
-   echo "Blue Collar Hub - ".$title; 
-} 
-else { 
-   echo "Blue Collar Hub"; 
-} ?></title>
+    <title>Blue Collar Hub</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="shortcut icon" href="images/icon.png" type="image/x-icon">
@@ -67,9 +68,20 @@ else {
                                 <ul class="dropdown">
 
                                     <?php 
-                                     foreach ($showCat as $key => $value) {
-                                    echo "<li><a href=\".\listings.php\\".$value["id"]."\">". $value["categoryName"] . "-" .$value["subCategories"] ."</a></li>";
+
+                                        $cat = new Category();
+                                        $cat->autht = $_SESSION['token'];
+                                        $cate = $cat->getCategory();
+
+                                        foreach ($cate as $cates) {
+                                             $cat_id = $cates['id'];
+                                             $catn = $cates['categoryName'];
+
+                                              echo "<li><a href=\".\listings.php?id=\\".$cat_id."\">".$catn."</a></li>";
                                         }
+
+
+                                   
                                     ?>
 
                                     <!--<li><a href="#">Automobile</a></li>

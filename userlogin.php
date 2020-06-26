@@ -9,7 +9,7 @@
                 $email      = addslashes(trim($_POST['email']));
                 $password   = addslashes(trim($_POST['password']));
 
-                $url = "https://api.bluecollarhub.com.ng/api/Account/Login";
+                $url = "https://api.bluecollarhub.com.ng/api/v1.1/Account/Login";
 
                 //Initiate cURL.
                 $ch = curl_init($url);
@@ -80,7 +80,7 @@
                                 $_SESSION['idcardNo']              = $user_data['idcardNo'];
                                 $_SESSION['picturePath']           = $user_data['picturePath'];
                                 $_SESSION['address']               = $user_data['address'];
-                                $_SESSION['category']              = $user_data['category'];
+                               // $_SESSION['category']              = $user_data['category'];
                                 $_SESSION['state']                 = $user_data['state'];
                                 $_SESSION['aboutMe']               = $user_data['aboutMe'];
                                 $_SESSION['createdDate']           = $user_data['createdDate'];
@@ -114,11 +114,11 @@
                                 $_SESSION['firstName']             = $user_data['firstName'];
                                 $_SESSION['lastName']              = $user_data['lastName'];
                                 $_SESSION['phoneNumber']           = $user_data['phoneNumber'];
-                                $_SESSION['idcardNo']              = $user_data['idcardNo'];
+                                //$_SESSION['idcardNo']              = $user_data['idcardNo'];
                                 $_SESSION['picturePath']           = $user_data['picturePath'];
                                 $_SESSION['address']               = $user_data['address'];
                                 $_SESSION['state']                 = $user_data['state'];
-                                $_SESSION['aboutMe']               = $user_data['aboutMe'];
+                                //$_SESSION['aboutMe']               = $user_data['aboutMe'];
                                 $_SESSION['createdDate']           = $user_data['createdDate'];
                               
 

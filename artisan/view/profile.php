@@ -8,7 +8,7 @@
                                     </div>
                                     <div class="card-body card-block">
                                         <div class="form-group">
-                                            <label for="idn" class=" form-control-label">Identification Number</label>
+                                            <label for="idn" class=" form-control-label">Identification Number (Drivig Licence, National ID, Voters ID)</label>
                                             <input type="text" id="idn" placeholder="" class="form-control" value="<?php echo $idcardNo; ?>" readonly="">
                                         </div>
                                         <div class="form-group">
@@ -102,26 +102,4 @@
                                     </div>
                                 </div>   
 
-                                 <div class="col-lg-12">
-                                    <div class="card">
-                                        <div class="card-header">
-                                                <strong>User Social Media</strong>
-                                                <small> Details</small>
-                                        </div>
-                                        <div class="card-body card-block">
-                                       
-                                            <div class="form-group">
-                                                <label for="facebook" class=" form-control-label">Facebook</label>
-                                                <input type="text" id="facebook" placeholder="" name="facebook" class="form-control" readonly="">
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="twitter" class=" form-control-label">Twitter</label>
-                                                <input type="text" id="twitter" placeholder="" name="twitter" class="form-control" readonly="">
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="instagram" class=" form-control-label">Instagram</label>
-                                                <input type="text" id="instagram" placeholder="" name="instagram" class="form-control" readonly="">
-                                            </div>
-                                    </div>
-                                </div>
-                            </div>
+                                

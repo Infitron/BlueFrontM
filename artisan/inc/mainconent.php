@@ -250,6 +250,8 @@
                                 include("view/auservice.php");
                             }if (isset($_GET['eus'])) {
                                 include("view/euservice.php");
+                            }if (isset($_GET['vus'])) {
+                                include("view/vuservice.php");
                             }
 
 

@@ -24,12 +24,7 @@
                 $address            = addslashes(trim($_POST['address'])); 
                 $state              = addslashes(trim($_POST['state']));  
                 $country            = addslashes(trim($_POST['country'])); 
-                $bacc_no            = addslashes(trim($_POST['bacc_no'])); 
-                $bacc_name          = addslashes(trim($_POST['bacc_name'])); 
-                $profession         = addslashes(trim($_POST['profession'])); 
-                $facebook           = addslashes(trim($_POST['facebook'])); 
-                $twitter            = addslashes(trim($_POST['twitter'])); 
-                $instagram          = addslashes(trim($_POST['instagram']));
+                $profession         = addslashes(trim($_POST['profession']));  
                 $aid                = addslashes(trim($_POST['aid']));
                 $userId             = addslashes(trim($_POST['user_id']));
                 $idcardNo           = addslashes(trim($_POST['idcardNo']));

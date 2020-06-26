@@ -1,5 +1,5 @@
 ﻿<?php 
-        include('model/init.php'); 
+
         include('hnav.php'); 
 
 ?>
@@ -21,31 +21,55 @@
                             <div class="col-lg-12 mb-4 mb-xl-0 col-xl-3">
                                 <div class="select-wrap">
                                     <span class="icon"><span class="icon-keyboard_arrow_down"></span></span>
-                                    <select class="form-control rounded selectpicker" name="scat" id="scat" data-live-search="true" title="Select A Category">
+                                    <input class="form-control rounded selectpicker" name="scat" list="scat"   placeholder="Select A Category" />
+                                    <datalist id="scat">
                                         <?php 
 
                                        
-                                        foreach ($showCat as $key => $value) {
-                                        echo "<option value=\"".$value["id"]."\">".$value["categoryName"] . "-" .$value["subCategories"]."</option>";
+                                        $cat = new SubCategory();
+                                        $cat->autht = $_SESSION['token'];
+                                        $cate = $cat->getSubCategory();
 
+                                        foreach ($cate as $cates) {
+                                             $cat_id = $cates['id'];
+                                             $cat_lga = $cates['name'];
+
+                                             echo " <option data-id='$cat_id' value='$cat_lga'>$cat_lga</option>
+                                                    <input type='hidden' name='cat' id='city_id' value='$cat_id'>
+
+                                              ";
                                         }
-                                        ?>
 
-                                    </select>
+
+                                        
+                                    
+                                        ?>
+                                   
+                                    </datalist>
                                 </div>
                             </div>
                             <div class="col-lg-12 mb-4 mb-xl-0 col-xl-3">
                                 <div class="wrap-icon">
                                     <span class="icon icon-room"></span>
-                                    <select class="form-control rounded selectpicker" name="sloc" id="sloc" data-live-search="true" title="Select A Local Govt">
-                                        <option value="">Select LGA</option>
-                                        <?php 
-                                        foreach ($lgaList as $value) {
-                                        echo "<option value='".$value."'>".$value."</option>";
-                                        }
+                                    <input class="form-control rounded selectpicker" name="sloc" list="sloc"  placeholder="Select A Local Govt">
+                                    <datalist id="sloc">    
+                                         <?php  
+                                                    /*
+                                                            $loc = new Location();
+                                                            $loc->autht = $_SESSION['token'];
+                                                            $loca = $loc->getLocation();
+
+                                                            foreach ($loca as $locas) {
+                                                                $loc_id = $locas['id'];
+                                                                $loc_lga = $locas['area'];
+
+                                                                echo " <option value='$loc_id'>$loc_lga</option>";
+                                                            }
+
+                                                    */
                                         ?>
 
-                                    </select>
+                                    </datalist>
                                 </div>
                             </div>
                             <div class="col-lg-12 mb-4 mb-xl-0 col-xl-3">
@@ -53,7 +77,7 @@
                                     <span class="icon icon-room"></span>
 
                                     <select class="form-control" name="sloca" id="sloca">
-                                        <option value="">Select LGA first</option>
+                                        <option value="">Select Area</option>
 
                                     </select>
                                 </div>

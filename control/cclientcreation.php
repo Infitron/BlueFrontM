@@ -20,7 +20,6 @@
                 $address            = addslashes(trim($_POST['address'])); 
                 $state              = addslashes(trim($_POST['state']));  
                 $userId             = addslashes(trim($_POST['user_id']));
-                $idcardNo           = addslashes(trim($_POST['idcardNo']));
                 $token              = $_POST['token'];
                 $date               =  date('Y/m/d'); 
 
@@ -35,7 +34,7 @@
                  $user_reg->Address                = $address;
                  $user_reg->State                  = $state;
                  $user_reg->UserId                 = $userId;
-                 $user_reg->createArtisan();
+                 $user_reg->createClient();
 
 
                 echo "<script>alert('Client Data Create')</script>";

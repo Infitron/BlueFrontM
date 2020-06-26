@@ -13,11 +13,9 @@
             $firstName             = $_SESSION['firstName'];
             $lastName              = $_SESSION['lastName'];
             $phoneNumber           = $_SESSION['phoneNumber'];
-            $idcardNo              = $_SESSION['idcardNo'];
             $picturePath           = $_SESSION['picturePath'];
             $address               = $_SESSION['address'];
             $state                 = $_SESSION['state'];
-            $aboutMe               = $_SESSION['aboutMe'];
             $createdDate           = $_SESSION['createdDate'];
             $token                 = $_SESSION['token'];
 
