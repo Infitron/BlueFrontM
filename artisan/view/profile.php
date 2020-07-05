@@ -1,4 +1,40 @@
-                           
+<?php  
+
+        $userBank = new BankDetails();
+        $userBank->autht =  $_SESSION['token'];
+        $userBankDId = $userBank->findBankDetailsByUserId($aid);
+
+        $userBankD = new BankDetails();
+        $userBankD->autht         =  $_SESSION['token'];
+        $bankD = $userBankD->getSingleBankDetails($userBankDId);
+
+          $bid      = $bankD['id'];
+          $aname    = $bankD['accountName'];
+          $anum     = $bankD['accountNumber'];
+          $bcode    = $bankD['bankCode'];
+          $bvn      = $bankD['bvn'];
+          $dateC    = $bankD['createdDate'];
+
+        
+
+        if(empty($userBankDId)){
+            echo "<script>alert('Add your Bank Details')</script>";   
+             echo "<script> window.open('../artisan/index.php?aub','_self'); </script>";
+        }
+
+        $UbankD  = $userBank->getSingleBankDetails($userBankDId);
+        $id = $UbankD['id'];   
+         $BankCode = new BankCode();
+         $BankCode->autht =  $_SESSION['token'];
+         $uBCName  = $BankCode->getBankCodeName($UbankD['bankCode']);
+
+
+        
+
+
+
+
+?>               
 
                             <div class="col-lg-12">
                                 <div class="card">
@@ -65,15 +101,15 @@
 
                                         <div class="form-group">
                                             <label for="bank_name" class=" form-control-label">Bank Name</label>
-                                            <input type="text" id="bank_name" placeholder="" name="bank_name" class="form-control" readonly="">
+                                            <input type="text" id="bank_name" placeholder="" name="bank_name" class="form-control" value="<?php echo $uBCName; ?>" readonly="">
                                         </div>
                                         <div class="form-group">
                                             <label for="bacc_name" class=" form-control-label">Bank Account Name</label>
-                                            <input type="text" id="bacc_name" name="bacc_name" placeholder="" class="form-control" readonly="">
+                                            <input type="text" id="bacc_name" name="bacc_name" placeholder="" class="form-control" value="<?php echo $aname; ?>" readonly="">
                                         </div>
                                         <div class="form-group">
                                             <label for="ban" class=" form-control-label">Bank Account Number</label>
-                                            <input type="text" id="ban" placeholder="" class="form-control" readonly="">
+                                            <input type="text" id="ban" placeholder="" class="form-control" value="<?php echo $anum; ?>" readonly="">
                                         </div>
                                         
                                 
@@ -89,13 +125,13 @@
                                         <div class="card-body card-block">
 
                                          <div class="form-group">
-                                            <label for="profession" class=" form-control-label">Profession</label>
+                                            <label for="profession" class=" form-control-label">Category</label>
                                             <input type="text" id="profession" placeholder="" name="profession" class="form-control" readonly="">
                                         </div>
 
                                          <div class="form-group">
-                                            <label for="category" class=" form-control-label">Category</label>
-                                            <input type="text" id="category" placeholder="" value="<?php echo $artisanCategory; ?>" name="category" class="form-control" readonly="">
+                                            <label for="category" class=" form-control-label">Sub Category</label>
+                                            <input type="text" id="category" placeholder="" value="" name="category" class="form-control" readonly="">
                                         </div>
 
                                         </div>

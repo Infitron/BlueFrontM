@@ -44,30 +44,6 @@
                                           </div>
                                     </div>
                                 </div>
-                            <div class="col-lg-12">
-                                <div class="card">
-                                    <div class="card-header">
-                                            <strong>User Bank</strong>
-                                            <small> Details</small>
-                                        </div>
-                                        <div class="card-body card-block">
-
-                                        <div class="form-group">
-                                            <label for="bank_name" class=" form-control-label">Bank Name</label>
-                                            <input type="text" id="bank_name" placeholder="" name="bank_name" class="form-control" readonly="">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="bacc_name" class=" form-control-label">Bank Account Name</label>
-                                            <input type="text" id="bacc_name" name="bacc_name" placeholder="" class="form-control" readonly="">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="ban" class=" form-control-label">Bank Account Number</label>
-                                            <input type="text" id="ban" placeholder="" class="form-control" readonly="">
-                                        </div>
-                                        
-                                
-                                          </div>
-                                    </div>
-                                </div>
+                        
                                
                                 
