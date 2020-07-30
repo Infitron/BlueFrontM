@@ -1,19 +1,18 @@
 ﻿<?php include('hnav.php'); ?>
   
-    <div class="site-blocks-cover inner-page-cover overlay" style="background-image: url(images/banner3.png);" data-aos="fade" data-stellar-background-ratio="0.5">
+    <div class="site-blocks-cover inner-page-cover overlay" style="background-image: url(images/banner2.png);" data-aos="fade" data-stellar-background-ratio="0.5">
       <div class="container">
         <div class="row align-items-center justify-content-center text-center">
 
           <div class="col-md-10" data-aos="fade-up" data-aos-delay="400">
             
             
-           <div class="row justify-content-center mt-5">
-                    <div class="col-md-8 text-center">
-                        <h1>Our Services</h1>
-                        <p class="mb-0">Bluecollarhub.com.ng is an online Directory of the best blue collar service providers, their services and a platform to book any of the services. </p>
-
-                    </div>
-                </div>
+            <div class="row justify-content-center mt-5">
+              <div class="col-md-8 text-center">
+                <h1>Ads Listings</h1>
+                <p class="mb-0">Choose product you want</p>
+              </div>
+            </div>
 
             
           </div>
@@ -473,65 +472,66 @@
       </div>
     </div>
     
-<div class="site-section bg-white">
-    <div class="container">
+    <div class="site-section bg-white">
+      <div class="container">
+
         <div class="row justify-content-center mb-5">
-            <div class="col-md-7 text-center border-primary">
-                <h2 class="font-weight-light text-primary">Testimonials</h2>
-            </div>
+          <div class="col-md-7 text-center border-primary">
+            <h2 class="font-weight-light text-primary">Testimonials</h2>
+          </div>
         </div>
 
         <div class="slide-one-item home-slider owl-carousel">
-            <div>
-                <div class="testimonial">
-                    <figure class="mb-4">
-                        <img src="images/person_3.jpg" alt="Image" class="img-fluid mb-3">
-                        <p>Jolade Abimbolu</p>
-                    </figure>
-                    <blockquote>
-                        <p>&ldquo;Strange and beautiful things happen to each of us every day, and sometimes you just cannot keep silent about them. This is what inspired a special online project that allows people to share anonymously all the heart-warming, hilarious, sad, inspiring and wonderful stories from people’s lives that they overhear.&rdquo;</p>
-                    </blockquote>
-                </div>
+          <div>
+            <div class="testimonial">
+              <figure class="mb-4">
+                <img src="images/person_3.jpg" alt="Image" class="img-fluid mb-3">
+                <p>John Smith</p>
+              </figure>
+              <blockquote>
+                <p>&ldquo;Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur unde reprehenderit aperiam quaerat fugiat repudiandae explicabo animi minima fuga beatae illum eligendi incidunt consequatur. Amet dolores excepturi earum unde iusto.&rdquo;</p>
+              </blockquote>
             </div>
-            <div>
-                <div class="testimonial">
-                    <figure class="mb-4">
-                        <img src="images/person_2.jpg" alt="Image" class="img-fluid mb-3">
-                        <p>Christine Ugheli</p>
-                    </figure>
-                    <blockquote>
-                        <p>&ldquo;A little girl was decorating a box with a gold wrapping paper to put it under the Christmas tree. George was a driver and. George was a driver and he spent so much time at his work, that he could hardly have a meal together with his wife and three children.&rdquo;</p>
-                    </blockquote>
-                </div>
+          </div>
+          <div>
+            <div class="testimonial">
+              <figure class="mb-4">
+                <img src="images/person_2.jpg" alt="Image" class="img-fluid mb-3">
+                <p>Christine Aguilar</p>
+              </figure>
+              <blockquote>
+                <p>&ldquo;Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur unde reprehenderit aperiam quaerat fugiat repudiandae explicabo animi minima fuga beatae illum eligendi incidunt consequatur. Amet dolores excepturi earum unde iusto.&rdquo;</p>
+              </blockquote>
             </div>
+          </div>
 
-            <div>
-                <div class="testimonial">
-                    <figure class="mb-4">
-                        <img src="images/person_4.jpg" alt="Image" class="img-fluid mb-3">
-                        <p>Tijani Bella</p>
-                    </figure>
-                    <blockquote>
-                        <p>&ldquo;I'm an optimist in the sense that I believe humans are noble and honorable, and some of them are really smart. I have a very optimistic view of individuals.&rdquo;</p>
-                    </blockquote>
-                </div>
+          <div>
+            <div class="testimonial">
+              <figure class="mb-4">
+                <img src="images/person_4.jpg" alt="Image" class="img-fluid mb-3">
+                <p>Robert Spears</p>
+              </figure>
+              <blockquote>
+                <p>&ldquo;Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur unde reprehenderit aperiam quaerat fugiat repudiandae explicabo animi minima fuga beatae illum eligendi incidunt consequatur. Amet dolores excepturi earum unde iusto.&rdquo;</p>
+              </blockquote>
             </div>
+          </div>
 
-            <div>
-                <div class="testimonial">
-                    <figure class="mb-4">
-                        <img src="images/person_5.jpg" alt="Image" class="img-fluid mb-3">
-                        <p>Adeyemi Brainard</p>
-                    </figure>
-                    <blockquote>
-                        <p>&ldquo;A very elderly man with a large packet in his hands always comes by our apartment block every morning. The whole courtyard comes alive when he shows up; all the local cats and their kittens run up to him from all directions, purring and rubbing his legs. He tries to give some of his attention to each one of the animals, petting them, talking to them. Then he goes to their bowls scattered underneath the nearby trees, cleans them, ladles out some pet food from his packet, and pours some milk and fresh water. &rdquo;</p>
-                    </blockquote>
-                </div>
+          <div>
+            <div class="testimonial">
+              <figure class="mb-4">
+                <img src="images/person_5.jpg" alt="Image" class="img-fluid mb-3">
+                <p>Bruce Rogers</p>
+              </figure>
+              <blockquote>
+                <p>&ldquo;Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur unde reprehenderit aperiam quaerat fugiat repudiandae explicabo animi minima fuga beatae illum eligendi incidunt consequatur. Amet dolores excepturi earum unde iusto.&rdquo;</p>
+              </blockquote>
             </div>
+          </div>
 
         </div>
+      </div>
     </div>
-</div>
 
 
     <div class="newsletter bg-primary py-5">

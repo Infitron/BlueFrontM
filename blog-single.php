@@ -88,7 +88,7 @@
                                             <div class="comment-body">
                                                 <h3>Jean Doe</h3>
                                                 <div class="meta">January 9, 2018 at 2:21pm</div>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur quidem laborum necessitatibus, ipsam impedit vitae autem, eum officia, fugiat saepe enim sapiente iste iure! Quam voluptas earum impedit necessitatibus, nihil?</p>
+                                                 <p>providing excellent quality of content, with purposeful impact on readers coupled with rare breeds of columnists</p
                                                 <p><a href="#" class="reply rounded">Reply</a></p>
                                             </div>
 
@@ -118,7 +118,7 @@
                             <div class="comment-body">
                                 <h3>Jean Doe</h3>
                                 <div class="meta">January 9, 2018 at 2:21pm</div>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur quidem laborum necessitatibus, ipsam impedit vitae autem, eum officia, fugiat saepe enim sapiente iste iure! Quam voluptas earum impedit necessitatibus, nihil?</p>
+                                <p>providing excellent quality of content, with purposeful impact on readers coupled with rare breeds of columnists</p>
                                 <p><a href="#" class="reply rounded">Reply</a></p>
                             </div>
                         </li>
@@ -169,20 +169,20 @@
                 <div class="mb-5">
                     <h3 class="h5 text-black mb-3">Popular Posts</h3>
                     <ul class="list-unstyled">
-                        <li class="mb-2"><a href="#">Lorem ipsum dolor sit amet</a></li>
-                        <li class="mb-2"><a href="#">Quaerat rerum voluptatibus veritatis</a></li>
-                        <li class="mb-2"><a href="#">Maiores sapiente veritatis reprehenderit</a></li>
-                        <li class="mb-2"><a href="#">Natus eligendi nobis</a></li>
+                        <li class="mb-2"><a href="#">Solar Panel Installation And Maintenance Services</a></li>
+                        <li class="mb-2"><a href="#">Home Cleaning Service</a></li>
+                        <li class="mb-2"><a href="#">Interior Design Services</a></li>
+                        <li class="mb-2"><a href="#">Compare and Hire the Best Solar Panel Cleaning Pros</a></li>
                     </ul>
                 </div>
 
                 <div class="mb-5">
                     <h3 class="h5 text-black mb-3">Recent Comments</h3>
                     <ul class="list-unstyled">
-                        <li class="mb-2"><a href="#">Joefrey</a> <em>in</em> <a href="#">Lorem ipsum dolor sit amet</a></li>
-                        <li class="mb-2"><a href="#">Joefrey</a> <em>in</em> <a href="#">Quaerat rerum voluptatibus veritatis</a></li>
-                        <li class="mb-2"><a href="#">Joefrey</a> <em>in</em> <a href="#">Maiores sapiente veritatis reprehenderit</a></li>
-                        <li class="mb-2"><a href="#">Joefrey</a> <em>in</em> <a href="#">Natus eligendi nobis</a></li>
+                        <li class="mb-2"><a href="#">Joefrey</a> <em>in</em> <a href="#">Best Platform</a></li>
+                        <li class="mb-2"><a href="#">Alex</a> <em>in</em> <a href="#">Lagos State na Ba Ba</a></li>
+                        <li class="mb-2"><a href="#">James</a> <em>in</em> <a href="#">I never no these exit, on till i enter</a></li>
+                        <li class="mb-2"><a href="#">Kemi</a> <em>in</em> <a href="#">Good Jobs and services</a></li>
                     </ul>
                 </div>
 

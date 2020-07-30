@@ -112,11 +112,11 @@
         <div class="row justify-content-center">
           <div class="col-8">
             <div class="border p-3 rounded mb-2">
-              <a data-toggle="collapse" href="#collapse-1" role="button" aria-expanded="false" aria-controls="collapse-1" class="accordion-item h5 d-block mb-0">How to list my item?</a>
+              <a data-toggle="collapse" href="#collapse-1" role="button" aria-expanded="false" aria-controls="collapse-1" class="accordion-item h5 d-block mb-0">How to show my services?</a>
 
               <div class="collapse" id="collapse-1">
                 <div class="pt-2">
-                  <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corrupti esse voluptates deleniti, ratione, suscipit quam cumque beatae, enim mollitia voluptatum velit excepturi possimus odio dolore molestiae officiis aspernatur provident praesentium.</p>
+                  <p class="mb-0">You have to login as an artisan user, click on the service menu to add you services or product  </p>
                 </div>
               </div>
             </div>
@@ -126,7 +126,7 @@
 
               <div class="collapse" id="collapse-4">
                 <div class="pt-2">
-                  <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corrupti esse voluptates deleniti, ratione, suscipit quam cumque beatae, enim mollitia voluptatum velit excepturi possimus odio dolore molestiae officiis aspernatur provident praesentium.</p>
+                  <p class="mb-0">We are very sure that we are around you, go to the home page and search for services in your area</p>
                 </div>
               </div>
             </div>
@@ -136,7 +136,7 @@
 
               <div class="collapse" id="collapse-2">
                 <div class="pt-2">
-                  <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corrupti esse voluptates deleniti, ratione, suscipit quam cumque beatae, enim mollitia voluptatum velit excepturi possimus odio dolore molestiae officiis aspernatur provident praesentium.</p>
+                  <p class="mb-0">We have free Client platform, You can check on our <a href="plans.php">plan here</a> </p>
                 </div>
               </div>
             </div>
@@ -146,7 +146,7 @@
 
               <div class="collapse" id="collapse-3">
                 <div class="pt-2">
-                  <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corrupti esse voluptates deleniti, ratione, suscipit quam cumque beatae, enim mollitia voluptatum velit excepturi possimus odio dolore molestiae officiis aspernatur provident praesentium.</p>
+                  <p class="mb-0">click on the <a href="about.php">How It Works</a> menu to get more info</p>
                 </div>
               </div>
             </div>

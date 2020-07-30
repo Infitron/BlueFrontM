@@ -2,15 +2,15 @@
 
         $userService = new Service();
         $userService->autht =  $_SESSION['token'];
-        $userServiceDId = $userService->findServiceByUserId($aid);
+        $UServiceD  = $userService->getServiceByArtisanId($aid);
         
 
-        if(empty($userServiceDId)){
+        if(empty($UServiceD)){
             echo "<script>alert('Add your Service Details')</script>";   
              echo "<script> window.open('../artisan/index.php?aus','_self'); </script>";
         }
 
-        $UServiceD  = $userService->getServiceByArtisanId($userServiceDId);
+       
 
 
 
@@ -41,6 +41,7 @@
                                                 <th>Last Service Name</th>
                                                 <th>Last Service Info</th>
                                                 <th>View Image File</th>
+                                                <th>View Service Details</th>
                                                 <th>Task</th>
                                             </tr>
                                         </thead>
@@ -48,13 +49,14 @@
                                             <?php  
                                                    
                                                 
-                                                        
-                                                        $sid       = $UServiceD['id'];
-                                                        $artisanId = $UServiceD['artisanId'];
-                                                        $serviceName = $UServiceD['serviceName'];
-                                                        $descriptions = $UServiceD['descriptions'];
-                                                        $statusId = $UServiceD['statusId'];
-                                                        $creationDate = $UServiceD['creationDate'];
+                                                      foreach ($UServiceD as $UServiceDs) {
+                                                       
+                                                        $sid       = $UServiceDs['id'];
+                                                        $artisanId = $UServiceDs['artisanId'];
+                                                        $serviceName = $UServiceDs['serviceName'];
+                                                        $descriptions = $UServiceDs['descriptions'];
+                                                        $statusId = $UServiceDs['statusId'];
+                                                        $creationDate = $UServiceDs['creationDate'];
 
                                                         echo "
 
@@ -63,6 +65,7 @@
                                                                     <td>$serviceName</td>
                                                                     <td>$descriptions</td>
                                                                     <td><a href='index.php?vus&id=$sid' class='btn btn-danger btn-lg'>View</a></td>
+                                                                     <td><a href='index.php?vus&id=$sid' class='btn btn-success btn-lg'>View</a></td>
                                                                     <td> <a href='index.php?eus&id=$sid' class='btn btn-primary btn-lg'>Edit</a></td>
                                                                 </tr>
 
@@ -70,7 +73,7 @@
 
                                                         ";
                                                   
-
+                                                     }
                                                    
 
                                             ?>

@@ -27,6 +27,10 @@
          $BankCode = new BankCode();
          $BankCode->autht =  $_SESSION['token'];
          $uBCName  = $BankCode->getBankCodeName($UbankD['bankCode']);
+        
+
+         
+
 
 
         
@@ -70,7 +74,8 @@
 
                                         <div class="form-group">
                                             <label for="loc" class=" form-control-label">Location / City</label>
-                                            <textarea name="loc" id="loc" rows="9" placeholder=""  class="form-control" readonly=""><?php echo $areaLocation; ?></textarea>
+                                             <input type="text" id="loc" placeholder="" name="loc" value="<?php echo $areaLocationArea; ?>" class="form-control" readonly="">
+                                           
                                         </div>
 
                                         <div class="form-group">
@@ -126,12 +131,12 @@
 
                                          <div class="form-group">
                                             <label for="profession" class=" form-control-label">Category</label>
-                                            <input type="text" id="profession" placeholder="" name="profession" class="form-control" readonly="">
+                                            <input type="text" id="profession" placeholder="" name="profession" class="form-control" value="<?php echo $artisanCategoryName; ?>" readonly=""> 
                                         </div>
 
                                          <div class="form-group">
-                                            <label for="category" class=" form-control-label">Sub Category</label>
-                                            <input type="text" id="category" placeholder="" value="" name="category" class="form-control" readonly="">
+                                            <label for="category" class=" form-control-label">Category Description</label>
+                                            <textarea name="catDesc" id="catDesc" rows="9" placeholder=""  class="form-control" readonly=""><?php echo $artisanCategoryDesc; ?></textarea>
                                         </div>
 
                                         </div>

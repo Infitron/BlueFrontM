@@ -13,7 +13,7 @@
 			$response = json_decode($get_data, true);
 			$errors = $response['status'];
 			
-			if ($errors == 200){
+			if ($errors == 200 || $errors == 201){
 				$data = $response['message'];
 
 			}else{

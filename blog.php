@@ -94,7 +94,7 @@
                 </div>
 
             </div>
-            <div class="col-md-3 ml-auto">
+           <div class="col-md-3 ml-auto">
                 <div class="mb-5">
                     <h3 class="h5 text-black mb-3">Search</h3>
                     <form action="#" method="post">
@@ -107,20 +107,20 @@
                 <div class="mb-5">
                     <h3 class="h5 text-black mb-3">Popular Posts</h3>
                     <ul class="list-unstyled">
-                        <li class="mb-2"><a href="#">Lorem ipsum dolor sit amet</a></li>
-                        <li class="mb-2"><a href="#">Quaerat rerum voluptatibus veritatis</a></li>
-                        <li class="mb-2"><a href="#">Maiores sapiente veritatis reprehenderit</a></li>
-                        <li class="mb-2"><a href="#">Natus eligendi nobis</a></li>
+                        <li class="mb-2"><a href="#">Solar Panel Installation And Maintenance Services</a></li>
+                        <li class="mb-2"><a href="#">Home Cleaning Service</a></li>
+                        <li class="mb-2"><a href="#">Interior Design Services</a></li>
+                        <li class="mb-2"><a href="#">Compare and Hire the Best Solar Panel Cleaning Pros</a></li>
                     </ul>
                 </div>
 
                 <div class="mb-5">
                     <h3 class="h5 text-black mb-3">Recent Comments</h3>
                     <ul class="list-unstyled">
-                        <li class="mb-2"><a href="#">Joefrey</a> <em>in</em> <a href="#">Lorem ipsum dolor sit amet</a></li>
-                        <li class="mb-2"><a href="#">Joefrey</a> <em>in</em> <a href="#">Quaerat rerum voluptatibus veritatis</a></li>
-                        <li class="mb-2"><a href="#">Joefrey</a> <em>in</em> <a href="#">Maiores sapiente veritatis reprehenderit</a></li>
-                        <li class="mb-2"><a href="#">Joefrey</a> <em>in</em> <a href="#">Natus eligendi nobis</a></li>
+                        <li class="mb-2"><a href="#">Joefrey</a> <em>in</em> <a href="#">Best Platform</a></li>
+                        <li class="mb-2"><a href="#">Alex</a> <em>in</em> <a href="#">Lagos State na Ba Ba</a></li>
+                        <li class="mb-2"><a href="#">James</a> <em>in</em> <a href="#">I never no these exit, on till i enter</a></li>
+                        <li class="mb-2"><a href="#">Kemi</a> <em>in</em> <a href="#">Good Jobs and services</a></li>
                     </ul>
                 </div>
 
@@ -132,66 +132,7 @@
 
 
 
-<div class="site-section bg-light">
-    <div class="container">
 
-        <div class="row justify-content-center mb-5">
-            <div class="col-md-7 text-center border-primary">
-                <h2 class="font-weight-light text-primary">Testimonials</h2>
-            </div>
-        </div>
-
-        <div class="slide-one-item home-slider owl-carousel">
-            <div>
-                <div class="testimonial">
-                    <figure class="mb-4">
-                        <img src="images/person_3.jpg" alt="Image" class="img-fluid mb-3">
-                        <p>John Smith</p>
-                    </figure>
-                    <blockquote>
-                        <p>&ldquo;Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur unde reprehenderit aperiam quaerat fugiat repudiandae explicabo animi minima fuga beatae illum eligendi incidunt consequatur. Amet dolores excepturi earum unde iusto.&rdquo;</p>
-                    </blockquote>
-                </div>
-            </div>
-            <div>
-                <div class="testimonial">
-                    <figure class="mb-4">
-                        <img src="images/person_2.jpg" alt="Image" class="img-fluid mb-3">
-                        <p>Christine Aguilar</p>
-                    </figure>
-                    <blockquote>
-                        <p>&ldquo;Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur unde reprehenderit aperiam quaerat fugiat repudiandae explicabo animi minima fuga beatae illum eligendi incidunt consequatur. Amet dolores excepturi earum unde iusto.&rdquo;</p>
-                    </blockquote>
-                </div>
-            </div>
-
-            <div>
-                <div class="testimonial">
-                    <figure class="mb-4">
-                        <img src="images/person_4.jpg" alt="Image" class="img-fluid mb-3">
-                        <p>Robert Spears</p>
-                    </figure>
-                    <blockquote>
-                        <p>&ldquo;Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur unde reprehenderit aperiam quaerat fugiat repudiandae explicabo animi minima fuga beatae illum eligendi incidunt consequatur. Amet dolores excepturi earum unde iusto.&rdquo;</p>
-                    </blockquote>
-                </div>
-            </div>
-
-            <div>
-                <div class="testimonial">
-                    <figure class="mb-4">
-                        <img src="images/person_5.jpg" alt="Image" class="img-fluid mb-3">
-                        <p>Bruce Rogers</p>
-                    </figure>
-                    <blockquote>
-                        <p>&ldquo;Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur unde reprehenderit aperiam quaerat fugiat repudiandae explicabo animi minima fuga beatae illum eligendi incidunt consequatur. Amet dolores excepturi earum unde iusto.&rdquo;</p>
-                    </blockquote>
-                </div>
-            </div>
-
-        </div>
-    </div>
-</div>
 
 
 <div class="newsletter bg-primary py-5">
@@ -199,7 +140,7 @@
         <div class="row align-items-center">
             <div class="col-md-6">
                 <h2>Newsletter</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                <p>Make the Best choice by joining more than 1M people by getting the latest services requests sent directly to your mail.</p>
             </div>
             <div class="col-md-6">
 

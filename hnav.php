@@ -6,7 +6,6 @@
         $user->autht = $_SESSION['token'];
 
 
-
         
 
        
@@ -52,9 +51,9 @@
             </div>
             <div class="site-mobile-menu-body"></div>
         </div>
-        <header class="site-navbar container py-0 " role="banner">
+        <header class="site-navbar container py-0" role="banner" >
             <!-- <div class="container"> -->
-            <div class="row align-items-center">
+            <div class="row align-items-center" >
                 <div class="col-6 col-xl-2">
                     <h1 class="mb-0 site-logo"><a href="index.php" class="text-white mb-0"><img src="images/logo1.png" /></a></h1>
                 </div>
@@ -90,17 +89,7 @@
                                     <li><a href="#">Entertainment</a></li>-->
                                 </ul>
                             </li>
-                            <li class="has-children">
-                                <a href="plans.php">Our Plans</a>
-                                <ul class="dropdown">
-
-                                    <li><a href="#">BlueCollar Basic Plan</a></li>
-                                    <li><a href="#">BlueCollar Plus Plan</a></li>
-                                    <li><a href="#">BlueCollar Premium Plan</a></li>
-
-                                </ul>
-                            </li>
-
+                            <li><a href="plans.php">Our Plans</a></li>
                             <li><a href="blog.php">Posts</a></li>
                             <li class="mr-5"><a href="contact.php">Contact</a></li>
                             <li class="ml-xl-3 login"><a href="login.php"><span class="border-left pl-xl-4"></span>Log In</a></li>

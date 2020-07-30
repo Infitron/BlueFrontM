@@ -19,13 +19,20 @@
             $idcardNo              = $_SESSION['idcardNo'];
             $picturePath           = $_SESSION['picturePath'];
             $address               = $_SESSION['address'];
-            $category              = $_SESSION['category'];
+            //$category              = $_SESSION['category'];
             $state                 = $_SESSION['state'];
             $aboutMe               = $_SESSION['aboutMe'];
             $createdDate           = $_SESSION['createdDate'];
-            $areaLocation          = $_SESSION['areaLocation'];
-            $artisanCategory       = $_SESSION['artisanCategory'];
             $token                 = $_SESSION['token'];
+
+            $areaLocationId        = $_SESSION['areaLocationId'];
+            $areaLocationState     = $_SESSION['areaLocationState'];
+            $areaLocationLga       = $_SESSION['areaLocationLga'];
+            $areaLocationArea      = $_SESSION['areaLocationArea'];
+
+            $artisanCategoryId     = $_SESSION['artisanCategoryId'];
+            $artisanCategoryName   = $_SESSION['artisanCategoryName'];
+            $artisanCategoryDesc   = $_SESSION['artisanCategoryDesc'];
 
             
 
@@ -284,6 +291,19 @@
                             }if (isset($_GET['vub'])) {
                                 include("view/vubank.php");
                             }
+
+
+                            // User Complaint
+                            if (isset($_GET['ucp'])) {
+                                include("view/ucomplaint.php");
+                            }if (isset($_GET['cp'])) {
+                                include("view/acomplaint.php");
+                            }if (isset($_GET['vcp'])) {
+                                include("view/vcomplaint.php");
+                            }if (isset($_GET['ecp'])) {
+                                include("view/ecomplaint.php");
+                            }
+                            
 
 
 

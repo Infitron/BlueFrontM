@@ -293,6 +293,24 @@ class User extends Api{
 
 			}
 
+			public function getClients(){
+
+					$url = $this->url_user_client;
+					$make_call = $this->callAPI('GET', $url, false, $this->autht);
+					$response = json_decode($make_call, true);
+					$status  =  $response['status'];
+					$message = $response['message'];
+					
+					if(http_response_code(200) && $status == 200 ){
+
+							 return $message;
+					}else{
+
+						echo "<script>alert('User Have no data')</script>";
+					}
+
+			}
+
 			public function countUser($urlDetails){
 
 					$url = $urlDetails;
@@ -307,6 +325,25 @@ class User extends Api{
 					}else{
 
 						return 0;
+					}
+
+			}
+
+
+			public function getArtisans(){
+
+					$url = $this->url_user_artisan;
+					$make_call = $this->callAPI('GET', $url, false, $this->autht);
+					$response = json_decode($make_call, true);
+					$status  =  $response['status'];
+					$message = $response['message'];
+					
+					if(http_response_code(200) && $status == 200 ){
+
+							 return $message;
+					}else{
+
+						echo "<script>alert('User Have no data')</script>";
 					}
 
 			}

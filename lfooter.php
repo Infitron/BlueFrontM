@@ -10,10 +10,10 @@
                             <div class="col-md-4">
                                 <h2 class="footer-heading mb-4">Helpful Links</h2>
                                 <ul class="list-unstyled">
-                                    <li><a href="#">Sign Up</a></li>
-                                    <li><a href="#">How It Works</a></li>
-                                    <li><a href="#">Contact Us</a></li>
-                                    <li><a href="#">How It Works</a></li>
+                                    <li><a href="index.php">Home</a></li>
+                                    <li><a href="about.php">How It Works</a></li>
+                                    <li><a href="contact.php">Contact Us</a></li>
+                                    <li><a href="register.php">SignUp</a></li>
                                 </ul>
                             </div>
                             <div class="col-md-4">

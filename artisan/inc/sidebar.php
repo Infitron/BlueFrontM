@@ -47,6 +47,10 @@
                                 <i class="fas fa-table"></i>Messages</a>
                         </li>
                         <li>
+                            <a href="index.php?cp">
+                                <i class="fas fa-table"></i>Complaint</a>
+                        </li>
+                        <li>
                             <a href="index.php?uq">
                                 <i class="far fa-check-square"></i>Quotes</a>
                         </li>
@@ -111,6 +115,10 @@
                         <li>
                             <a href="index.php?um">
                                 <i class="fas fa-table"></i>Messages</a>
+                        </li>
+                         <li>
+                            <a href="index.php?ucp">
+                                <i class="fas fa-copy"></i>Complaint</a>
                         </li>
                         <li>
                             <a href="index.php?uq">

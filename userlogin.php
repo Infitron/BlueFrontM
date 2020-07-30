@@ -80,12 +80,25 @@
                                 $_SESSION['idcardNo']              = $user_data['idcardNo'];
                                 $_SESSION['picturePath']           = $user_data['picturePath'];
                                 $_SESSION['address']               = $user_data['address'];
-                               // $_SESSION['category']              = $user_data['category'];
+                                //$_SESSION['category']              = $user_data['category'];
                                 $_SESSION['state']                 = $user_data['state'];
                                 $_SESSION['aboutMe']               = $user_data['aboutMe'];
                                 $_SESSION['createdDate']           = $user_data['createdDate'];
                                 $_SESSION['areaLocation']          = $user_data['areaLocation'];
                                 $_SESSION['artisanCategory']       = $user_data['artisanCategory'];
+
+
+                               $_SESSION['areaLocationId']          = $user_data['areaLocation']['id'];
+                               $_SESSION['areaLocationState']       = $user_data['areaLocation']['state'];
+                               $_SESSION['areaLocationLga']         = $user_data['areaLocation']['lga'];
+                               $_SESSION['areaLocationArea']        = $user_data['areaLocation']['area'];
+
+                               $_SESSION['artisanCategoryId']       = $user_data['artisanCategory']['id'];
+                               $_SESSION['artisanCategoryName']     = $user_data['artisanCategory']['categoryName'];
+                               $_SESSION['artisanCategoryDesc']     = $user_data['artisanCategory']['description'];
+                                
+                              
+
                                 
 
 

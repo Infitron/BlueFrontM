@@ -2,6 +2,8 @@
 
         include('hnav.php'); 
 
+        $countCat = new SubCategory();
+        $countCat->autht = $_SESSION['token'];            
 ?>
 
 <div class="site-blocks-cover overlay" style="background-image: url(images/banner1.png);" data-aos="fade" data-stellar-background-ratio="0.5">
@@ -16,7 +18,7 @@
                     </div>
                 </div>
                 <div class="form-search-wrap mb-3" data-aos="fade-up" data-aos-delay="200">
-                    <form method="post" action="#" id="searchl">
+                    <form method="post" action="listings.php" id="searchl">
                         <div class="row align-items-center">
                             <div class="col-lg-12 mb-4 mb-xl-0 col-xl-3">
                                 <div class="select-wrap">
@@ -48,6 +50,7 @@
                                     </datalist>
                                 </div>
                             </div>
+                          
                             <div class="col-lg-12 mb-4 mb-xl-0 col-xl-3">
                                 <div class="wrap-icon">
                                     <span class="icon icon-room"></span>
@@ -96,6 +99,7 @@
                         <a href="#">Tailoring</a>
                         <a href="#">House Painting</a>
                         <a href="#">Panel Beater</a>
+                        <a href="#">Mechanic</a>
                     </div>
                 </div>
             </div>
@@ -260,51 +264,51 @@
         <div class="row justify-content-center mb-5">
             <div class="col-md-7 text-center border-primary">
                 <h2 class="font-weight-light text-primary">Popular Categories</h2>
-                <p class="color-black-opacity-5">Lorem Ipsum Dolor Sit Amet</p>
+                <p class="color-black-opacity-5">With Numbers Profession and Jobs Under Them.</p>
             </div>
         </div>
         <div class="overlap-category mb-5">
             <div class="row align-items-stretch no-gutters">
                 <div class="col-sm-6 col-md-4 mb-4 mb-lg-0 col-lg-2">
-                    <a href="#" class="popular-category h-100">
+                    <a href="#" class="popular-category h-20">
                         <span class="icon"><span class="flaticon-car"></span></span>
                         <span class="caption mb-2 d-block">Automobiles</span>
-                        <span class="number">1,921</span>
+                        <span class="number"><?php //echo $countAll->countCatId(); $countCat->countCatId(1); ?>435</span>
                     </a>
                 </div>
                 <div class="col-sm-6 col-md-4 mb-4 mb-lg-0 col-lg-2">
-                    <a href="#" class="popular-category h-100">
+                    <a href="#" class="popular-category h-20">
                         <span class="icon"><span class="flaticon-closet"></span></span>
                         <span class="caption mb-2 d-block">Furniture</span>
-                        <span class="number">2,339</span>
+                        <span class="number"><?php //echo $countAll->countCatId(); //$countCat->countCatId(5); ?>567</span>
                     </a>
                 </div>
                 <div class="col-sm-6 col-md-4 mb-4 mb-lg-0 col-lg-2">
-                    <a href="#" class="popular-category h-100">
+                    <a href="#" class="popular-category h-20">
                         <span class="icon"><span class="flaticon-home"></span></span>
                         <span class="caption mb-2 d-block">Fashion</span>
-                        <span class="number">4,398</span>
+                        <span class="number"><?php //echo $countAll->countCatId(); //$countCat->countCatId(4); ?>234</span>
                     </a>
                 </div>
                 <div class="col-sm-6 col-md-4 mb-4 mb-lg-0 col-lg-2">
-                    <a href="#" class="popular-category h-100">
+                    <a href="#" class="popular-category h-20">
                         <span class="icon"><span class="flaticon-open-book"></span></span>
                         <span class="caption mb-2 d-block">Fabrications</span>
-                        <span class="number">3,298</span>
+                        <span class="number"><?php //echo $countAll->countCatId(); //$countCat->countCatId(4); ?>354</span>
                     </a>
                 </div>
                 <div class="col-sm-6 col-md-4 mb-4 mb-lg-0 col-lg-2">
-                    <a href="#" class="popular-category h-100">
+                    <a href="#" class="popular-category h-20">
                         <span class="icon"><span class="flaticon-tv"></span></span>
                         <span class="caption mb-2 d-block">Electronics</span>
-                        <span class="number">`2,932</span>
+                        <span class="number"><?php //echo $countAll->countCatId(); //$countCat->countCatId(7); ?>456</span>
                     </a>
                 </div>
                 <div class="col-sm-6 col-md-4 mb-4 mb-lg-0 col-lg-2">
-                    <a href="#" class="popular-category h-100">
+                    <a href="#" class="popular-category h-20">
                         <span class="icon"><span class="flaticon-pizza"></span></span>
                         <span class="caption mb-2 d-block">Other</span>
-                        <span class="number">183</span>
+                        <span class="number"><?php //echo $countAll->countCatId(); ?>2354</span>
                     </a>
                 </div>
             </div>
@@ -505,7 +509,7 @@
                     <img src="images/mech.png" alt="Image" class="img-fluid rounded">
                     <h2 class="font-size-regular"><a href="#" class="text-black">Many People Selling Online</a></h2>
                     <div class="meta mb-3">by Mark Spiker<span class="mx-1">&bullet;</span> Jan 18, 2019 <span class="mx-1">&bullet;</span> <a href="#">News</a></div>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus eligendi nobis ea maiores sapiente veritatis reprehenderit suscipit quaerat rerum voluptatibus a eius.</p>
+                    <p>He comes to feed them every day, rain or shine. Whenever I see him, I want to thank him with all my heart, because he does not just help all the stray pets, but he has also changed the way our neighbours treat them, too. Many were inspired to start feeding them as well, some are even trying to find homes for them. There is kindness in this world!</p>
                 </div>
             </div>
             <div class="col-md-6 col-lg-4 mb-4 mb-lg-4">
@@ -513,7 +517,7 @@
                     <img src="images/tailor.png" alt="Image" class="img-fluid rounded">
                     <h2 class="font-size-regular"><a href="#" class="text-black">Many People Selling Online</a></h2>
                     <div class="meta mb-3">by Mark Spiker<span class="mx-1">&bullet;</span> Jan 18, 2019 <span class="mx-1">&bullet;</span> <a href="#">News</a></div>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus eligendi nobis ea maiores sapiente veritatis reprehenderit suscipit quaerat rerum voluptatibus a eius.</p>
+                    <p>He comes to feed them every day, rain or shine. Whenever I see him, I want to thank him with all my heart, because he does not just help all the stray pets, but he has also changed the way our neighbours treat them, too. Many were inspired to start feeding them as well, some are even trying to find homes for them. There is kindness in this world!</p>
                 </div>
             </div>
             <div class="col-md-6 col-lg-4 mb-4 mb-lg-4">
@@ -521,121 +525,14 @@
                     <img src="images/users.png" alt="Image" class="img-fluid rounded">
                     <h2 class="font-size-regular"><a href="#" class="text-black">Many People Selling Online</a></h2>
                     <div class="meta mb-3">by Mark Spiker<span class="mx-1">&bullet;</span> Jan 18, 2019 <span class="mx-1">&bullet;</span> <a href="#">News</a></div>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus eligendi nobis ea maiores sapiente veritatis reprehenderit suscipit quaerat rerum voluptatibus a eius.</p>
+                    <p>He comes to feed them every day, rain or shine. Whenever I see him, I want to thank him with all my heart, because he does not just help all the stray pets, but he has also changed the way our neighbours treat them, too. Many were inspired to start feeding them as well, some are even trying to find homes for them. There is kindness in this world!</p>
                 </div>
             </div>
             <div class="col-12 text-center mt-4">
-                <a href="#" class="btn btn-primary rounded py-2 px-4 text-white">View All Posts</a>
+                <a href="blog.php" class="btn btn-primary rounded py-2 px-4 text-white">View All Posts</a>
             </div>
         </div>
     </div>
 </div>
-<section class="mbr-section--bg-adapted mbr-section--relative" id="pricing-table1-3" data-rv-view="0">
-    <div class="pricing" id="pricing">
-        <div class="container">
-            <div class="section-head-lite text-center col-md-12 col-md-offset-2 space80">
-                <h1 class="font-weight-light text-primary">BlueCollar Hub Membership Plans</h1>
-                <p class="color-black-opacity-5">We engage artisans in the following categories</p>
-            </div>
-            <div class="row pricing1">
 
-
-                <!-- Pricing Plan - 1 -->
-                <div class="col-sm-4 price-styles" style="display: block;">
-                    <div class="pricing__item price-four-el" data-hover="">
-                        <h3 class="pricing__title mbr-title-font mbr-primary-color">BlueCollar Basic Plan</h3>
-                        <p class="pricing__sentence">Perfect for starter</p>
-                        <div class="pricing__price mbr-title-font">
-
-                            <span>FREE</span>
-                            <span class="pricing__period">/forever</span>
-                        </div>
-                        <div>
-                            <ul class="pricing__feature-list mbr-text-font">
-                                <li class="pricing__feature">Online Registeration</li>
-                                <li class="pricing__feature">Regular listing</li>
-                                <li class="pricing__feature">Basic Documentation</li>
-                            </ul>
-                        </div>
-                        <div><a href="#" class="btn mbr-title-font btn-primary" target="_blank">Sign Up</a></div>
-                    </div>
-                </div>
-
-                <!-- Pricing Plan - 2 -->
-                <div class="col-sm-4 price-styles" data-hover="Most popular" style="display: block;">
-                    <div class="popular mbr-title-font price-four-el"><strong>Most Popular</strong></div>
-                    <div class="pricing__item pricing__item__popular price-four-el">
-
-                        <h3 class="pricing__title mbr-title-font mbr-primary-color">BlueCollar Plus Plan</h3>
-                        <p class="pricing__sentence">Be more visible</p>
-                        <div class="pricing__price mbr-title-font">
-                            <span class="pricing__currency">NGN</span>
-                            <span>1000</span>
-                            <span class="pricing__period">/year</span>
-                        </div>
-                        <div>
-                            <p>Requirements</p>
-                            <ul class="pricing__feature-list mbr-text-font">
-                                <li class="pricing__feature">Verified Account</li>
-                                <li class="pricing__feature">Skills Assessment</li>
-                                <li class="pricing__feature">Bank Account Integration</li>
-                            </ul>
-                        </div>
-                        <div>
-                            <p>Benefits</p>
-                            <ul class="pricing__feature-list mbr-text-font">
-                                <li class="pricing__feature">Trainings</li>
-                                <li class="pricing__feature">HMO</li>
-                                <li class="pricing__feature">Insurance</li>
-                                <li class="pricing__feature">Material Purchase</li>
-                                <li class="pricing__feature">Articles</li>
-                            </ul>
-                        </div>
-                        <div><a href="#" class="btn mbr-title-font btn-primary" target="_blank">Upgrade</a></div>
-                    </div>
-                </div>
-
-                <!-- Pricing Plan - 3 -->
-                <div class="col-sm-4 price-styles" style="display: block;">
-                    <div class="pricing__item price-four-el">
-                        <h3 class="pricing__title mbr-title-font mbr-primary-color">BlueCollar Premium Plan</h3>
-                        <p class="pricing__sentence">Gain Elite Status</p>
-                        <div class="pricing__price mbr-title-font">
-                            <span class="pricing__currency">NGN</span>
-                            <span>2000</span>
-                            <span class="pricing__period">/year</span>
-                        </div>
-                        <p>Requirements</p>
-                        <ul class="pricing__feature-list mbr-text-font">
-                            <li class="pricing__feature">Verified Account</li>
-                            <li class="pricing__feature">Skills Assessment</li>
-                            <li class="pricing__feature">Bank Account Integration</li>
-                            <li class="pricing__feature">Business Registeration</li>
-
-                        </ul>
-                        <div>
-                            <p>Benefits</p>
-                            <ul class="pricing__feature-list mbr-text-font">
-                                <li class="pricing__feature">Trainings</li>
-                                <li class="pricing__feature">HMO</li>
-                                <li class="pricing__feature">Insurance</li>
-                                <li class="pricing__feature">Material Purchase</li>
-                                <li class="pricing__feature">Articles</li>
-                                <li class="pricing__feature">Visible to HNI</li>
-                                <li class="pricing__feature">Price Template</li>
-                                <li class="pricing__feature">Access to equipment financing</li>
-                            </ul>
-                        </div>
-                        <div><a href="#" class="btn mbr-title-font btn-primary" target="_blank">Upgrade</a></div>
-                    </div>
-
-
-
-
-
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
 <?php include('lfooter.php'); ?>

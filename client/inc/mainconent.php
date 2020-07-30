@@ -243,6 +243,19 @@
                             }
 
 
+                            
+                            // User Complaint
+                            if (isset($_GET['ucp'])) {
+                                include("view/ucomplaint.php");
+                            }if (isset($_GET['cp'])) {
+                                include("view/acomplaint.php");
+                            }if (isset($_GET['vcp'])) {
+                                include("view/vcomplaint.php");
+                            }if (isset($_GET['ecp'])) {
+                                include("view/ecomplaint.php");
+                            }
+
+
                         ?>
 
 
