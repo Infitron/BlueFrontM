@@ -1,6 +1,6 @@
 <?php
   
-	error_reporting(E_ALL);
+	error_reporting(0);
 	require_once("Api.php");
 	require_once("auto_function.php");
 	require_once("session.php");
