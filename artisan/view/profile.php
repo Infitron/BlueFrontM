@@ -40,6 +40,13 @@
 
 ?>               
 
+                            <div class="col-md-12">
+                                <div class="overview-wrap">
+                                    
+                                    <a href="index.php?uep" class="au-btn au-btn-icon au-btn--blue">
+                                       <i class="zmdi zmdi-plus"></i>Edit Profile</a> 
+                                </div>
+                            </div>
                             <div class="col-lg-12">
                                 <div class="card">
                                     <div class="card-header">

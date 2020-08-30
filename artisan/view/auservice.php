@@ -26,13 +26,13 @@
 
                                                     <?php  
 
-                                                            $scat = new SubCategory();
+                                                            $scat = new Category();
                                                             $scat->autht = $_SESSION['token'];
-                                                            $scate = $scat->getSubCategory();
+                                                            $scate = $scat->getCategory();
 
                                                             foreach ($scate as $cates) {
                                                                 $cat_id = $cates['id'];
-                                                                $cat_lga = $cates['name'];
+                                                                $cat_lga = $cates['categoryName'];
 
                                                                 echo " <option value='$cat_id'>$cat_lga</option>";
                                                             }

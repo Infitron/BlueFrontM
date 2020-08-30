@@ -148,6 +148,7 @@
                                              <?php  
 
                                                     $loc = new Location();
+                                                    $loc->autht  = $_SESSION['token'];
                                                     $loca = $loc->getLocation();
 
                                                     foreach ($loca as $locas) {
@@ -174,6 +175,7 @@
                                              <?php  
 
                                                     $cat = new Category();
+                                                    $cat->autht  = $_SESSION['token'];
                                                     $cate = $cat->getCategory();
 
                                                     foreach ($cate as $cates) {
@@ -227,7 +229,7 @@
     <!-- Main JS-->
     <script src="js/global.js"></script>
 
-</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+</body>
 
 </html>
 <!-- end document-->

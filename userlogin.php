@@ -98,7 +98,7 @@
                                $_SESSION['artisanCategoryDesc']     = $user_data['artisanCategory']['description'];
                                 
                               
-
+                               
                                 
 
 

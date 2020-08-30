@@ -14,7 +14,7 @@ class User extends Api{
 		public $Address;
 		public $State;
 		public $UserId;
-		public $AreaLocation;
+		public $AreaLocationId;
 		public $ArtisanCategory;
 		public $ArtisanCategoryId;
 		public $category;
@@ -397,14 +397,14 @@ class User extends Api{
 					     "FirstName" 		 => $this->FirstName,
 						  "LastName" 		 => $this->LastName,
 						 "PhoneNumber" 		 => $this->PhoneNumber,
-						 "AreaLocationId" 	 => $this->AreaLocation,
+						 "AreaLocationId" 	 => $this->AreaLocationId,
 						"ArtisanCategoryId"  => $this->ArtisanCategoryId,
-					    "IdcardNo"			=> $this->IdcardNo,
-					    "PicturePath" 		=> $this->PicturePath,
-					    "Address"			=> $this->Address,
-					    "State" 			=> $this->State,
-					    "AboutMe" 			=> $this->AboutMe,
-						 "UserId" 			=> $this->UserId
+					    "IdcardNo"			 => $this->IdcardNo,
+					    "PicturePath" 		 => $this->PicturePath,
+					    "Address"			 => $this->Address,
+					    "State" 			 => $this->State,
+					    "AboutMe" 			 => $this->AboutMe,
+						 "UserId" 			 => $this->UserId
 				   );
 
                 //Encode the array into JSON.
@@ -451,7 +451,7 @@ class User extends Api{
 					     "FirstName" 		 => $this->FirstName,
 						  "LastName" 		 => $this->LastName,
 						 "PhoneNumber" 		 => $this->PhoneNumber,
-						 "AreaLocationId" 	 => $this->AreaLocation,
+						 "AreaLocationId" 	 => $this->AreaLocationId,
 						"ArtisanCategoryId"  => $this->ArtisanCategoryId,
 					    "IdcardNo"			=> $this->IdcardNo,
 					    "PicturePath" 		=> $this->PicturePath,
@@ -497,6 +497,7 @@ class User extends Api{
 						$get_data = $this->callAPI("GET", $url, false, $this->autht);
 						$response = json_decode($get_data, true);
 						$errors = $response['status'];
+						$artisan_id = 0;
 						
 						if ($errors == 200){
 							$data = $response['message'];
@@ -522,6 +523,7 @@ class User extends Api{
 						$get_data = $this->callAPI("GET", $url, false, $this->autht);
 						$response = json_decode($get_data, true);
 						$errors = $response['status'];
+						$client_id = 0;
 						
 						if ($errors == 200){
 							$data = $response['message'];

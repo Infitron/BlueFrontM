@@ -78,7 +78,7 @@
             
             <div class="p-4 mb-3 bg-white">
               <p class="mb-0 font-weight-bold">Address</p>
-              <p class="mb-4">Somewhere, Lagos, Nigeria.</p>
+              <p class="mb-4">Opeyemi Bamidele Crescent, Off Freedom Way, Lekki Phase I, Lagos State</p>
 
               <p class="mb-0 font-weight-bold">Phone</p>
               <p class="mb-4"><a href="#">+234 802 3235 324</a></p>

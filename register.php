@@ -54,13 +54,15 @@
                     <div class="row form-group">
                         <div class="col-md-12">
                             <label class="text-black" for="password">Password</label>
-                            <input type="password" id="password" name="password" class="form-control">
+                            <input type="password" id="password" name="password" class="form-control"  minlength="6">
+                            <small><p class="">Enter special character, uppercase and number </p></small>
                         </div>
                     </div>
                     <div class="row form-group">
                         <div class="col-md-12">
                             <label class="text-black" for="password2">Re-type Password</label>
-                            <input type="password" id="password2" name="password2" class="form-control">
+                            <input type="password" id="password2" name="password2" class="form-control" minlength="6">
+                            <small><p class="">Enter special character, uppercase and number </p></small>
                         </div>
                     </div>
                      <div class="row form-group">

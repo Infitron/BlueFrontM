@@ -16,7 +16,8 @@
 				$url = $this->url_user_bank;
 			    $get_data = $this->callAPI("GET", $url, false, $this->autht);
 			    $response = json_decode($get_data, true);
-			    $errors = $response['status'];
+				$errors = $response['status'];
+				$data = array();
 			    if ($errors == 200 || $errors == 201){
 
 			       $data = $response['message'];
@@ -34,7 +35,8 @@
 				$url = $this->url_user_bank."/".$id;
 			    $get_data = $this->callAPI("GET", $url, false, $this->autht);
 			    $response = json_decode($get_data, true);
-			    $errors = $response['status'];
+				$errors = $response['status'];
+				$data = array();
 			    if ($errors == 200 || $errors == 201){
 
 			       $data = $response['message'];
@@ -53,6 +55,7 @@
 						$get_data = $this->callAPI("GET", $url, false, $this->autht);
 						$response = json_decode($get_data, true);
 						$errors = $response['status'];
+						$bankD_id = 0;
 						
 						if ($errors == 200 || $errors == 201){
 							$data = $response['message'];
@@ -89,7 +92,8 @@
 				$url = $this->url_user_bank;
 			    $get_data = $this->callAPI("POST", $url, json_encode($data_array), $this->autht);
 			    $response = json_decode($get_data, true);
-			    $errors = $response['status'];
+				$errors = $response['status'];
+				$data = array();
 			    if ($errors == 200 || $errors == 201){
 
 			       $data = $response['message'];
@@ -119,7 +123,8 @@
 				$url = $this->url_user_bank."/".$id;
 			    $get_data = $this->callAPI("PUT", $url,json_encode($data_array), $this->autht);
 			    $response = json_decode($get_data, true);
-			    $errors = $response['status'];
+				$errors = $response['status'];
+				$data = array();
 			    if ($errors == 200 || $errors == 201){
 
 			       $data = $response['message'];

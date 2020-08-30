@@ -25,10 +25,6 @@
                                 <li>
                                     <a href="index.php?up">Profile</a>
                                 </li>
-                              
-                                <li>
-                                    <a href="index.php?uep">Setting</a>
-                                </li>
                                 <li>
                                     <a href="index.php?ub">Bank Details</a>
                                 </li>
@@ -94,10 +90,6 @@
                             <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
                                 <li>
                                     <a href="index.php?up">Profile</a>
-                                </li>
-                               
-                                <li>
-                                    <a href="index.php?uep">Setting</a>
                                 </li>
                                 <li>
                                     <a href="index.php?ub">Bank Details</a>

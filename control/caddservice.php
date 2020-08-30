@@ -5,7 +5,11 @@
 
 		     if(isset($_POST['submit'])){
 
-
+                foreach($_POST as $key => $value){
+                    echo"$key => $value <br />";
+                }
+                die();
+                
                 $sname             = addslashes(trim($_POST['sname'])); 
                 $sinfo             = addslashes(trim($_POST['sinfo'])); 
                 $status            = addslashes(trim($_POST['status'])); 

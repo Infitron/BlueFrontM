@@ -164,7 +164,7 @@
 						$get_data = $this->callAPI("GET", $url, false, $this->autht);
 						$response = json_decode($get_data, true);
 						$errors = $response['status'];
-						
+						$service_id = 0;
 						if ($errors == 200 || $errors == 201){
 							$data = $response['message'];
 
@@ -184,13 +184,41 @@
 		  }
 
 
+		  public function findServiceByCategoryId($id){
+
+			$url      = $this->url_user_service;
+			$get_data = $this->callAPI("GET", $url, false, $this->autht);
+			$response = json_decode($get_data, true);
+			$errors = $response['status'];
+			$service = array();
+			
+			if ($errors == 200 || $errors == 201){
+				$data = $response['message'];
+				
+
+				foreach ($data as $datas) {
+
+					if ($datas['categoryId'] == $id) {
+						
+						$service = $datas;
+					}
+					
+				}
+
+			}
+
+			return $service;
+
+}
+
+
 		  public function getServiceByArtisanId($id){
 
 						$url      = $this->url_user_service."/AllService/".$id;
 						$get_data = $this->callAPI("GET", $url, false, $this->autht);
 						$response = json_decode($get_data, true);
 						$errors = $response['status'];
-						
+						$data = array();
 						
 						if ($errors == 200 || $errors == 201){
 							
@@ -215,7 +243,9 @@
 				$url = $this->url_user_service."/".$id;
 			    $get_data = $this->callAPI("GET", $url, false, $this->autht);
 			    $response = json_decode($get_data, true);
-			    $errors = $response['status'];
+				$errors = $response['status'];
+				$data = array();
+				
 			    if ($errors == 200 || $errors == 201){
 
 			       $data = $response['message'];

@@ -25,11 +25,8 @@
                                 <li>
                                     <a href="index.php?up">Profile</a>
                                 </li>
-                                 <li>
-                                    <a href="index.php?ui">Upload Your Picture</a>
-                                </li>
                                 <li>
-                                    <a href="index.php?uep">Setting</a>
+                                    <a href="index.php?upd">Payment Details</a>
                                 </li>
                                
                             </ul>
@@ -49,7 +46,11 @@
                         </li>
                         <li>
                             <a href="index.php?uj">
-                                <i class="fas fa-map-marker-alt"></i>Jobs</a>
+                                <i class="fas fa-shopping-cart"></i>Orders</a>
+                        </li>
+                        <li>
+                            <a href="index.php?us">
+                                <i class="fa fa-lightbulb-o"></i>Services</a>
                         </li>
                         <li>
                             <a href="index.php?ulh">
@@ -85,14 +86,8 @@
                                 <li>
                                     <a href="index.php?up">Profile</a>
                                 </li>
-                                 <li>
-                                    <a href="index.php?ui">Upload Your Picture</a>
-                                </li>
                                 <li>
-                                    <a href="index.php?uep">Setting</a>
-                                </li>
-                                <li>
-                                    <a href="index.php?upa">Payment Details</a>
+                                    <a href="index.php?upd">Payment Details</a>
                                 </li>
                             </ul>
                         </li>
@@ -111,7 +106,11 @@
                         </li>
                         <li>
                             <a href="index.php?uj">
-                                <i class="fas fa-map-marker-alt"></i>Jobs</a>
+                                <i class="fas fa-shopping-cart"></i>Orders</a>
+                        </li>
+                         <li>
+                            <a href="index.php?us">
+                                <i class="fa fa-lightbulb-o"></i>Services</a>
                         </li>
                         <li>
                             <a href="index.php?ulh">

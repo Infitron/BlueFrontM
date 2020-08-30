@@ -81,21 +81,21 @@
                             
                             if($user_role == '1'){
 
-				                    $_SESSION['user_id']   =   $userId;
-				                    $_SESSION['email']    =   $email;
+				                    $_SESSION['user_id']   =  $userId;
+				                    $_SESSION['email1']    =   $email;
 				                    $_SESSION['password'] =   $password;
 				                    
                             	 echo "<script>alert('Registration Successful and Create Your Profile')</script>";
-                            	  echo "<script> window.open('../register/aregister.php','_self'); </script>";
+                            	  echo "<script> window.open('../aregister.php','_self'); </script>";
 
                             } if($user_role == '2'){
 
                                    $_SESSION['user_id']   =   $userId;
-                                    $_SESSION['email']    =   $email;
+                                    $_SESSION['email1']    =   $email;
                                     $_SESSION['password'] =   $password;
 
                             	  echo "<script>alert('Registration Successful and Create Your Profile')</script>";
-                            	  echo "<script> window.open('../register/cregister.php','_self'); </script>";
+                            	  echo "<script> window.open('../cregister.php','_self'); </script>";
                             }
                        
 

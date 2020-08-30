@@ -256,6 +256,28 @@
                             }
 
 
+                            // User Payment 
+                            if (isset($_GET['upd'])) {
+                                include("view/upaymentdetails.php");
+                            } if (isset($_GET['vpd'])) {
+                                include("view/vpaymentdetails.php");
+                            }
+
+
+                            // User Quote 
+                            if (isset($_GET['uq'])) {
+                                include("view/uquotes.php");
+                            } if (isset($_GET['vq'])) {
+                                include("view/vquotes.php");
+                            }
+
+                            // User Service 
+                            if (isset($_GET['us'])) {
+                                include("view/uservices.php");
+                            } if (isset($_GET['usc'])) {
+                                include("view/vservices.php");
+                            }  
+
                         ?>
 
 
