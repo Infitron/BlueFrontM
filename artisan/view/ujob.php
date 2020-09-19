@@ -1,4 +1,17 @@
-                        
+<?php
+
+        $ajob = new Order();
+        $ajob->autht = $token;
+        $ajs = $ajob->getOrderByArtisanId($aid);
+
+
+
+
+
+
+?>
+
+
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="overview-wrap">
@@ -24,16 +37,65 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>Max Mayowa</td>
-                                                <td>Client</td>
-                                                <td>Computer</td>
-                                                <td>Electricial Electronics</td>
-                                                <td>Processing</td>
-                                                <td> <a href="index.php?vuj" class="btn btn-primary btn-lg">View</a></td>
-                                            </tr>
 
+                                            <?php 
+                                            
+                                                    foreach($ajs as $aj){
+
+
+                                                        $id                 = $aj['id'];
+                                                        $clientId           = $aj['clienId'];
+                                                        $artisanId          = $aj['artisanId'];
+                                                        $artisanFullName    = $aj['artisanFullNmae'];
+                                                        $clientFullName     = $aj['clientFullName'];
+                                                        $messages           = $aj['messages'];
+                                                        $msgDate            = $aj['msgDate'];
+                                                        $serviceId          = $aj['serviceId'];
+                                                        $quoteId            = $aj['quoteId'];
+                                                        $createdDate        = $aj['createdDate'];
+                                                        $fn = "";
+                                                        $status = "Processing";
+                                                        $userType = "";
+
+                                                        $serv  = new Service();
+                                                        $serv->autht = $token;
+                                                        $ser = $serv->getServiceDetails($serviceId);
+                                                        $ser_name = $ser['serviceName'];
+                                                        $ser_cat = $ser['category'];
+
+
+                                                        if(isset($clientId) && !empty($clientId) && !$clientId == null && !$clientId == 0){
+
+                                                            $fn     = $clientFullName;
+                                                            $userType = "Client";  
+                                                        }
+                                                        
+                                                        /*if(isset($artisanId) && !empty($artisanId) && !$artisanId == null && $artisanId == 0){
+
+                                                            $fn = $artisanFullName;
+                                                            $userType = "Artisan";
+                                                        }*/
+
+                                                        echo"
+                                                        
+                                                        <tr>
+                                                                <td>$id</td>
+                                                                <td>$fn </td>
+                                                                <td>$userType</td>
+                                                                <td>$ser_name</td>
+                                                                <td>$ser_cat</td>
+                                                                <td>$status</td>
+                                                                <td> <a href='index.php?vuj&oid=$id' class='btn btn-primary btn-lg'>View</a></td>
+                                                        </tr>
+        
+                                                        
+                                                        
+                                                        ";
+
+                                                    }
+                                            
+                                            ?>
+                                            
                                         </tbody>
                                     </table>
                                 </div>

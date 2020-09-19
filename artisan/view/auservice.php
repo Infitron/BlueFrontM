@@ -42,7 +42,32 @@
                                                 </select>
                                         </div>
 
-                                         <div class="form-group">
+                                        <div class="form-group">
+                                            <label for="subcategory" class=" form-control-label">SubCategory</label>
+                                        
+                                               <select name="subcat" id="subcategory"  class="form-control">
+
+
+                                                    <?php  
+
+                                                            $scat = new SubCategory();
+                                                            $scat->autht = $_SESSION['token'];
+                                                            $scate = $scat->getSubCategory();
+
+                                                            foreach ($scate as $cates) {
+                                                                $cat_id = $cates['id'];
+                                                                $cat_lga = $cates['name'];
+
+                                                                echo " <option value='$cat_id'>$cat_lga</option>";
+                                                            }
+
+
+                                                    ?>
+                                                </select>
+                                        </div>
+
+
+                                        <div class="form-group">
                                             <label for="loc" class=" form-control-label">Service Location Area </label>
                                            
                                                     <select name="loc" id="loc" class="form-control">
@@ -63,6 +88,35 @@
                                                     ?>
                                                 </select>
                                         </div>
+
+                                        <div class="form-group">
+                                            <label for="state" class=" form-control-label">Service State LGA </label>
+                                           
+                                                    <select name="lga" id="state" class="form-control">
+                                                     <?php  
+
+                                                            $lga = new State();
+                                                            $lga->autht = $_SESSION['token'];
+                                                            $lgaa = $lga->getStateLga();
+
+                                                            foreach ($lgaa as $lgaas) {
+                                                                $id        =  $lgaas['id'];
+                                                                $lga_name  =  $lgaas['localGovernment'];
+                                                                foreach($lga_name as $lga_names){
+                                                                    $ids      =  $lga_names['id'];
+                                                                    $namelga  =  $lga_names['lga1'];
+                                                                    echo "<option value='$ids'>$namelga</option>";
+                                                                }
+
+                                                               
+                                                            }
+
+
+                                                    ?>
+                                                </select>
+                                        </div>
+
+
                                         <div class="form-group">
                                             <label for="state" class=" form-control-label">Service State </label>
                                            
@@ -84,6 +138,7 @@
                                                     ?>
                                                 </select>
                                         </div>
+
 
 
                                          <div class="form-group">

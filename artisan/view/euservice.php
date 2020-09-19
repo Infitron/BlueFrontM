@@ -9,12 +9,19 @@
                                 
                                  $UServiceD  = $userService->getServiceDetails($id);
 
-                                 $sid       = $UServiceD['id'];
-                                 $artisanId = $UServiceD['artisanId'];
-                                 $serviceName = $UServiceD['serviceName'];
-                                 $descriptions = $UServiceD['descriptions'];
-                                 $statusId = $UServiceD['statusId'];
-                                 $creationDate = $UServiceD['creationDate'];
+
+                                 $sid           = $UServiceD['id'];
+                                 $artisanId     = $UServiceD['artisanId'];
+                                 $serviceName   = $UServiceD['serviceName'];
+                                 $descriptions  = $UServiceD['descriptions'];
+                                 $statusId      = 4;
+                                 $categoryId    = $UServiceD['category'];
+                                 $locationId    = $UServiceD['locationId'];
+                                 $lgaId         = $UServiceD['lgArea'];
+                                 $subCategory   = $UServiceD['subCategory'];
+                                 $image         = $UServiceD['image'];
+                                 $state         = $UServiceD['state'];
+                                 $creationDate  = $UServiceD['creationDate'];
                               
 
 
@@ -46,9 +53,33 @@
                                         </div>
 
                                         <div class="form-group">
-                                            <label for="category" class=" form-control-label">Category</label>
+                                            <label for="category" class=" form-control-label">Service Category</label>
                                         
                                                <select name="cat" id="category"  class="form-control">
+
+
+                                                    <?php  
+
+                                                            $scat = new Category();
+                                                            $scat->autht = $_SESSION['token'];
+                                                            $scate = $scat->getCategory();
+
+                                                            foreach ($scate as $cates) {
+                                                                $cat_id = $cates['id'];
+                                                                $cat_lga = $cates['categoryName'];
+
+                                                                echo " <option value='$cat_id'>$cat_lga</option>";
+                                                            }
+
+
+                                                    ?>
+                                                </select>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="subcat" class=" form-control-label">Service SubCategory</label>
+                                        
+                                               <select name="subcat" id="subcat"  class="form-control">
 
 
                                                     <?php  
@@ -90,6 +121,35 @@
                                                     ?>
                                                 </select>
                                         </div>
+
+                                        <div class="form-group">
+                                            <label for="lga" class=" form-control-label">Service State LGA </label>
+                                           
+                                                    <select name="lga" id="lga" class="form-control">
+                                                     <?php  
+
+                                                            $lga = new State();
+                                                            $lga->autht = $_SESSION['token'];
+                                                            $lgaa = $lga->getStateLga();
+
+                                                            foreach ($lgaa as $lgaas) {
+                                                                $id        =  $lgaas['id'];
+                                                                $lga_name  =  $lgaas['localGovernment'];
+                                                                foreach($lga_name as $lga_names){
+                                                                    $ids      =  $lga_names['id'];
+                                                                    $namelga  =  $lga_names['lga1'];
+                                                                    echo "<option value='$ids'>$namelga</option>";
+                                                                }
+
+                                                               
+                                                            }
+
+
+                                                    ?>
+                                                </select>
+                                        </div>
+
+
                                         <div class="form-group">
                                             <label for="state" class=" form-control-label">Service State </label>
                                            

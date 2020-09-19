@@ -20,67 +20,84 @@
                 <div class="form-search-wrap mb-3" data-aos="fade-up" data-aos-delay="200">
                     <form method="post" action="listings.php" id="searchl">
                         <div class="row align-items-center">
+               
                             <div class="col-lg-12 mb-4 mb-xl-0 col-xl-3">
-                                <div class="select-wrap">
-                                    <span class="icon"><span class="icon-keyboard_arrow_down"></span></span>
-                                    <input class="form-control rounded selectpicker" name="scat" list="scat"   placeholder="Select A Category" />
-                                    <datalist id="scat">
-                                        <?php 
+                                <div class="wrap-icon">
+                                <span class="icon"><span class="icon-keyboard_arrow_down"></span></span>
 
-                                       
-                                        $cat = new SubCategory();
-                                        $cat->autht = $_SESSION['token'];
-                                        $cate = $cat->getSubCategory();
+                                    <select class="form-control" name="subcat" placeholder="Select Subcategory">
+                                            <?php 
 
-                                        foreach ($cate as $cates) {
-                                             $cat_id = $cates['id'];
-                                             $cat_lga = $cates['name'];
+                                            
+                                                $cat = new SubCategory();
+                                                $cat->autht = $_SESSION['token'];
+                                                $cate = $cat->getSubCategory();
 
-                                             echo " <option data-id='$cat_id' value='$cat_lga'>$cat_lga</option>
-                                                    <input type='hidden' name='cat' id='city_id' value='$cat_id'>
+                                                foreach ($cate as $cates) {
+                                                    $cat_id = $cates['id'];
+                                                    $cat_name = $cates['name'];
 
-                                              ";
+                                                    echo " <option data-id='$cat_id' value='$cat_id'>$cat_name</option>
+                                                            
+
+                                                    ";
+                                                }
+
+                                            ?>
+
+
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-lg-12 mb-4 mb-xl-0 col-xl-3">
+                                <div class="wrap-icon">
+                                    <span class="icon icon-room"></span>
+
+                                    <select class="form-control" name="state">
+                                    <?php  
+
+                                        $sta = new State();
+                                        $sta->autht = $_SESSION['token'];
+                                        $staa = $sta->getState();
+
+                                        foreach ($staa as $staas) {
+                                            $id        = $staas['id'];
+                                            $stat_name = $staas['name'];
+
+                                            echo " <option value='$id'>$stat_name</option>";
                                         }
 
 
+                                    ?>
+
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-lg-12 mb-4 mb-xl-0 col-xl-3">
+                                <div class="wrap-icon">
+                                    <span class="icon icon-room"></span>
+
+                                    <select class="form-control" name="lga">
+                                    <?php  
+
+                                        $lga = new State();
+                                        $lga->autht = $_SESSION['token'];
+                                        $lgaa = $lga->getStateLga();
+
+                                        foreach ($lgaa as $lgaas) {
+                                            $id        =  $lgaas['id'];
+                                            $lga_name  =  $lgaas['localGovernment'];
+                                            foreach($lga_name as $lga_names){
+                                                $ids      =  $lga_names['id'];
+                                                $namelga  =  $lga_names['lga1'];
+                                                echo "<option value='$ids'>$namelga</option>";
+                                            }
+
                                         
-                                    
+                                        }
+
+
                                         ?>
-                                   
-                                    </datalist>
-                                </div>
-                            </div>
-                          
-                            <div class="col-lg-12 mb-4 mb-xl-0 col-xl-3">
-                                <div class="wrap-icon">
-                                    <span class="icon icon-room"></span>
-                                    <input class="form-control rounded selectpicker" name="sloc" list="sloc"  placeholder="Select A Local Govt">
-                                    <datalist id="sloc">    
-                                         <?php  
-                                                    /*
-                                                            $loc = new Location();
-                                                            $loc->autht = $_SESSION['token'];
-                                                            $loca = $loc->getLocation();
-
-                                                            foreach ($loca as $locas) {
-                                                                $loc_id = $locas['id'];
-                                                                $loc_lga = $locas['area'];
-
-                                                                echo " <option value='$loc_id'>$loc_lga</option>";
-                                                            }
-
-                                                    */
-                                        ?>
-
-                                    </datalist>
-                                </div>
-                            </div>
-                            <div class="col-lg-12 mb-4 mb-xl-0 col-xl-3">
-                                <div class="wrap-icon">
-                                    <span class="icon icon-room"></span>
-
-                                    <select class="form-control" name="sloca" id="sloca">
-                                        <option value="">Select Area</option>
 
                                     </select>
                                 </div>

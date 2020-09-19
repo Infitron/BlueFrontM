@@ -3,8 +3,30 @@
         $CountUser = new User();
         $CountUser->autht = $_SESSION['token'];
         $auser = $CountUser->countUser("https://api.bluecollarhub.com.ng/api/v1.1/artisan");
-        $cuser = $CountUser->countUser("https://api.bluecollarhub.com.ng/api/v1/Client");
+        $cuser = $CountUser->countUser("https://api.bluecollarhub.com.ng/api/v1.1/Client");
         $totalMember = $auser + $cuser;
+
+        $order_sid = $_SESSION['order_sids'];
+        $order_aid = $_SESSION['order_aids'];
+        $order_san = $_SESSION['order_anames'];
+
+       
+
+        
+        
+        if(!empty($order_sid) && !empty($order_aid) && !empty($order_san) && !$order_sid == 0 && !$order_aid == 0 && !$order_san == 0 ){
+         
+
+            $osid              = addslashes(trim($_SESSION['order_sids']));
+            $oaid              = addslashes(trim($_SESSION['order_aids']));
+            $oaname            = addslashes(trim($_SESSION['order_anames']));
+
+
+            echo "<script>alert('One more step to go on your order from $oaname service')</script>";
+            echo "<script> window.open('index.php?oms','_self'); </script>";
+
+         }
+        
 
 
 ?>

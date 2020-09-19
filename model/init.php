@@ -13,6 +13,8 @@
 	require_once("bank_details.php");
 	require_once("complaint.php");
 	require_once("state.php");
+	require_once("search.php");
+	require_once("order.php");
 
 	//require_once("test.php");
 	

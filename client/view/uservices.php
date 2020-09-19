@@ -5,39 +5,37 @@
                                         <small>Search</small>
                                     </div>
                                     <div class="card-body card-block">
-                                        <form action="index.php?usc" method="POST">
+                                        <form action="index.php?ls" method="POST">
                         
 
                                          <div class="form-group">
-                                            <label for="service" class=" form-control-label">Enter Service</label>
-                                            <input type="text" id="" placeholder="Select A Service" list="service" name="service" class="form-control" >
-                                            <datalist id="service">
+                                            <label for="service" class=" form-control-label">Search Service</label>
+                    
+                                            <select id="subCat" class="form-control" placeholder="Select A Service" name="subCat">
                                                     <?php 
 
                                                                                                     
-                                                    $cat = new Category();
-                                                    $cat->autht = $_SESSION['token'];
-                                                    $cate = $cat->getCategory();
+                                                        $cat = new SubCategory();
+                                                        $cat->autht = $_SESSION['token'];
+                                                        $cate = $cat->getSubCategory();
 
-                                                    foreach ($cate as $cates) {
-                                                        $cat_id = $cates['id'];
-                                                        $cat_lga = $cates['categoryName'];
+                                                        foreach ($cate as $cates) {
+                                                            $cat_id = $cates['id'];
+                                                            $cat_lga = $cates['name'];
 
-                                                        echo " <option data-id='$cat_id' value='$cat_lga'>$cat_lga</option>
-                                                                <input type='hidden' name='cat' id='city_id' value='$cat_id'>
-
-                                                        ";
-                                                    }
+                                                            echo " <option data-id='$cat_id' value='$cat_id'>$cat_lga</option> ";
+                                                            
+                                                        }
 
 
                                                     
                                                 
                                                     ?>
                                             
-                                                </datalist>
+                                                </select>
                                         </div>
                                                  <div class="form-group">
-                                                     <button type="submit" class="btn btn-primary btn-lg">Search</button>
+                                                     <button type="submit" class="btn btn-primary btn-lg" name="submit">Search</button>
                                                 </div>
                                         </form>
                                        

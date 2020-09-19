@@ -499,9 +499,10 @@ class User extends Api{
 						$errors = $response['status'];
 						$artisan_id = 0;
 						
-						if ($errors == 200){
+						
+						if ($errors == 200 || $errors == 201){
 							$data = $response['message'];
-
+							
 							foreach ($data as $datas) {
 
 								if ($datas['userId'] == $id) {
@@ -525,7 +526,7 @@ class User extends Api{
 						$errors = $response['status'];
 						$client_id = 0;
 						
-						if ($errors == 200){
+						if ($errors == 200 || $errors == 201){
 							$data = $response['message'];
 
 							foreach ($data as $datas) {

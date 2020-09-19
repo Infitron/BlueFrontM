@@ -1,4 +1,28 @@
 ﻿<?php include('hnav.php'); ?>
+
+<?php 
+
+
+    if(isset($_POST['getSearch'])){
+
+          $state              = addslashes(trim($_POST['state']));
+          $subcat             = addslashes(trim($_POST['subcat']));
+          $lga                = addslashes(trim($_POST['lga']));
+
+          $search        =  new Search();
+          $search->autht = $_SESSION['token'];
+          $searchList    = $search->getSearch($subcat,$state,$lga);
+
+          
+
+
+
+
+ 
+
+
+?>
+
   
     <div class="site-blocks-cover inner-page-cover overlay" style="background-image: url(images/banner3.png);" data-aos="fade" data-stellar-background-ratio="0.5">
       <div class="container">
@@ -27,225 +51,57 @@
           <div class="col-lg-8">
 
             <div class="row">
-              <div class="col-lg-6">
-                
-                <div class="d-block d-md-flex listing vertical">
-                  <a href="#" class="img d-block" style="background-image: url('images/mech.png')"></a>
-                  <div class="lh-content">
-                    <span class="category">Cars &amp; Vehicles</span>
-                    <a href="#" class="bookmark"><span class="icon-heart"></span></a>
-                    <h3><a href="#">Red Luxury Car</a></h3>
-                    <address>Don St, Brooklyn, New York</address>
-                    <p class="mb-0">
-                      <span class="icon-star text-warning"></span>
-                      <span class="icon-star text-warning"></span>
-                      <span class="icon-star text-warning"></span>
-                      <span class="icon-star text-warning"></span>
-                      <span class="icon-star text-secondary"></span>
-                      <span class="review">(3 Reviews)</span>
-                    </p>
-                  </div>
-                </div>
-
-              </div>
-              <div class="col-lg-6">
-
-                <div class="d-block d-md-flex listing vertical">
-                  <a href="#" class="img d-block" style="background-image: url('images/tailor.png')"></a>
-                  <div class="lh-content">
-                    <span class="category">Real Estate</span>
-                    <a href="#" class="bookmark"><span class="icon-heart"></span></a>
-                    <h3><a href="#">House with Swimming Pool</a></h3>
-                    <address>Don St, Brooklyn, New York</address>
-                    <p class="mb-0">
-                      <span class="icon-star text-warning"></span>
-                      <span class="icon-star text-warning"></span>
-                      <span class="icon-star text-warning"></span>
-                      <span class="icon-star text-warning"></span>
-                      <span class="icon-star text-secondary"></span>
-                      <span class="review">(3 Reviews)</span>
-                    </p>
-                  </div>
-                </div>
-
-              </div>
-
-              <div class="col-lg-6">
-                
-                <div class="d-block d-md-flex listing vertical">
-                  <a href="#" class="img d-block" style="background-image: url('images/users.png')"></a>
-                  <div class="lh-content">
-                    <span class="category">Furniture</span>
-                    <a href="#" class="bookmark"><span class="icon-heart"></span></a>
-                    <h3><a href="#">Wooden Chair &amp; Table</a></h3>
-                    <address>Don St, Brooklyn, New York</address>
-                    <p class="mb-0">
-                      <span class="icon-star text-warning"></span>
-                      <span class="icon-star text-warning"></span>
-                      <span class="icon-star text-warning"></span>
-                      <span class="icon-star text-warning"></span>
-                      <span class="icon-star text-secondary"></span>
-                      <span class="review">(3 Reviews)</span>
-                    </p>
-                  </div>
-                </div>
-
-              </div>
-              <div class="col-lg-6">
-
-                <div class="d-block d-md-flex listing vertical">
-                  <a href="#" class="img d-block" style="background-image: url('images/img_3.jpg')"></a>
-                  <div class="lh-content">
-                    <span class="category">Electronics</span>
-                    <a href="#" class="bookmark"><span class="icon-heart"></span></a>
-                    <h3><a href="#">iPhone X gray</a></h3>
-                    <address>Don St, Brooklyn, New York</address>
-                    <p class="mb-0">
-                      <span class="icon-star text-warning"></span>
-                      <span class="icon-star text-warning"></span>
-                      <span class="icon-star text-warning"></span>
-                      <span class="icon-star text-warning"></span>
-                      <span class="icon-star text-secondary"></span>
-                      <span class="review">(3 Reviews)</span>
-                    </p>
-                  </div>
-                </div>
-                
-              </div>
 
 
-              <div class="col-lg-6">
-                
-                <div class="d-block d-md-flex listing vertical">
-                  <a href="#" class="img d-block" style="background-image: url('images/tailor.png')"></a>
-                  <div class="lh-content">
-                    <span class="category">Real Estate</span>
-                    <a href="#" class="bookmark"><span class="icon-heart"></span></a>
-                    <h3><a href="#">House with Swimming Pool</a></h3>
-                    <address>Don St, Brooklyn, New York</address>
-                    <p class="mb-0">
-                      <span class="icon-star text-warning"></span>
-                      <span class="icon-star text-warning"></span>
-                      <span class="icon-star text-warning"></span>
-                      <span class="icon-star text-warning"></span>
-                      <span class="icon-star text-secondary"></span>
-                      <span class="review">(3 Reviews)</span>
-                    </p>
-                  </div>
-                </div>
 
-              </div>
-              <div class="col-lg-6">
+            <?php  
+             
+                  foreach($searchList as $searchLists){
 
-                <div class="d-block d-md-flex listing vertical">
-                  <a href="#" class="img d-block" style="background-image: url('images/users.png')"></a>
-                  <div class="lh-content">
-                    <span class="category">Furniture</span>
-                    <a href="#" class="bookmark"><span class="icon-heart"></span></a>
-                    <h3><a href="#">Wooden Chair &amp; Table</a></h3>
-                    <address>Don St, Brooklyn, New York</address>
-                    <p class="mb-0">
-                      <span class="icon-star text-warning"></span>
-                      <span class="icon-star text-warning"></span>
-                      <span class="icon-star text-warning"></span>
-                      <span class="icon-star text-warning"></span>
-                      <span class="icon-star text-secondary"></span>
-                      <span class="review">(3 Reviews)</span>
-                    </p>
-                  </div>
-                </div>
-                
-              </div>
+                        $id                = $searchLists['id'];
+                        $artisanId         = $searchLists['artisanId'];
+                        $descriptions      = $searchLists['descriptions'];
+                        $serviceName       = $searchLists['serviceName'];
+                        $status            = $searchLists['status'];
+                        $category          = $searchLists['category'];
+                        $subCategory       = $searchLists['subCategory'];
+                        $locationId        = $searchLists['locationId'];
+                        $lgaId             = $searchLists['lgArea'];
+                        $state             = $searchLists['state'];
+                        $image             = $searchLists['image'];
+                        $creationDate      = $searchLists['creationDate']; 
 
-
-              <div class="col-lg-6">
-                
-                <div class="d-block d-md-flex listing vertical">
-                  <a href="#" class="img d-block" style="background-image: url('images/mech.png')"></a>
-                  <div class="lh-content">
-                    <span class="category">Cars &amp; Vehicles</span>
-                    <a href="#" class="bookmark"><span class="icon-heart"></span></a>
-                    <h3><a href="#">Red Luxury Car</a></h3>
-                    <address>Don St, Brooklyn, New York</address>
-                    <p class="mb-0">
-                      <span class="icon-star text-warning"></span>
-                      <span class="icon-star text-warning"></span>
-                      <span class="icon-star text-warning"></span>
-                      <span class="icon-star text-warning"></span>
-                      <span class="icon-star text-secondary"></span>
-                      <span class="review">(3 Reviews)</span>
-                    </p>
-                  </div>
-                </div>
-
-              </div>
-              <div class="col-lg-6">
-
-                <div class="d-block d-md-flex listing vertical">
-                  <a href="#" class="img d-block" style="background-image: url('images/tailor.png')"></a>
-                  <div class="lh-content">
-                    <span class="category">Real Estate</span>
-                    <a href="#" class="bookmark"><span class="icon-heart"></span></a>
-                    <h3><a href="#">House with Swimming Pool</a></h3>
-                    <address>Don St, Brooklyn, New York</address>
-                    <p class="mb-0">
-                      <span class="icon-star text-warning"></span>
-                      <span class="icon-star text-warning"></span>
-                      <span class="icon-star text-warning"></span>
-                      <span class="icon-star text-warning"></span>
-                      <span class="icon-star text-secondary"></span>
-                      <span class="review">(3 Reviews)</span>
-                    </p>
-                  </div>
-                </div>
-
-              </div>
-
-              <div class="col-lg-6">
-                
-                <div class="d-block d-md-flex listing vertical">
-                  <a href="#" class="img d-block" style="background-image: url('images/users.png')"></a>
-                  <div class="lh-content">
-                    <span class="category">Furniture</span>
-                    <a href="#" class="bookmark"><span class="icon-heart"></span></a>
-                    <h3><a href="#">Wooden Chair &amp; Table</a></h3>
-                    <address>Don St, Brooklyn, New York</address>
-                    <p class="mb-0">
-                      <span class="icon-star text-warning"></span>
-                      <span class="icon-star text-warning"></span>
-                      <span class="icon-star text-warning"></span>
-                      <span class="icon-star text-warning"></span>
-                      <span class="icon-star text-secondary"></span>
-                      <span class="review">(3 Reviews)</span>
-                    </p>
-                  </div>
-                </div>
-
-              </div>
-              <div class="col-lg-6">
-
-                <div class="d-block d-md-flex listing vertical">
-                  <a href="#" class="img d-block" style="background-image: url('images/img_3.jpg')"></a>
-                  <div class="lh-content">
-                    <span class="category">Electronics</span>
-                    <a href="#" class="bookmark"><span class="icon-heart"></span></a>
-                    <h3><a href="#">iPhone X gray</a></h3>
-                    <address>Don St, Brooklyn, New York</address>
-                    <p class="mb-0">
-                      <span class="icon-star text-warning"></span>
-                      <span class="icon-star text-warning"></span>
-                      <span class="icon-star text-warning"></span>
-                      <span class="icon-star text-warning"></span>
-                      <span class="icon-star text-secondary"></span>
-                      <span class="review">(3 Reviews)</span>
-                    </p>
-                  </div>
-                </div>
-                
-              </div>
-
-
+                        $address = $lgaId.", ".$state;
+                    ?>
+                        
+                              <div class='col-lg-6'>
+                                  <div class='d-block d-md-flex listing vertical'>
+                                    <a href='listings-single.php?aid=<?php echo $artisanId; ?>&sid=<?php echo $id; ?>' class='img d-block' style="background-image: url('images/services/<?php echo $image; ?>')"></a>
+                                    <div class='lh-content'>
+                                      <span class='category'><?php echo $subCategory; ?></span>
+                                      <a href='listings-single.php?aid=<?php echo $artisanId; ?>&sid=<?php echo $id; ?>' class='bookmark'><span class='icon-heart'></span></a>
+                                      <h3><a href='listings-single.php?aid=<?php echo $artisanId; ?>&sid=<?php echo $id; ?>'><?php echo $serviceName; ?></a></h3>
+                                      <address><?php echo $address; ?></address>
+                                      <p class='mb-0'>
+                                        <span class='icon-star text-warning'></span>
+                                        <span class='icon-star text-warning'></span>
+                                        <span class='icon-star text-warning'></span>
+                                        <span class='icon-star text-warning'></span>
+                                        <span class='icon-star text-secondary'></span>
+                                        <span class='review'>(3 Reviews)</span>
+                                      </p>
+                                    </div>
+                                  </div>
               
+                              </div>
+                        
+                        
+            <?php         
+
+                  }
+              }
+
+            ?>
 
             </div>
 

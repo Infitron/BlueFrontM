@@ -13,10 +13,13 @@
              $artisanId     = $UServiceD['artisanId'];
              $serviceName   = $UServiceD['serviceName'];
              $descriptions  = $UServiceD['descriptions'];
-             $statusId      = $UServiceD['statusId'];
-             $categoryId    = $UServiceD['categoryId'];
+             $statusId      = $UServiceD['status'];
+             $categoryId    = $UServiceD['category'];
              $locationId    = $UServiceD['locationId'];
-             $lgaId         = $UServiceD['lgaId'];
+             $lgaId         = $UServiceD['lgArea'];
+             $subCategory   = $UServiceD['subCategory'];
+             $image         = $UServiceD['image'];
+             $state         = $UServiceD['state'];
              $creationDate  = $UServiceD['creationDate'];
 
             
@@ -65,22 +68,32 @@
                                             <label for="name" class=" form-control-label">Category</label>
                                             <input type="text" id="name" placeholder="" class="form-control" value="<?php echo  $categoryId; ?>" readonly >
                                         </div>
-                                        
                                         <div class="form-group">
-                                            <label for="name" class=" form-control-label">Service Location Area </label>
-                                            <input type="text" id="name" placeholder="" class="form-control" value="<?php echo $locationId; ?>" readonly >
+                                            <label for="name" class=" form-control-label">SubCategory</label>
+                                            <input type="text" id="name" placeholder="" class="form-control" value="<?php echo  $subcategory; ?>" readonly >
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="name" class=" form-control-label">Service LGA </label>
+                                            <input type="text" id="name" placeholder="" class="form-control" value="<?php echo $lgaId; ?>" readonly >
                                         </div>
                                         
                                         <div class="form-group">
                                             <label for="name" class=" form-control-label">Service State</label>
-                                            <input type="text" id="name" placeholder="" class="form-control" value="<?php echo $lgaId; ?>" readonly >
-                                        </div>
-                                        
-                                         
+                                            <input type="text" id="name" placeholder="" class="form-control" value="<?php echo $state; ?>" readonly >
+                                        </div>  
                                          <div class="form-group">
                                             <label for="cd" class=" form-control-label">Created Date & Time</label>
                                             <input type="text" id="cd" placeholder="" class="form-control" value="<?php echo $creationDate; ?> " readonly>
                                         </div>
+
+                                        <div class="map-data m-b-40">
+                                            <h3 class="title-3 m-b-30">
+                                                <i class="zmdi zmdi-map"></i>Service Image</h3>
+                                            <div class="filters">
+                                                <img src="../images/services/<?php echo $image; ?>" alt="">
+                                            </div>
+                                        </div>
+                             
 
                                         
                                               

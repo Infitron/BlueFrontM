@@ -9,10 +9,12 @@
 		public $serviceName;
 		public $statusId;
 		public $categoryId;
+		public $subcategoryId;
 		public $locationId;
 		public $lgaId;
 		public $image;
 		public $creationDate;
+		public $stateId;
 
 		public $type;
 		public $size;
@@ -103,17 +105,20 @@
 
 			$data_array =  array(
 				"ArtisanId" 	=> $this->artisanId,
+				"ServiceName"	=> $this->serviceName,
 			    "Descriptions" 	=> $this->descriptions,
-			    "ServiceName"	=> $this->serviceName,
 			    "StatusId" 		=> $this->statusId,
-			    "CategoryId" 	=> $this->categoryId,
+				"CategoryId" 	=> $this->categoryId,
+				"SubCategoryId" => $this->subcategoryId,
 			    "LocationId" 	=> $this->locationId,
 			    "LgaId"		    => $this->lgaId,
 			    "Image" 		=> $this->image,
-			    "CreationDate" 	=> $this->creationDate,
+				"CreationDate" 	=> $this->creationDate,
+				"StateId" 		=> $this->stateId
 
 			   
-		    );
+			);
+
 
 			$url = $this->url_user_service;
 			$get_data = $this->callAPI("POST", $url, json_encode($data_array), $this->autht);
@@ -136,11 +141,13 @@
 			    "Descriptions" 	=> $this->descriptions,
 			    "ServiceName"	=> $this->serviceName,
 			    "StatusId" 		=> $this->statusId,
-			    "CategoryId" 	=> $this->categoryId,
+				"CategoryId" 	=> $this->categoryId,
+				"SubCategoryId" => $this->subcategoryId,
 			    "LocationId" 	=> $this->locationId,
 			    "LgaId"		    => $this->lgaId,
 			    "Image" 		=> $this->image,
-			    "CreationDate" 	=> $this->creationDate,  
+				"CreationDate" 	=> $this->creationDate,
+				"StateId" 		=> $this->stateId
 		    );
 
 			$url = $this->url_user_service."/".$id;
@@ -210,6 +217,34 @@
 			return $service;
 
 }
+
+
+			public function findServiceBySubCategoryId($id){
+
+				$url      = $this->url_user_service;
+				$get_data = $this->callAPI("GET", $url, false, $this->autht);
+				$response = json_decode($get_data, true);
+				$errors = $response['status'];
+				$service = array();
+				
+				if ($errors == 200 || $errors == 201 || $errors == 404){
+					$data = $response['message'];
+					
+
+					foreach ($data as $datas) {
+
+						if ($datas['categoryId'] == $id) {
+							
+							$service = $datas;
+						}
+						
+					}
+
+				}
+
+				return $service;
+
+			}
 
 
 		  public function getServiceByArtisanId($id){

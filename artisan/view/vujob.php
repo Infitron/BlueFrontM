@@ -1,4 +1,17 @@
-                            <div class="col-lg-12">
+<?php   
+
+
+        if(isset($_GET['oid'])){
+
+
+        
+        }
+
+
+?>
+
+
+<div class="col-lg-12">
                                 <div class="card">
                                     <div class="card-header">
                                         <strong>View </strong>

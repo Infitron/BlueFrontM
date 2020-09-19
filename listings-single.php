@@ -1,36 +1,97 @@
 ﻿<?php include('hnav.php'); ?>
+<?php  
+
+    if (isset($_GET['aid']) && !empty($_GET['aid']) &&isset($_GET['sid']) && !empty($_GET['sid'])) {
+       
+        $aid              = addslashes(trim($_GET['aid']));
+        $sid              = addslashes(trim($_GET['sid']));
+
+        $user = new User();
+        $user->autht = $_SESSION['token'];
+        $user_data = $user->getUserArtisan($aid);
+
+        $aid                   = $user_data['id'];
+        $userId                = $user_data['userId'];
+        $firstName             = $user_data['firstName'];
+        $lastName              = $user_data['lastName'];
+        $phoneNumber           = $user_data['phoneNumber'];
+        $picturePath           = $user_data['picturePath'];
+        $address               = $user_data['address'];
+        $state                 = $user_data['state'];
+        $aboutMe               = $user_data['aboutMe'];
+        $artisanCategoryId     = $user_data['artisanCategoryId'];
+        $areaLocationId        = $user_data['areaLocationId'];
+
+        $full_name  =  $firstName." ".$lastName;
+
+        $service = new Service();
+        $service->autht = $_SESSION['token'];
+        $service_data = $service->getServiceDetails($sid);
+
+        $ssid          = $service_data['id'];
+        $artisanId     = $service_data['artisanId'];
+        $serviceName   = $service_data['serviceName'];
+        $descriptions  = $service_data['descriptions'];
+        $categoryId    = $service_data['category'];
+        $locationId    = $service_data['locationId'];
+        $lgaId         = $service_data['lgArea'];
+        $subCategory   = $service_data['subCategory'];
+        $image         = $service_data['image'];
+        $state         = $service_data['state'];
+        $creationDate  = $service_data['creationDate'];
+
+
+        $serv           = new Service();
+        $serv->autht    = $_SESSION['token'];
+        $sdata          = $serv->getServiceByArtisanId($aid);
+        $selService     = $serv->getServiceByArtisanId($aid);
+        
+
+
+       
+       
+
+
+   
+
+
+?>
+
+
 <!--================Home Banner Area =================-->
 <section class="profile_area">
     <div class="container">
         <div class="profile_inner p_120">
             <div class="row">
                 <div class="col-lg-5">
-                    <img class="img-fluid" src="images/barber.png" alt="">
+                    <img class="img-fluid" src="images/users/<?php echo $picturePath; ?>" alt="">
                 </div>
                 <div class="col-lg-7">
                     <div class="personal_text">
-                        <h6>Hello @donald, i am</h6>
-                        <h3>Donald McKinney</h3>
+                        <h6>Hello @<?php echo $firstName; ?>, i am</h6>
+                        <h3><?php echo $full_name; ?></h3>
                         <h4>Category</h4>
                         <ul class="list basic_info">
-                            <li><a href="#"><i class="lnr lnr-phone-handset"></i>Fashion Designer</a></li>
+                            <li><a href="#"><i class="lnr lnr-phone-handset"></i><?php echo $categoryId; ?></a></li>
                             
                         </ul>
                         <h4>Service</h4>
                         <ul class="list basic_info">
-                            <li><a href="#"><i class="lnr lnr-phone-handset"></i>Hair Stylist </a></li>
+                            <li><a href="#"><i class="lnr lnr-phone-handset"></i><?php echo $serviceName; ?></a></li>
                             
                         </ul>
                         <h4>Contact Information</h4>
                         <ul class="list basic_info">
-                            <li><a href="#"><i class="lnr lnr-phone-handset"></i> 08012345678</a></li>
-                            <li><a href="#"><i class="lnr lnr-envelope"></i> info@donald.com</a></li>
+                            <li><a href="#"><i class="lnr lnr-phone-handset"></i><?php echo $phoneNumber; ?></a></li>
+                        
                         </ul>
                         <h4>Location</h4>
                         <ul class="list basic_info">
-                            <li><a href="#"><i class="lnr lnr-phone-handset"></i>Block 100, ikeja GRA</a></li>
-                            <li><a href="#"><i class="lnr lnr-envelope"></i>Ikeja</a></li>
-                            <li><a href="#"><i class="lnr lnr-home"></i>Lagos State</a></li>
+                            <li><a href="#"><i class="lnr lnr-home"></i><?php echo  $address; ?></a></li>
+                        </ul>
+                        <h4>Information About Me</h4>
+                        <ul class="list basic_info">
+                            <li><a href="#"><i class="lnr lnr-home"></i><?php echo  $aboutMe; ?></a></li>
                         </ul>
                         
                         <div class="row">
@@ -71,34 +132,36 @@
 
                 <div class="mb-4" style="margin-top: -150px;">
                     <div class="slide-one-item home-slider owl-carousel">
-                        <div><img src="images/tailor.png" alt="Image" class="img-fluid rounded"></div>
-                        <div><img src="images/users.png" alt="Image" class="img-fluid rounded"></div>
-                        <div><img src="images/barber.png" alt="Image" class="img-fluid rounded"></div>
-                        <div><img src="images/shoemaker.png" alt="Image" class="img-fluid rounded"></div>
+                        <?php    
+
+                            foreach($sdata as $sdatas){
+
+                                $images           = $sdatas['image'];
+                        
+                        ?>
+                        <div><img src="images/services/<?php echo $images; ?>" alt="Image" class="img-fluid rounded"></div>
+
+                        <?php  }  ?>
                     </div>
                 </div>
-
-                <h4 class="h5 mb-4 text-black">Information About Me</h4>
-                <p>These are what you should know about Me:</p>
-                <ul>
-                    <li>Greet clients and make them comfortable</li>
-                    <li>Discuss hairstyle options with client</li>
-                    <li>Wash, color, lighten, and condition hair</li>
-                    <li>Chemically change hair textures</li>
-                    <li>Cut, dry, and style hair</li>
-                    <li>Cut and style wigs</li>
-                    <li>Make recommendations about hair or scalp problems</li>
-                    <li>Clean and disinfect all tools and work areas</li>
-                    
-                </ul>
-                <p class="mt-3"><a href="#" class="btn btn-primary">Book Me Now!</a></p>
+                <p class="mt-3"><a href="order_process.php?sid=<?php echo $sid; ?>&aid=<?php echo $aid; ?>&an=<?php echo $full_name; ?>" class="btn btn-primary">Book Me Now!</a></p>
             </div>
             <div class="col-lg-3 ml-auto">
                 <div class="mb-5">
                     <h3 class="h5 text-black mb-3">Other Servies</h3>
                     <ul>
-                        <li><a href="">Fasion and Beuty Consultant</a></li>
-                        <li><a href="">Sales of Makeup Tools</a></li>
+                        
+                        <?php    
+
+                              foreach($selService as $selServices){
+
+                                $sname  =  $selServices['serviceName'];
+                
+                         ?>
+                         <li><a href=""><?php echo $sname; ?></a></li>
+
+                    
+                        <?php  }  ?>  
                     </ul>
 
                 </div>
@@ -109,6 +172,8 @@
         </div>
     </div>
 </div>
+
+<?php   } ?>
 <div class="site-section bg-light">
     <div class="container">
         <div class="row mb-5">

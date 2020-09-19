@@ -2,13 +2,15 @@
 
     <?php 
 
+        
+
         $user = new User();
         $user->autht = $_SESSION['token'];
         $user->userLogin($_SESSION['email'],$_SESSION['password']);
         $user->autht = $_SESSION['token'];
         
 
-            $cid                   = $_SESSION['cid'] ;
+            $cid                   = $_SESSION['cid'];
             $userId                = $_SESSION['userId'];
             $firstName             = $_SESSION['firstName'];
             $lastName              = $_SESSION['lastName'];
@@ -19,6 +21,10 @@
             $createdDate           = $_SESSION['createdDate'];
             $token                 = $_SESSION['token'];
 
+            
+
+            
+
 
     ?>
         <!-- PAGE CONTAINER-->
@@ -28,9 +34,33 @@
                 <div class="section__content section__content--p30">
                     <div class="container-fluid">
                         <div class="header-wrap">
-                            <form class="form-header" action="" method="POST">
-                                <input class="au-input au-input--xl" type="text" name="search" placeholder="Search for datas &amp; reports..." />
-                                <button class="au-btn--submit" type="submit">
+                        <form class="form-header" action="index.php?ls" method="POST">
+                                
+                                <select class="au-input au-input--xl form-control" type="text" name="subCat" placeholder="Search for Service" />
+                                
+                                <?php 
+
+                               
+                                $cat = new SubCategory();
+                                $cat->autht = $_SESSION['token'];
+                                $cate = $cat->getSubCategory();
+
+                                foreach ($cate as $cates) {
+                                     $cat_id = $cates['id'];
+                                     $cat_lga = $cates['name'];
+
+                                     echo " <option data-id='$cat_id' value='$cat_id'>$cat_lga</option> ";
+                                     
+                                }
+
+
+                                
+                            
+                                ?>
+
+                            </select>
+
+                                <button class="au-btn--submit" type="submit" name="submit">
                                     <i class="zmdi zmdi-search"></i>
                                 </button>
                             </form>
@@ -276,7 +306,16 @@
                                 include("view/uservices.php");
                             } if (isset($_GET['usc'])) {
                                 include("view/vservices.php");
-                            }  
+                            }if (isset($_GET['ls'])) {
+                                include("view/listservice.php");
+                            } 
+                            
+                             //User Order
+                             if (isset($_GET['orm'])) {
+                                include("view/aorder.php");
+                            }if (isset($_GET['oms'])) {
+                                include("view/saorder.php");
+                            }
 
                         ?>
 

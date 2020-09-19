@@ -5,9 +5,10 @@
 
         if(isset($_POST['submit'])){
 
-               
+             
                 $email      = addslashes(trim($_POST['email']));
                 $password   = addslashes(trim($_POST['password']));
+
 
                 $url = "https://api.bluecollarhub.com.ng/api/v1.1/Account/Login";
 
@@ -47,11 +48,12 @@
                if($result){
                     
                     $testCheck = json_decode($result);
+                   
                     $status  = $testCheck->{'success'};
 
                     if(http_response_code(200) && $status == true ){
 
-                       
+                        
                         $userRole = $testCheck->{'userRole'};
 
 
@@ -63,9 +65,7 @@
 								$_SESSION['userRoleId'] = 1;
                                 $_SESSION['email']      = $email;
                                 $_SESSION['password']   = $password;
-                                $session->check_the_login();
-
-                               
+                                $session->check_the_login();                               
 
                                 $user = new User();
                                 $user->autht = $_SESSION['token'];
@@ -96,9 +96,10 @@
                                $_SESSION['artisanCategoryId']       = $user_data['artisanCategory']['id'];
                                $_SESSION['artisanCategoryName']     = $user_data['artisanCategory']['categoryName'];
                                $_SESSION['artisanCategoryDesc']     = $user_data['artisanCategory']['description'];
-                                
-                              
-                               
+
+                               $_SESSION['order_sids']   = $_SESSION['order_sid'];
+                               $_SESSION['order_aids']   = $_SESSION['order_aid'];
+                               $_SESSION['order_anames'] = $_SESSION['order_aname'];
                                 
 
 
@@ -133,6 +134,12 @@
                                 $_SESSION['state']                 = $user_data['state'];
                                 //$_SESSION['aboutMe']               = $user_data['aboutMe'];
                                 $_SESSION['createdDate']           = $user_data['createdDate'];
+
+                                $_SESSION['order_sids']   = $_SESSION['order_sid'];
+                                $_SESSION['order_aids']   = $_SESSION['order_aid'];
+                                $_SESSION['order_anames'] = $_SESSION['order_aname'];
+
+                                
                               
 
 								echo "<script> window.open('client/index.php?db','_self'); </script>";
