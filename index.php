@@ -1,6 +1,4 @@
-﻿<?php 
-
-        include('hnav.php'); 
+﻿<?php  include('hnav.php'); 
 
         $countCat = new SubCategory();
         $countCat->autht = $_SESSION['token'];            

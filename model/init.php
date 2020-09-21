@@ -1,9 +1,8 @@
 <?php
-  
 	error_reporting(1);
+	require_once("session.php");
 	require_once("Api.php");
 	require_once("auto_function.php");
-	require_once("session.php");
 	require_once("user.php");
 	require_once("category.php");
 	require_once("subcategory.php");
