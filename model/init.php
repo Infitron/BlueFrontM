@@ -14,6 +14,7 @@
 	require_once("state.php");
 	require_once("search.php");
 	require_once("order.php");
+	require_once("quote.php");
 
 	//require_once("test.php");
 	

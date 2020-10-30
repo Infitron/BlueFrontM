@@ -24,15 +24,17 @@
             $aboutMe               = $_SESSION['aboutMe'];
             $createdDate           = $_SESSION['createdDate'];
             $token                 = $_SESSION['token'];
-
             $areaLocationId        = $_SESSION['areaLocationId'];
-            $areaLocationState     = $_SESSION['areaLocationState'];
-            $areaLocationLga       = $_SESSION['areaLocationLga'];
-            $areaLocationArea      = $_SESSION['areaLocationArea'];
-
             $artisanCategoryId     = $_SESSION['artisanCategoryId'];
-            $artisanCategoryName   = $_SESSION['artisanCategoryName'];
-            $artisanCategoryDesc   = $_SESSION['artisanCategoryDesc'];
+            $code                  = $_SESSION['code'];
+            $refererCode           = $_SESSION['refererCode'];
+
+            /*
+            foreach($_SESSION as $key => $value){
+                echo "$key => $value <br />";
+            }
+            */
+
 
             
 
@@ -335,6 +337,15 @@
                                 include("view/aorder.php");
                             }if (isset($_GET['oms'])) {
                                 include("view/saorder.php");
+                            }
+
+                            //User Quote
+                            if (isset($_GET['qu'])) {
+                                include("view/uquote.php");
+                            }if (isset($_GET['qa'])) {
+                                include("view/aquote.php");
+                            }if (isset($_GET['qv'])) {
+                                include("view/vquote.php");
                             }
 
                             

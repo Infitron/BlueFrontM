@@ -156,9 +156,10 @@
                               foreach($selService as $selServices){
 
                                 $sname  =  $selServices['serviceName'];
+                                $asid  =   $selServices['id'];
                 
                          ?>
-                         <li><a href=""><?php echo $sname; ?></a></li>
+                         <li><a href="listings-single.php?aid=<?php echo $aid; ?>&sid=<?php echo $asid; ?>"><?php echo $sname; ?></a></li>
 
                     
                         <?php  }  ?>  

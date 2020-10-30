@@ -26,18 +26,18 @@
                 }
 
 
-                $url = "https://api.bluecollarhub.com.ng/api/Account/Register";
+                $url = "https://api.bluecollarhub.com.ng/api/v1.1/Account/Register";
 
                 //Initiate cURL.
                 $ch = curl_init($url);
 
                 //The JSON data.
                  $jsonData = array(
-                      'EmailAddress' => $email,
-                      'Password' =>  $password,
-                      'CreationDate' => $date,
-                      'RoleId' => $user_role,
-                      'UserName' =>  $username 
+                      'emailAddress' => $email,
+                      'password' =>  $password,
+                      'creationDate' => $date,
+                      'roleId' => $user_role,
+                      'userName' =>  $username 
                 );
 
                 //Encode the array into JSON.
@@ -74,25 +74,25 @@
 
                   
 
-                    if(http_response_code(200) && $status == true ){
+                    if(http_response_code(200) || $status == true ){
 
 
                         echo "<script>alert('Registration Successful')</script>";
                             
                             if($user_role == '1'){
 
-				                    $_SESSION['user_id']   =  $userId;
-				                    $_SESSION['email1']    =   $email;
-				                    $_SESSION['password'] =   $password;
+				                    $_SESSION['artisan_user_id']    =  $userId;
+				                    $_SESSION['email1']             =   $email;
+				                    $_SESSION['password']           =   $password;
 				                    
                             	 echo "<script>alert('Registration Successful and Create Your Profile')</script>";
                             	  echo "<script> window.open('../aregister.php','_self'); </script>";
 
                             } if($user_role == '2'){
 
-                                   $_SESSION['user_id']   =   $userId;
-                                    $_SESSION['email1']    =   $email;
-                                    $_SESSION['password'] =   $password;
+                                    $_SESSION['client_user_id']   =   $userId;
+                                    $_SESSION['email1']           =   $email;
+                                    $_SESSION['password']         =   $password;
 
                             	  echo "<script>alert('Registration Successful and Create Your Profile')</script>";
                             	  echo "<script> window.open('../cregister.php','_self'); </script>";

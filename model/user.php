@@ -19,6 +19,8 @@ class User extends Api{
 		public $ArtisanCategoryId;
 		public $category;
 		public $AboutMe;
+		public $RefererCode;
+		public $Code;
 
 
 		public $type;
@@ -149,7 +151,7 @@ class User extends Api{
 
 		                       if($userRole == 'Artisan'){
 
-										$_SESSION['user_id'] =   $testCheck->{'userId'};
+										$_SESSION['auser_id'] =   $testCheck->{'userId'};
 										$_SESSION['token'] =    "Authorization: bearer " .$testCheck->{'token'};
 										$_SESSION['userRole'] = $testCheck->{'userRole'};
 										$_SESSION['userRoleId'] = 1;
@@ -158,7 +160,7 @@ class User extends Api{
 		                                
 								}if($userRole == 'Client'){
 
-										$_SESSION['user_id'] =   $testCheck->{'userId'};
+										$_SESSION['cuser_id'] =   $testCheck->{'userId'};
 										$_SESSION['token'] =    "Authorization: bearer " .$testCheck->{'token'};
 										$_SESSION['userRole'] = $testCheck->{'userRole'};
 										$_SESSION['userRoleId'] = 2;
@@ -185,13 +187,14 @@ class User extends Api{
 
                 //The JSON data.
                  $jsonData = array(
-					     "FirstName" 		=> $this->FirstName,
-						  "LastName" 		=> $this->LastName,
-						 "PhoneNumber" 		=> $this->PhoneNumber,
-					    "PicturePath" 		=> $this->PicturePath,
-					    "Address"			=> $this->Address,
-					    "State"				=> $this->State,
-						 "UserId" 			=> $this->UserId
+					"firstName" 		=> $this->FirstName,
+					"lastName" 		=> $this->LastName,
+				   "phoneNumber" 		=> $this->PhoneNumber,
+				   "idcardNo"			 => $this->IdcardNo,
+				  "picturePath" 		=> $this->PicturePath,
+				  "address"			=> $this->Address,
+				  "state"				=> $this->State,
+				   "userId" 			=> $this->UserId
 				   );
 
 
@@ -240,13 +243,14 @@ class User extends Api{
 			public function updateClient($id){
 
 					$data_array =  array(
-					      "FirstName" 		=> $this->FirstName,
-						  "LastName" 		=> $this->LastName,
-						 "PhoneNumber" 		=> $this->PhoneNumber,
-					    "PicturePath" 		=> $this->PicturePath,
-					    "Address"			=> $this->Address,
-					    "State"				=> $this->State,
-						 "UserId" 			=> $this->UserId
+					      "firstName" 		=> $this->FirstName,
+						  "lastName" 		=> $this->LastName,
+						 "phoneNumber" 		=> $this->PhoneNumber,
+						 "idcardNo"			 => $this->IdcardNo,
+					    "picturePath" 		=> $this->PicturePath,
+					    "address"			=> $this->Address,
+					    "state"				=> $this->State,
+						 "userId" 			=> $this->UserId
 				   );
 
 					$url = $this->url_user_client."/".$id;
@@ -255,7 +259,7 @@ class User extends Api{
 					$status  = $response['status'];
 					$message = $response['message'];
 					
-					if(http_response_code(200) && $status == 200 ){
+					if(http_response_code(200) || $status == 200 ||  $status == 201 ){
 
 							
 
@@ -266,7 +270,8 @@ class User extends Api{
                                 $_SESSION['phoneNumber']           = $this->PhoneNumber;
                                 $_SESSION['picturePath']           = $this->PicturePath;
                                 $_SESSION['address']               = $this->Address;
-                                $_SESSION['state']                 = $this->State;
+								$_SESSION['state']                 = $this->State;
+								$_SESSION['idcardNo']              = $this->idcardNo;
 
                                  echo "<script>alert('Client Data Updated')</script>";
                               
@@ -283,7 +288,7 @@ class User extends Api{
 					$status  =  $response['status'];
 					$message = $response['message'];
 					
-					if(http_response_code(200) && $status == 200 ){
+					if(http_response_code(200) || $status == 200 ||  $status == 201 ){
 
 							 return $message;
 					}else{
@@ -301,7 +306,7 @@ class User extends Api{
 					$status  =  $response['status'];
 					$message = $response['message'];
 					
-					if(http_response_code(200) && $status == 200 ){
+					if(http_response_code(200) || $status == 200 ||  $status == 201 ){
 
 							 return $message;
 					}else{
@@ -338,7 +343,7 @@ class User extends Api{
 					$status  =  $response['status'];
 					$message = $response['message'];
 					
-					if(http_response_code(200) && $status == 200 ){
+					if(http_response_code(200) || $status == 200 ||  $status == 201 ){
 
 							 return $message;
 					}else{
@@ -383,63 +388,41 @@ class User extends Api{
 			}
 
 
+		
+		
+			public function createArtisan(){
 
-			public  function createArtisan(){
-
+				$data_array =  array(
+					"firstName" 		 	=> $this->FirstName,
+					"lastName" 		 		=> $this->LastName,
+				   "phoneNumber" 		 	=> $this->PhoneNumber,
+				   "areaLocationId" 	 	=> $this->AreaLocationId,
+				  "artisanCategoryId"  		=> $this->ArtisanCategoryId,
+				  "idcardNo"			 	=> $this->IdcardNo,
+				  "picturePath" 		 	=> $this->PicturePath,
+				  "address"			 		=> $this->Address,
+				  "state" 			 		=> $this->State,
+				  "aboutMe" 			 	=> $this->AboutMe,
+				   "userId" 			 	=> $this->UserId,
+				   "refererCode" 	     	=> $this->RefererCode
+			   );
 
 				$url = $this->url_user_artisan;
-					
-					 //Initiate cURL.
-                $ch = curl_init($url);
+				$make_call = $this->callAPI('POST', $url, json_encode($data_array),$this->autht);
+				$response = json_decode($make_call, true);
 
-                //The JSON data.
-                 $jsonData = array(
-					     "FirstName" 		 => $this->FirstName,
-						  "LastName" 		 => $this->LastName,
-						 "PhoneNumber" 		 => $this->PhoneNumber,
-						 "AreaLocationId" 	 => $this->AreaLocationId,
-						"ArtisanCategoryId"  => $this->ArtisanCategoryId,
-					    "IdcardNo"			 => $this->IdcardNo,
-					    "PicturePath" 		 => $this->PicturePath,
-					    "Address"			 => $this->Address,
-					    "State" 			 => $this->State,
-					    "AboutMe" 			 => $this->AboutMe,
-						 "UserId" 			 => $this->UserId
-				   );
+				$status  = $response['status'];
+				$message = $response['message'];
+				
+				if(http_response_code(200) || $status == 200 || $status == 201 ){
 
-                //Encode the array into JSON.
-                $jsonDataEncoded = json_encode($jsonData);
+							 echo "<script>alert('Artisan Data Create')</script>";
+							
+				}
 
+		}
 
-                echo "<span style='display:none'>";
-                //Tell cURL that we want to send a POST request.
-                curl_setopt($ch, CURLOPT_POST, 1);
-
-                curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-
-                //Attach our encoded JSON string to the POST fields.
-                curl_setopt($ch, CURLOPT_POSTFIELDS, $jsonDataEncoded);
-
-                //Set the content type to application/json
-                curl_setopt($ch, CURLOPT_HTTPHEADER, array($this->autht,'Content-Type: application/json; charset=utf-8'));
-
-                //Execute the request
-                $result = curl_exec($ch);
-
-                //Close CURL
-                curl_close($ch);
-
-                echo"</span>";
-
-               if($result){
-                    
-                    $testCheck = json_decode($result);
-                    $status  = $testCheck->{'status'};
-                    $message  = $testCheck->{'message'};
-
-                    return $result;
-			  }
-		    }
+			
 
 
 			
@@ -448,17 +431,18 @@ class User extends Api{
 			public function updateArtisan($id){
 
 					$data_array =  array(
-					     "FirstName" 		 => $this->FirstName,
-						  "LastName" 		 => $this->LastName,
-						 "PhoneNumber" 		 => $this->PhoneNumber,
-						 "AreaLocationId" 	 => $this->AreaLocationId,
-						"ArtisanCategoryId"  => $this->ArtisanCategoryId,
-					    "IdcardNo"			=> $this->IdcardNo,
-					    "PicturePath" 		=> $this->PicturePath,
-					    "Address"			=> $this->Address,
-					    "State" 			=> $this->State,
-					    "AboutMe" 			=> $this->AboutMe,
-						 "UserId" 			=> $this->UserId
+						"firstName" 		 	=> $this->FirstName,
+						"lastName" 		 		=> $this->LastName,
+					   "phoneNumber" 		 	=> $this->PhoneNumber,
+					   "areaLocationId" 	 	=> $this->AreaLocationId,
+					  "artisanCategoryId"  		=> $this->ArtisanCategoryId,
+					  "idcardNo"			 	=> $this->IdcardNo,
+					  "picturePath" 		 	=> $this->PicturePath,
+					  "address"			 		=> $this->Address,
+					  "state" 			 		=> $this->State,
+					  "aboutMe" 			 	=> $this->AboutMe,
+					   "userId" 			 	=> $this->UserId,
+					   "refererCode" 	     	=> $this->RefererCode
 				   );
 
 
@@ -469,7 +453,7 @@ class User extends Api{
 					$status  = $response['status'];
 					$message = $response['message'];
 					
-					if(http_response_code(200) || $status == 200 ){
+					if(http_response_code(200) || $status == 200 ||  $status == 201 ){
 
 							
 
@@ -482,7 +466,8 @@ class User extends Api{
                                 $_SESSION['picturePath']           = $this->PicturePath;
                                 $_SESSION['address']               = $this->Address;
                                 $_SESSION['state']                 = $this->State;
-                                $_SESSION['aboutMe']               = $this->AboutMe;
+								$_SESSION['aboutMe']               = $this->AboutMe;
+								$_SESSION['refererCode']           = $this->RefererCode;
 
                                  echo "<script>alert('Artisan Data Update')</script>";
                                 

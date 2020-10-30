@@ -48,7 +48,7 @@
 
 		public function getStateId($id){
 
-			$url = $this->url_user_state."/ThisState/".$id;
+			$url = $this->url_state."/".$id;
 			$get_data = $this->callAPI("GET", $url, false, $this->autht);
 			$response = json_decode($get_data, true);
 			$errors = $response['status'];

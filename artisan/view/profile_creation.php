@@ -43,7 +43,7 @@
 
                                                             foreach ($cate as $cates) {
                                                                 $cat_id = $cates['id'];
-                                                                $cat_lga = $cates['subCategories'];
+                                                                $cat_lga = $cates['categoryName'];
 
                                                                 echo " <option value='$cat_id'>$cat_lga</option>";
                                                             }
@@ -82,7 +82,24 @@
                                         </div>
                                          <div class="form-group">
                                             <label for="state" class=" form-control-label">State</label>
-                                            <input type="text" id="state" placeholder="" name="state"  class="form-control" >
+                                            <select name="state" id="state" class="form-control">
+                                                     <?php  
+
+                                                                $sta = new State();
+                                                                $sta->autht = $_SESSION['token'];
+                                                                $staa = $sta->getState();
+
+                                                                foreach ($staa as $staas) {
+                                                                    $id        = $staas['id'];
+                                                                    $stat_name = $staas['name'];
+
+                                                                    echo " <option value='$id'>$stat_name</option>";
+                                                                }
+
+
+                                                    ?>
+                                            </select>
+
                                         </div>
                                         
 
@@ -94,7 +111,7 @@
                                         </div>
                                                
                                                   <input type="hidden"  placeholder="" name="token" class="form-control" value="<?php echo $token; ?>">
-                                                   <input type="hidden"  placeholder="" name="user_id" class="form-control" value="<?php echo $_SESSION['user_id'];; ?>">
+                                                   <input type="hidden"  placeholder="" name="user_id" class="form-control" value="<?php echo $_SESSION['user_id']; ?>">
                                                 <div class="form-group">
                                                       <input type="submit" class="btn btn-primary btn-lg" name="submit" value="Submit" >
                                                 </div>

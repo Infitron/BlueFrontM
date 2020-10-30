@@ -23,6 +23,7 @@
 		 public $url_user_complaint 	= "https://api.bluecollarhub.com.ng/api/v1.1/Complaint";
 		 public $url_user_complaintId 	= "https://api.bluecollarhub.com.ng/api/v1.1";
 		 public $url_user_state 		= "https://api.bluecollarhub.com.ng/api/v1.1/StateLocalGovernment/State/AllState";
+		 public $url_state 				= "https://api.bluecollarhub.com.ng/api/v1.1/StateLocalGovernment/ThisState";
 		 public $autht;
 
 

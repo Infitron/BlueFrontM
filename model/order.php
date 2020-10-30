@@ -20,9 +20,9 @@
             public function postOrder(){
 
                 $data_array =  array(
-                    "ClientUserId" 	=> $this->clientId,
-                    "Messages" 	    => $this->messages,
-                    "ServiceId" 	=> $this->serviceId,
+                    "clientUserId" 	=> $this->clientId,
+                    "messages" 	    => $this->messages,
+                    "serviceId" 	=> $this->serviceId,
                    
                 );
 
@@ -40,8 +40,8 @@
             public function putOrder($id){
 
                 $data_array =  array(
-                    "BookingId" 	=> $id,
-                    "QouteId" 	    => $this->quoteId,
+                    "bookingId" 	=> $id,
+                    "qouteId" 	    => $this->quoteId,
                    
                 );
 
@@ -110,8 +110,36 @@
 
 			return $data;
         }
+
+
+        public function getOrderByClientId($id){
+
+			$url = $this->url_user_order;
+			$get_data = $this->callAPI("GET", $url, false, $this->autht);
+			$response = json_decode($get_data, true);
+			$errors = $response['status'];
+			$orderQ = array();
+			
+			if ($errors == 200 || $errors == 201){
+                $data = $response['message'];
+                
+                foreach ($data as $datas) {
+
+                    if ($datas['clienId'] == $id) {
+                        
+                        $orderQ = $datas;
+                    }
+                    
+                }
+
+            }
+            
+
+			return $orderQ;
+        }
         
 
+       
         
             
         

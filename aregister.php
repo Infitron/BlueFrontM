@@ -1,12 +1,12 @@
 ﻿<?php include('hnav.php'); ?>
 
 <?php
-        include('model/init.php');
+        
 
 
        
           $email =  $_SESSION['email1'];
-          $userId = $_SESSION['user_id'];
+          $userId = $_SESSION['artisan_user_id'];
           $password = $_SESSION['password'];
         
 
@@ -29,6 +29,7 @@
                 $cat        = addslashes(trim($_POST['cat']));
                 $address    = addslashes(trim($_POST['address']));
                 $aboutme    = addslashes(trim($_POST['aboutme']));
+                $IdcardNo   = addslashes(trim($_POST['IdcardNo']));
 
 
                  $user_reg = new User();
@@ -36,7 +37,7 @@
                  $user_reg->FirstName              = $fname;
                  $user_reg->LastName               = $lname;
                  $user_reg->PhoneNumber            = $phone;
-                 $user_reg->IdcardNo               = "200LAG";
+                 $user_reg->IdcardNo               = $IdcardNo;
                  $user_reg->Address                = $address;
                  $user_reg->PicturePath            = "default.png";
                  $user_reg->State                  = $state;
@@ -44,6 +45,7 @@
                  $user_reg->AreaLocationId         = $loc;
                  $user_reg->ArtisanCategoryId      = $cat;
                  $user_reg->AboutMe                = $aboutme;
+                 $user_reg->RefererCode            = "Default";
                  $user_reg->createArtisan();
 
                 echo "<script> window.open('login.php','_self'); </script>";
@@ -59,10 +61,10 @@
         <div class="row justify-content-center">
             <div class="col-md-7 mb-5" data-aos="fade">
 
-                <h2 class="mb-5 text-black">Artisan Registration</h2>
+                
 
                 <form action="" method="POST" id="reguser-form" class="p-5 bg-white" enctype="multipart/form-data">
-
+                <h2 class="mb-5 text-black">Artisan Registration</h2>
                         <div class="row form-group">
 
                                 <div class="col-md-12">
@@ -99,6 +101,13 @@
                                 <label class="text-black" for="username">Phone Number</label>
                                 <input type="text" id="phone" name="phone" class="form-control">
                             </div>
+                        </div>
+                        <div class="row form-group">
+
+                        <div class="col-md-12">
+                            <label class="text-black" for="IdcardNo">Identification Number (Drivig Licence, National ID, Voters ID)</label>
+                            <input type="text" id="IdcardNo" name="IdcardNo" class="form-control">
+                        </div>
                         </div>
 
                         <div class="row form-group">

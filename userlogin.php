@@ -65,7 +65,9 @@
 								$_SESSION['userRoleId'] = 1;
                                 $_SESSION['email']      = $email;
                                 $_SESSION['password']   = $password;
-                                $session->check_the_login();                               
+                                $session->check_the_login(); 
+                                
+                               // var_dump($_SESSION['user_id']); die();
 
                                 $user = new User();
                                 $user->autht = $_SESSION['token'];
@@ -84,18 +86,12 @@
                                 $_SESSION['state']                 = $user_data['state'];
                                 $_SESSION['aboutMe']               = $user_data['aboutMe'];
                                 $_SESSION['createdDate']           = $user_data['createdDate'];
-                                $_SESSION['areaLocation']          = $user_data['areaLocation'];
-                                $_SESSION['artisanCategory']       = $user_data['artisanCategory'];
+                                $_SESSION['areaLocationId']        = $user_data['areaLocationId'];
+                                $_SESSION['artisanCategoryId']     = $user_data['artisanCategoryId'];
+                                $_SESSION['code']                  = $user_data['code'];
+                                $_SESSION['refererCode']           = $user_data['refererCode'];
+    
 
-
-                               $_SESSION['areaLocationId']          = $user_data['areaLocation']['id'];
-                               $_SESSION['areaLocationState']       = $user_data['areaLocation']['state'];
-                               $_SESSION['areaLocationLga']         = $user_data['areaLocation']['lga'];
-                               $_SESSION['areaLocationArea']        = $user_data['areaLocation']['area'];
-
-                               $_SESSION['artisanCategoryId']       = $user_data['artisanCategory']['id'];
-                               $_SESSION['artisanCategoryName']     = $user_data['artisanCategory']['categoryName'];
-                               $_SESSION['artisanCategoryDesc']     = $user_data['artisanCategory']['description'];
 
                                $_SESSION['order_sids']   = $_SESSION['order_sid'];
                                $_SESSION['order_aids']   = $_SESSION['order_aid'];
@@ -107,9 +103,9 @@
 
 						} if($userRole == 'Client'){
 
-								$_SESSION['user_id'] = $testCheck->{'userId'};
-								$_SESSION['token'] = "Authorization: bearer " .$testCheck->{'token'};
-								$_SESSION['userRole'] = $testCheck->{'userRole'};
+								$_SESSION['user_id']    = $testCheck->{'userId'};
+								$_SESSION['token']      = "Authorization: bearer " .$testCheck->{'token'};
+								$_SESSION['userRole']   = $testCheck->{'userRole'};
 								$_SESSION['userRoleId'] = 2;
                                 $_SESSION['email']      = $email;
                                 $_SESSION['password']   = $password;
@@ -128,7 +124,7 @@
                                 $_SESSION['firstName']             = $user_data['firstName'];
                                 $_SESSION['lastName']              = $user_data['lastName'];
                                 $_SESSION['phoneNumber']           = $user_data['phoneNumber'];
-                                //$_SESSION['idcardNo']              = $user_data['idcardNo'];
+                                $_SESSION['idcardNo']              = $user_data['idcardNo'];
                                 $_SESSION['picturePath']           = $user_data['picturePath'];
                                 $_SESSION['address']               = $user_data['address'];
                                 $_SESSION['state']                 = $user_data['state'];

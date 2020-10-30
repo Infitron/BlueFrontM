@@ -1,10 +1,10 @@
 ﻿<?php include('hnav.php'); ?>
 
 <?php
-        include('model/init.php');
+        
 
-          $email =  $_SESSION['email1'];
-          $userId = $_SESSION['user_id'];
+          $email    =  $_SESSION['email1'];
+          $userId   = $_SESSION['client_user_id'];
           $password = $_SESSION['password'];
         
 
@@ -21,6 +21,7 @@
                 $phone      = addslashes(trim($_POST['phone']));
                 $state      = addslashes(trim($_POST['state']));
                 $address    = addslashes(trim($_POST['address']));
+                $IdcardNo   = addslashes(trim($_POST['IdcardNo']));
                
              
 
@@ -30,14 +31,14 @@
                  $user_reg->FirstName              = $fname;
                  $user_reg->LastName               = $lname;
                  $user_reg->PhoneNumber            = $phone;
-                 $user_reg->IdcardNo               = "200LAG";
+                 $user_reg->IdcardNo               = $IdcardNo;
                  $user_reg->PicturePath            = "default.png";
                  $user_reg->Address                = $address;
                  $user_reg->State                  = $state;
                  $user_reg->UserId                 = $userId;
                  $user_reg->createClient();
 
-                echo "<script>alert('Client Creation Successful')</script>";
+                //echo "<script>alert('Client Creation Successful')</script>";
                 echo "<script> window.open('login.php','_self'); </script>";
         }
 
@@ -51,10 +52,10 @@
         <div class="row justify-content-center">
             <div class="col-md-7 mb-5" data-aos="fade">
 
-                <h2 class="mb-5 text-black">Client Registration</h2>
+                
 
                 <form action="" method="POST" id="reguser-form" class="p-5 bg-white" enctype="multipart/form-data">
-
+                         <h2 class="mb-5 text-black">Client Registration</h2>
                         <div class="row form-group">
 
                                 <div class="col-md-12">
@@ -65,7 +66,7 @@
                         <div class="row form-group">
 
                                 <div class="col-md-12">
-                                    <label class="text-black" for="fname"> Last Name</label>
+                                    <label class="text-black" for="lname"> Last Name</label>
                                     <input type="text" id="lname" name="lname" class="form-control">
                                 </div>
                         </div>
@@ -73,7 +74,14 @@
                         <div class="row form-group">
 
                             <div class="col-md-12">
-                                <label class="text-black" for="username">Phone Number</label>
+                                <label class="text-black" for="IdcardNo">Identification Number (Drivig Licence, National ID, Voters ID)</label>
+                                <input type="text" id="IdcardNo" name="IdcardNo" class="form-control">
+                            </div>
+                        </div>
+                        <div class="row form-group">
+
+                            <div class="col-md-12">
+                                <label class="text-black" for="phone">Phone Number</label>
                                 <input type="text" id="phone" name="phone" class="form-control">
                             </div>
                         </div>

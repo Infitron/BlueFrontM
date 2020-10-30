@@ -4,6 +4,7 @@
 	class BankDetails extends Api	{
 		
 			public $id;
+			public $ArtisanId;
     		public $AccountName;
     		public $AccountNumber;
     		public $BankCode;
@@ -81,12 +82,12 @@
 
 				$data_array =  array(
 
-					    "AccountName" 			=> $this->AccountName,
-						"AccountNumber" 		=> $this->AccountNumber,
-						"BankCode" 		    	=> $this->BankCode,
-					    "Bvn"					=> $this->Bvn,
-						"UserId" 				=> $this->UserId,
-						"CreatedDate" 			=> $this->CreatedDate,
+					    "accountName" 			=> $this->AccountName,
+						"accountNumber" 		=> $this->AccountNumber,
+						"bankCode" 		    	=> $this->BankCode,
+					    "bvn"					=> $this->Bvn,
+						"userId" 				=> $this->UserId,
+						"createdDate" 			=> $this->CreatedDate,
 				   );
 
 				$url = $this->url_user_bank;
@@ -111,12 +112,12 @@
 
 				$data_array =  array(
 
-					    "AccountName" 			=> $this->AccountName,
-						"AccountNumber" 		=> $this->AccountNumber,
-						"BankCode" 		    	=> $this->BankCode,
-					    "Bvn"					=> $this->Bvn,
-						"UserId" 				=> $this->UserId,
-						"CreatedDate" 			=> $this->CreatedDate,
+					    "accountName" 			=> $this->AccountName,
+						"accountNumber" 		=> $this->AccountNumber,
+						"bankCode" 		    	=> $this->BankCode,
+					    "bvn"					=> $this->Bvn,
+						"userId" 				=> $this->UserId,
+						"createdDate" 			=> $this->CreatedDate,
 				 );
 
 

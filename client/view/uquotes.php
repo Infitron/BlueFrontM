@@ -1,5 +1,20 @@
-                        
-                        <div class="row">
+<?php
+
+        $ajob = new Order();
+        $ajob->autht = $token;
+        $ajs = $ajob->getOrderByClientId($cid);
+
+
+
+
+
+
+
+?>
+
+
+        
+        <div class="row">
                             <div class="col-md-12">
                                 <div class="overview-wrap">
                                     <h2 class="title-1">User Service Quotes</h2>
@@ -25,15 +40,68 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>Max Mayowa</td>
-                                                <td>Computer Electronics Repairs</td>
-                                                <td>Electricial Electronics</td>
-                                                <td>Electronics</td>
-                                                <td>1000</td>
-                                                <td> <a href="index.php?vq" class="btn btn-primary btn-lg">View</a></td>
-                                            </tr>
+
+
+                                            <?php
+
+                                                foreach($ajs as $aj){
+
+                                                    $qid                 = $aj['id'];
+                                                    $artisanFullName    = $aj['artisanFullNmae'];
+                                                    $serviceId          = $aj['serviceId'];
+                                                    
+                                                    $quote = new Quote();
+                                                    $quote->autht = $token;
+                                                    $quo =  $quote->getQuoteByOrderId($qid);
+
+                                                   
+
+                                                    foreach ($quo as $quos) {
+
+                                                        $serv  = new Service();
+                                                        $serv->autht = $token;
+                                                        $ser = $serv->getServiceDetails($serviceId);
+                                                        $ser_name = $ser['serviceName'];
+                                                        $ser_cat  = $ser['category'];
+                                                        $ser_subcat = $ser['subCategory'];
+
+                                                        $idq      =  $quos['id'];
+                                                        $amtTotal =  $quos['total'];
+
+                                                        echo" 
+                                                        
+                                                                <tr>
+                                                                    <td>$idq</td>
+                                                                    <td>$artisanFullName</td>
+                                                                    <td>$ser_name</td>
+                                                                    <td>$ser_cat</td>
+                                                                    <td>$ser_subcat</td>
+                                                                    <td>$amtTotal</td>
+                                                                    <td> <a href='index.php?vq?qid=$idq' class='btn btn-primary btn-lg'>View</a></td>
+                                                                </tr>
+                                                        
+                                                        
+                                                        
+                                                        
+                                                        
+                                                        ";
+
+
+
+
+
+
+                                                       
+                                                    }
+
+
+
+                                                }
+
+
+
+                                            ?>
+                                            
 
                                         </tbody>
                                     </table>

@@ -74,12 +74,12 @@
 
 					$data_array =  array(
 
-						    "Title" 			=> $this->Title,
-							"ArtisanId" 		=> $this->ArtisanId,
-							"Description" 		=> $this->Description,
-						    "CreatedDate"		=> $this->CreatedDate,
-							"StatusId" 		    => $this->StatusId,
-							"DateResolved" 		=> $this->DateResolved
+						    "title" 			=> $this->Title,
+							"artisanId" 		=> $this->ArtisanId,
+							"description" 		=> $this->Description,
+						    "createdDate"		=> $this->CreatedDate,
+							"statusId" 		    => $this->StatusId,
+							"dateResolved" 		=> $this->DateResolved
 					   );
 
 					$url = $this->url_user_complaint;
@@ -105,12 +105,12 @@
 
 				$data_array =  array(
 
-						    "Title" 			=> $this->Title,
-							"ArtisanId" 		=> $this->ArtisanId,
-							"Description" 		=> $this->Description,
-						    "CreatedDate"		=> $this->CreatedDate,
-							"StatusId" 		    => $this->StatusId,
-							"DateResolved" 		=> $this->DateResolved
+						    "title" 			=> $this->Title,
+							"artisanId" 		=> $this->ArtisanId,
+							"description" 		=> $this->Description,
+						    "createdDate"		=> $this->CreatedDate,
+							"statusId" 		    => $this->StatusId,
+							"dateResolved" 		=> $this->DateResolved
 				);
 
 

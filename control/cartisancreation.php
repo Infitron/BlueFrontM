@@ -23,6 +23,9 @@
                 $date               =  date('Y/m/d'); 
 
 
+               
+
+
                  $user_reg = new User();
                  $user_reg->autht                  = $token;
                  $user_reg->set_file($_FILES['ufile']);
@@ -36,9 +39,9 @@
                  $user_reg->AreaLocation           = $loc;
                  $user_reg->ArtisanCategoryId      = $cat;
                  $user_reg->AboutMe                = $aboutme;
+                 $user_reg->RefererCode            = " ";
                  $user_reg->createArtisan();
 
-                echo "<script>alert('Artisan Data Create')</script>";
                 echo "<script> window.open('../logout.php','_self'); </script>";
                 
                 

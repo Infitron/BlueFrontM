@@ -73,15 +73,31 @@
                                         </div>
                                          <div class="form-group">
                                             <label for="state" class=" form-control-label">State</label>
-                                            <input type="text" id="state" placeholder="" name="state" value="<?php echo $state; ?>" class="form-control" >
+                                           
+                                                        <select name="state" id="state"  class="form-control">
+
+                                                                <?php  
+
+                                                                            $sta = new State();
+                                                                            $sta->autht = $_SESSION['token'];
+                                                                            $staa = $sta->getState();
+
+                                                                            foreach ($staa as $staas) {
+                                                                                $id        = $staas['id'];
+                                                                                $stat_name = $staas['name'];
+
+                                                                                echo " <option value='$id'>$stat_name</option>";
+                                                                            }
+
+
+                                                                ?>
+                                                                
+                                                        </select>
                                         </div>
                                          <div class="form-group">
                                             <label for="country" class=" form-control-label">Country</label>
                                             <input type="text" id="country" placeholder="" name="country" value="Nigeria" class="form-control" >
                                         </div>
-
-
-                                       
                                         
                                          <div class="form-group">
                                             <label for="profession" class=" form-control-label">Category</label>

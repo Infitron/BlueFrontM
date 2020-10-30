@@ -2,10 +2,8 @@
         include('model/init.php'); 
 
         $user = new User();
-        $user->userLogin('tymax@max.com','@infoBlue2');
+        $user->userLogin('ton7@max.com','@Testing1');
         $user->autht = $_SESSION['token'];
-
-
         
 
        

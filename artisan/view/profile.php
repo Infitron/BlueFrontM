@@ -27,12 +27,18 @@
          $BankCode = new BankCode();
          $BankCode->autht =  $_SESSION['token'];
          $uBCName  = $BankCode->getBankCodeName($UbankD['bankCode']);
-        
 
-         
+         $cate  = new Category();
+         $cate->autht =  $_SESSION['token'];
+         $cates =  $cate->getCategoryId($artisanCategoryId);
+         $cate_name = $cates['categoryName'];
+         $cate_desc = $cates['description'];
 
-
-
+    
+        $stat = new State();
+        $stat->autht =  $_SESSION['token'];
+        $states =  $stat->getStateId($state);
+        $state_name = $states['name'];
         
 
 
@@ -91,7 +97,7 @@
                                         </div>
                                          <div class="form-group">
                                             <label for="state" class=" form-control-label">State</label>
-                                            <input type="text" id="state" placeholder="" name="state" value="<?php echo $state; ?>" class="form-control" readonly="">
+                                            <input type="text" id="state" placeholder="" name="state" value="<?php echo $state_name; ?>" class="form-control" readonly="">
                                         </div>
                                          <div class="form-group">
                                             <label for="country" class=" form-control-label">Country</label>
@@ -138,12 +144,12 @@
 
                                          <div class="form-group">
                                             <label for="profession" class=" form-control-label">Category</label>
-                                            <input type="text" id="profession" placeholder="" name="profession" class="form-control" value="<?php echo $artisanCategoryName; ?>" readonly=""> 
+                                            <input type="text" id="profession" placeholder="" name="profession" class="form-control" value="<?php echo $cate_name; ?>" readonly=""> 
                                         </div>
 
                                          <div class="form-group">
                                             <label for="category" class=" form-control-label">Category Description</label>
-                                            <textarea name="catDesc" id="catDesc" rows="9" placeholder=""  class="form-control" readonly=""><?php echo $artisanCategoryDesc; ?></textarea>
+                                            <textarea name="catDesc" id="catDesc" rows="9" placeholder=""  class="form-control" readonly=""><?php echo $cate_desc; ?></textarea>
                                         </div>
 
                                         </div>

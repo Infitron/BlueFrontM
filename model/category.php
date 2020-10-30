@@ -24,7 +24,7 @@
 
 
 			public function getCategoryId($id){
-				$url = $this->url_user_aSubcategory."/".$id;
+				$url = $this->url_user_acategory."/".$id;
 			    $get_data = $this->callAPI("GET", $url, false, $this->autht);
 			    $response = json_decode($get_data, true);
 			    $errors = $response['status'];

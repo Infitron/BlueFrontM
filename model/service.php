@@ -104,17 +104,17 @@
 		public function postService(){
 
 			$data_array =  array(
-				"ArtisanId" 	=> $this->artisanId,
-				"ServiceName"	=> $this->serviceName,
-			    "Descriptions" 	=> $this->descriptions,
-			    "StatusId" 		=> $this->statusId,
-				"CategoryId" 	=> $this->categoryId,
-				"SubCategoryId" => $this->subcategoryId,
-			    "LocationId" 	=> $this->locationId,
-			    "LgaId"		    => $this->lgaId,
-			    "Image" 		=> $this->image,
-				"CreationDate" 	=> $this->creationDate,
-				"StateId" 		=> $this->stateId
+				"artisanId" 	=> $this->artisanId,
+				"serviceName"	=> $this->serviceName,
+				"descriptions" 	=> $this->descriptions,
+				"statusId" 		=> $this->statusId,
+				"categoryId" 	=> $this->categoryId,
+				"subCategoryId" => $this->subcategoryId,
+				"locationId" 	=> $this->locationId,
+				"lgaId"		    => $this->lgaId,
+				"image" 		=> $this->image,
+				"creationDate" 	=> $this->creationDate,
+				"stateId" 		=> $this->stateId
 
 			   
 			);
@@ -137,17 +137,17 @@
 		public function putService($id){
 
 			$data_array =  array(
-				"ArtisanId" 	=> $this->artisanId,
-			    "Descriptions" 	=> $this->descriptions,
-			    "ServiceName"	=> $this->serviceName,
-			    "StatusId" 		=> $this->statusId,
-				"CategoryId" 	=> $this->categoryId,
-				"SubCategoryId" => $this->subcategoryId,
-			    "LocationId" 	=> $this->locationId,
-			    "LgaId"		    => $this->lgaId,
-			    "Image" 		=> $this->image,
-				"CreationDate" 	=> $this->creationDate,
-				"StateId" 		=> $this->stateId
+				"artisanId" 	=> $this->artisanId,
+			    "descriptions" 	=> $this->descriptions,
+			    "serviceName"	=> $this->serviceName,
+			    "statusId" 		=> $this->statusId,
+				"categoryId" 	=> $this->categoryId,
+				"subCategoryId" => $this->subcategoryId,
+			    "locationId" 	=> $this->locationId,
+			    "lgaId"		    => $this->lgaId,
+			    "image" 		=> $this->image,
+				"creationDate" 	=> $this->creationDate,
+				"stateId" 		=> $this->stateId
 		    );
 
 			$url = $this->url_user_service."/".$id;
