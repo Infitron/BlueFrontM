@@ -50,7 +50,7 @@
         <div class="row">
           <div class="col-lg-8">
 
-            <div class="row">
+          <div class="row" id="scrolling_to_bottom">
 
 
 
@@ -99,42 +99,67 @@
             <?php         
 
                   }
+                  
+              }else{
+
+                echo "<script>alert('Services not Found')</script>";
+                echo "<script> window.open('index.php','_self'); </script>";
+               
+
               }
 
             ?>
+          <script>
+            $('#scrolling_to_bottom').animate({
+              scrollTop: $('#scrolling_to_bottom').get(0).scrollHeight}, 1000);
+          </script>
+          <script type="text/javascript">
+            $(document).ready(function(){
+              var height = $('#scrolling_to_bottom').height();
+              $('#scrolling_to_bottom').css('height',(height - 100) + 'px');
+              //$('.right-header-contentChat').css('height',(height - 163) + 'px');
+            });
+          </script>
 
-            </div>
+       </div>
 
-            <div class="col-12 mt-5 text-center">
-              <div class="custom-pagination">
-                <span>1</span>
-                <a href="#">2</a>
-                <a href="#">3</a>
-                <span class="more-page">...</span>
-                <a href="#">10</a>
-              </div>
-            </div>
+      
 
-          </div>
-          <div class="col-lg-3 ml-auto">
+
+
+    </div>
+
+      <div class="col-lg-3 ml-auto">
 
             <div class="mb-5">
               <h3 class="h5 text-black mb-3">Filters</h3>
-              <form action="#" method="post">
-                <div class="form-group">
+              <form action="" method="post">
+                <!--<div class="form-group">
                   <input type="text" placeholder="What are you looking for?" class="form-control">
-                </div>
+                </div>-->
                 <div class="form-group">
                   <div class="select-wrap">
                       <span class="icon"><span class="icon-keyboard_arrow_down"></span></span>
-                      <select class="form-control" name="" id="">
-                        <option value="">All Categories</option>
-                        <option value="" selected="">Real Estate</option>
-                        <option value="">Books &amp;  Magazines</option>
-                        <option value="">Furniture</option>
-                        <option value="">Electronics</option>
-                        <option value="">Cars &amp; Vehicles</option>
-                        <option value="">Others</option>
+                      <select class="form-control" name="subcat" id="">
+                        <option value="">What are you looking for?</option>
+                        <?php 
+
+                                            
+                                                $cat = new SubCategory();
+                                                $cat->autht = $_SESSION['token'];
+                                                $cate = $cat->getSubCategory();
+
+                                                foreach ($cate as $cates) {
+                                                    $cat_id = $cates['id'];
+                                                    $cat_name = $cates['name'];
+
+                                                    echo " <option data-id='$cat_id' value='$cat_id'>$cat_name</option>
+                                                            
+
+                                                    ";
+                                                }
+
+                          ?>
                       </select>
                     </div>
                 </div>
@@ -142,12 +167,69 @@
                   <!-- select-wrap, .wrap-icon -->
                   <div class="wrap-icon">
                     <span class="icon icon-room"></span>
-                    <input type="text" placeholder="Location" class="form-control">
+                    <select class="form-control" name="state" id="state" onchange='selectLga()'>
+                    <option value="">In What State?</option>
+                      <?php   
+                      
+                                        $lga = new State();
+                                        $lga->autht = $_SESSION['token'];
+                                        $lgaa = $lga->getStateLga();
+
+                                        foreach ($lgaa as $lgaas) {
+                                            $id        =  $lgaas['id'];
+                                            $lga_name  =  $lgaas['localGovernment'];
+                                            foreach($lga_name as $lga_names){
+                                                $ids      =  $lga_names['id'];
+                                                $namelga  =  $lga_names['lga1'];
+                                                echo "<option value='$ids'>$namelga</option>";
+                                            }
+
+                                        
+                                        }
+                      
+                      
+                      
+                      ?>
+                    </select>
+                  </div>
+                  <script>
+                                function selectLga(){
+                                
+                                        var stateId = document.getElementById('state').value;
+                                        if(stateId){
+                                            $.ajax({
+                                                type:'GET',
+                                                url:'model/ajaxStateLga.php',
+                                                data:{ 'stateId': stateId },
+                                                success:function(msg){
+                                                    $('#statelga').load('model/ajaxStateLga.php?stateId='+ stateId);
+                                                }
+                                            });
+                                        }
+                                    
+                                }
+                                
+                            </script>
+                </div>
+                <div class="form-group">
+                  <!-- select-wrap, .wrap-icon -->
+                  <div class="wrap-icon">
+                    <span class="icon icon-room"></span>
+                    <select class="form-control" name="lga" id="statelga">
+                      <option value="">Select LGA</option>
+                       
+                    </select>
                   </div>
                 </div>
+
+                <div class="form-group">
+                  <input type="submit" value="Search" name="getSearch" class="form-control btn btn-primary">
+                </div>
+
+
               </form>
             </div>
-            
+          <!--
             <div class="mb-5">
               <form action="#" method="post">
                 <div class="form-group">
@@ -158,14 +240,15 @@
                 </div>
               </form>
             </div>
+           -->
 
             <div class="mb-5">
               <form action="#" method="post">
-                <div class="form-group">
+                <!--<div class="form-group">
                   <p>Category 'Real Estate' is selected</p>
                   <p>More filters</p>
-                </div>
-                <div class="form-group">
+                </div>-->
+                <!--<div class="form-group">
                   <ul class="list-unstyled">
                     <li>
                       <label for="option1">
@@ -192,7 +275,7 @@
                       </label>
                     </li>
                   </ul>
-                </div>
+                </div>-->
               </form>
             </div>
 

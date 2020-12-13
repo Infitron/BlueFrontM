@@ -9,7 +9,7 @@
                         
 
                                          <div class="form-group">
-                                            <label for="service" class=" form-control-label">Search Service</label>
+                                            <label for="service" class=" form-control-label">Select Subcategory</label>
                     
                                             <select id="subCat" class="form-control" placeholder="Select A Service" name="subCat">
                                                     <?php 
@@ -33,6 +33,62 @@
                                                     ?>
                                             
                                                 </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="service" class=" form-control-label">Select State</label>
+                    
+                                            <select  class="form-control" placeholder="" id="state" name="state" onchange='selectLga()'>
+                                                   
+                                                    <option>Select State</option>
+                                                   <?php 
+
+                                                                                                    
+                                                            $sta = new State();
+                                                            $sta->autht = $_SESSION['token'];
+                                                            $staa = $sta->getState();
+
+                                                            foreach ($staa as $staas) {
+                                                                $id        = $staas['id'];
+                                                                $stat_name = $staas['name'];
+
+                                                                echo " <option value='$id'>$stat_name</option>";
+                                                            }
+
+
+
+
+                                                    
+                                                
+                                                    ?>
+                                            
+                                                </select>
+                                        </div>
+                                        <script>
+                                            function selectLga(){
+                                            
+                                                    var stateId = document.getElementById('state').value;
+                                                    if(stateId){
+                                                        $.ajax({
+                                                            type:'GET',
+                                                            url:'../model/ajaxStateLga.php',
+                                                            data:{ 'stateId': stateId },
+                                                            success:function(msg){
+                                                                $('#statelga').load('../model/ajaxStateLga.php?stateId='+ stateId);
+                                                            }
+                                                        });
+                                                    }
+                                                
+                                            }
+                                            
+                                        </script>
+                                        <div class="form-group">
+                                            <label for="service" class=" form-control-label">Select LGA</label>
+                    
+                                            <select id="statelga" class="form-control" placeholder="" name="lga" >
+
+                                                <option>Select LGA</option>
+                                            
+                                             </select>
                                         </div>
                                                  <div class="form-group">
                                                      <button type="submit" class="btn btn-primary btn-lg" name="submit">Search</button>

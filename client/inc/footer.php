@@ -22,6 +22,7 @@
     <script src="vendor/chartjs/Chart.bundle.min.js"></script>
     <script src="vendor/select2/select2.min.js">
     </script>
+    <script src="vendor/bootstrap-lightbox.min.js"></script>
 
     <!-- Main JS-->
     <script src="js/main.js"></script>

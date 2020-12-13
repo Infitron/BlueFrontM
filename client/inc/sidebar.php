@@ -50,7 +50,7 @@
                         </li>
                         <li>
                             <a href="index.php?us">
-                                <i class="fa fa-lightbulb-o"></i>Services</a>
+                                <i class="fa fa-lightbulb-o"></i>Service Search</a>
                         </li>
                         <li>
                             <a href="index.php?ulh">
@@ -110,7 +110,7 @@
                         </li>
                          <li>
                             <a href="index.php?us">
-                                <i class="fa fa-lightbulb-o"></i>Services</a>
+                                <i class="fa fa-lightbulb-o"></i>Service Search</a>
                         </li>
                         <li>
                             <a href="index.php?ulh">

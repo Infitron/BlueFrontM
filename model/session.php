@@ -1,6 +1,6 @@
 <?php
 
-	/**
+	/*
 	 * Session Class
 	 */
 	class Session{

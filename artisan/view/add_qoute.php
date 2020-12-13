@@ -45,39 +45,37 @@
                                             </div>
                                     </div>
                                   
-                                
 							</div>
 
-                ";
+                ";    
 
-                echo "
-                
-                            <script>
-
-                            $(document).ready(function()
-                            {
-                                $('#mTp').focus(function()
-                                {
-                                    var q = +$('#mQu').val();
-                                    var up = +$('#mUp').val();
-                                
-
-                                    var i = q * up;
-
-                                    $('#mTp').val(i);
-
-                                });
-                            });
-
-
-                        </script>
+            }
+            
+                        echo "
                             
-                
-                ";
-                
-    
+                        <script>
 
-			}
+                        $(document).ready(function()
+                        {
+                            
+                                    $('#mTp').focus(function()
+                                    {
+                                        var q = $('#mQu').val();
+                                        var up = $('#mUp').val();
+                                    
+
+                                        var i = q * up;
+
+                                        $('#mTp').val(i);
+
+                                    });
+                        });
+
+
+                    </script>
+                        
+
+            ";
 		}
 
 

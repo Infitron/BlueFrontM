@@ -55,6 +55,10 @@
                                 <i class="fas fa-calendar-alt"></i>Portfolio</a>
                         </li>
                         <li>
+                            <a href="index.php?us">
+                                <i class="fa fa-lightbulb-o"></i>Service Search</a>
+                        </li>
+                        <li>
                             <a href="index.php?uj">
                                 <i class="fas fa-map-marker-alt"></i>Jobs</a>
                         </li>
@@ -120,6 +124,11 @@
                             <a href="index.php?upf">
                                 <i class="fas fa-calendar-alt"></i>Portfolio</a>
                         </li>
+                        <li>
+                            <a href="index.php?us">
+                                <i class="fa fa-lightbulb-o"></i>Service Search</a>
+                        </li>
+
                         <li>
                             <a href="index.php?uj">
                                 <i class="fas fa-map-marker-alt"></i>Jobs</a>

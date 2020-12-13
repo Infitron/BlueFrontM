@@ -51,12 +51,13 @@
                                                 
                                                       foreach ($UServiceD as $UServiceDs) {
                                                        
-                                                        $sid       = $UServiceDs['id'];
-                                                        $artisanId = $UServiceDs['artisanId'];
-                                                        $serviceName = $UServiceDs['serviceName'];
-                                                        $descriptions = $UServiceDs['descriptions'];
-                                                        $statusId = $UServiceDs['statusId'];
-                                                        $creationDate = $UServiceDs['creationDate'];
+                                                        $sid            = $UServiceDs['id'];
+                                                        $artisanId      = $UServiceDs['artisanId'];
+                                                        $serviceName    = $UServiceDs['serviceName'];
+                                                        $descriptions   = $UServiceDs['descriptions'];
+                                                        $statusId       = $UServiceDs['statusId'];
+                                                        $asimage        = $UServiceDs['image'];
+                                                        $creationDate   = $UServiceDs['creationDate'];
 
                                                         echo "
 
@@ -64,18 +65,16 @@
                                                                     <td>$sid</td>
                                                                     <td>$serviceName</td>
                                                                     <td>$descriptions</td>
-                                                                    <td><a href='index.php?vus&id=$sid' class='btn btn-danger btn-lg'>View</a></td>
+                                                                    <td><a href='../images/services/$asimage' class='btn btn-danger btn-lg'  data-toggle='lightbox' data-title='Service Image' data-footer='$serviceName' target='_blank'>View</a></td>
                                                                      <td><a href='index.php?vus&id=$sid' class='btn btn-success btn-lg'>View</a></td>
                                                                     <td> <a href='index.php?eus&id=$sid' class='btn btn-primary btn-lg'>Edit</a></td>
                                                                 </tr>
-
-
 
                                                         ";
                                                   
                                                      }
                                                    
-
+                                                    
                                             ?>
 
 

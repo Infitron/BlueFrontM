@@ -1,7 +1,9 @@
 ﻿<?php  include('hnav.php'); 
 
         $countCat = new SubCategory();
-        $countCat->autht = $_SESSION['token'];            
+        $countCat->autht = $_SESSION['token'];     
+        
+        
 ?>
 
 <div class="site-blocks-cover overlay" style="background-image: url(images/banner1.png);" data-aos="fade" data-stellar-background-ratio="0.5">
@@ -28,7 +30,6 @@
 
                                             
                                                 $cat = new SubCategory();
-                                                $cat->autht = $_SESSION['token'];
                                                 $cate = $cat->getSubCategory();
 
                                                 foreach ($cate as $cates) {
@@ -51,7 +52,8 @@
                                 <div class="wrap-icon">
                                     <span class="icon icon-room"></span>
 
-                                    <select class="form-control" name="state">
+                                    <select class="form-control" name="state" id="state" onchange='selectLga()'>
+                                    <option>Select State</option>
                                     <?php  
 
                                         $sta = new State();
@@ -71,31 +73,32 @@
                                     </select>
                                 </div>
                             </div>
+                        
+                            <script>
+                                function selectLga(){
+                                
+                                        var stateId = document.getElementById('state').value;
+                                        if(stateId){
+                                            $.ajax({
+                                                type:'GET',
+                                                url:'model/ajaxStateLga.php',
+                                                data:{ 'stateId': stateId },
+                                                success:function(msg){
+                                                    $('#statelga').load('model/ajaxStateLga.php?stateId='+ stateId);
+                                                }
+                                            });
+                                        }
+                                    
+                                }
+                                
+                            </script>
+
                             <div class="col-lg-12 mb-4 mb-xl-0 col-xl-3">
                                 <div class="wrap-icon">
                                     <span class="icon icon-room"></span>
 
-                                    <select class="form-control" name="lga">
-                                    <?php  
-
-                                        $lga = new State();
-                                        $lga->autht = $_SESSION['token'];
-                                        $lgaa = $lga->getStateLga();
-
-                                        foreach ($lgaa as $lgaas) {
-                                            $id        =  $lgaas['id'];
-                                            $lga_name  =  $lgaas['localGovernment'];
-                                            foreach($lga_name as $lga_names){
-                                                $ids      =  $lga_names['id'];
-                                                $namelga  =  $lga_names['lga1'];
-                                                echo "<option value='$ids'>$namelga</option>";
-                                            }
-
-                                        
-                                        }
-
-
-                                        ?>
+                                    <select class="form-control" name="lga" id="statelga">
+                                        <option>Select LGA</option>
 
                                     </select>
                                 </div>
@@ -285,45 +288,45 @@
         <div class="overlap-category mb-5">
             <div class="row align-items-stretch no-gutters">
                 <div class="col-sm-6 col-md-4 mb-4 mb-lg-0 col-lg-2">
-                    <a href="#" class="popular-category h-20">
+                    <a href="list_cat_services.php?id=1" class="popular-category h-20">
                         <span class="icon"><span class="flaticon-car"></span></span>
                         <span class="caption mb-2 d-block">Automobiles</span>
-                        <span class="number"><?php //echo $countAll->countCatId(); $countCat->countCatId(1); ?>435</span>
+                        <span class="number"><?php echo $countCat-> countSubCatId(1); ?></span>
                     </a>
                 </div>
                 <div class="col-sm-6 col-md-4 mb-4 mb-lg-0 col-lg-2">
-                    <a href="#" class="popular-category h-20">
+                    <a href="list_cat_services.php?id=5" class="popular-category h-20">
                         <span class="icon"><span class="flaticon-closet"></span></span>
                         <span class="caption mb-2 d-block">Furniture</span>
-                        <span class="number"><?php //echo $countAll->countCatId(); //$countCat->countCatId(5); ?>567</span>
+                        <span class="number"><?php echo $countCat->countSubCatId(5); ?></span>
                     </a>
                 </div>
                 <div class="col-sm-6 col-md-4 mb-4 mb-lg-0 col-lg-2">
-                    <a href="#" class="popular-category h-20">
+                    <a href="list_cat_services.php?id=3" class="popular-category h-20">
                         <span class="icon"><span class="flaticon-home"></span></span>
-                        <span class="caption mb-2 d-block">Fashion</span>
-                        <span class="number"><?php //echo $countAll->countCatId(); //$countCat->countCatId(4); ?>234</span>
+                        <span class="caption mb-2 d-block">Building</span>
+                        <span class="number"><?php echo $countCat->countSubCatId(3); ?></span>
                     </a>
                 </div>
                 <div class="col-sm-6 col-md-4 mb-4 mb-lg-0 col-lg-2">
-                    <a href="#" class="popular-category h-20">
+                    <a href="list_cat_services.php?id=4" class="popular-category h-20">
                         <span class="icon"><span class="flaticon-open-book"></span></span>
                         <span class="caption mb-2 d-block">Fabrications</span>
-                        <span class="number"><?php //echo $countAll->countCatId(); //$countCat->countCatId(4); ?>354</span>
+                        <span class="number"><?php echo $countCat->countSubCatId(4); ?></span>
                     </a>
                 </div>
                 <div class="col-sm-6 col-md-4 mb-4 mb-lg-0 col-lg-2">
-                    <a href="#" class="popular-category h-20">
+                    <a href="list_cat_services.php?id=7" class="popular-category h-20">
                         <span class="icon"><span class="flaticon-tv"></span></span>
                         <span class="caption mb-2 d-block">Electronics</span>
-                        <span class="number"><?php //echo $countAll->countCatId(); //$countCat->countCatId(7); ?>456</span>
+                        <span class="number"><?php echo $countCat->countSubCatId(7); ?></span>
                     </a>
                 </div>
                 <div class="col-sm-6 col-md-4 mb-4 mb-lg-0 col-lg-2">
-                    <a href="#" class="popular-category h-20">
+                    <a href="" class="popular-category h-20">
                         <span class="icon"><span class="flaticon-pizza"></span></span>
                         <span class="caption mb-2 d-block">Other</span>
-                        <span class="number"><?php //echo $countAll->countCatId(); ?>2354</span>
+                        <span class="number"><?php echo $countCat->countCatAll(); ?></span>
                     </a>
                 </div>
             </div>

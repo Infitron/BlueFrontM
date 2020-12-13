@@ -199,7 +199,7 @@
 			$errors = $response['status'];
 			$service = array();
 			
-			if ($errors == 200 || $errors == 201){
+			if ($errors == 200 || $errors == 201 || $errors == 404){
 				$data = $response['message'];
 				
 
@@ -264,7 +264,7 @@
 							
 						}else{
 					         echo "<script>alert('Unable to get your service')</script>";
-					        echo "<script> window.open('../artisan/index.php?ups','_self'); </script>";
+					       // echo "<script> window.open('../artisan/index.php?ups','_self'); </script>";
 					    } 
 
 						return $data;
@@ -291,6 +291,52 @@
 			    }    
 			    
 			    return $data;
+			}
+
+
+			public function getService(){
+
+				$url = $this->url_user_service;
+			    $get_data = $this->callAPI("GET", $url, false, $this->autht);
+			    $response = json_decode($get_data, true);
+				$errors = $response['status'];
+				$data = array();
+				
+			    if ($errors == 200 || $errors == 201){
+
+			       $data = $response['message'];
+			    
+			    }else{
+			         echo "<script>alert('Unable to get your service, please add your service')</script>";
+			        //echo "<script> window.open('../artisan/index.php?aus','_self'); </script>";
+			    }    
+			    
+			    return $data;
+			}
+
+
+			public function countServiceByArtisan($id){
+
+				$url      = $this->url_user_service."/AllService/".$id;
+				$get_data = $this->callAPI("GET", $url, false, $this->autht);
+				$response = json_decode($get_data, true);
+				$errors = $response['status'];
+				$data = $response['message'];
+				
+				if ($errors == 200 || $errors == 201){
+					
+
+					
+					return sizeof($data);
+					
+
+					
+				}else{
+					 return 0;
+				} 
+
+				
+
 			}
 
 

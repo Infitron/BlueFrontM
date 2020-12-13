@@ -4,7 +4,10 @@
             
 
             $scatid = addslashes(trim($_POST['subCat']));  
+            $stateid = addslashes(trim($_POST['state'])); 
+            $lgaid = addslashes(trim($_POST['lga'])); 
 
+           
             if($scatid == "" || $scatid == null){
 
                 echo "<script>alert('Service not Avaliable')</script>";
@@ -12,10 +15,13 @@
 
             }
            
+           
 
             $ser = new Search();
             $ser->autht = $_SESSION['token'];
-            $serDetail  = $ser->getSearchSubCatId($scatid);
+            $serDetail  = $ser->getSearch($scatid,$stateid, $lgaid);
+
+           
             
             if($serDetail == "" || $serDetail == null){
 
@@ -60,7 +66,8 @@
                                         <h4 class="card-title mb-3"><?php echo $serviceName; ?></h4>
                                         <p class="card-text"><?php echo $descriptions; ?>
                                         </p>
-                                        <p><a href="index.php?orm&uid=<?php echo $userId; ?>&sid=<?php echo $id; ?>" class="btn btn-danger">Order</a></p>
+                                        <p><a href="index.php?ss&aid=<?php echo $artisanId; ?>&sid=<?php echo $id; ?>" class="btn btn-primary">View Service</a></p>
+                                       
                                     </div>
                                 </div>
               </div>

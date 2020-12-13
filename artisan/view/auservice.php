@@ -66,6 +66,57 @@
                                                 </select>
                                         </div>
 
+                                        <div class="form-group">
+                                            <label for="state" class=" form-control-label">Service State </label>
+                                           
+                                                    <select name="state" id="state" class="form-control" onchange='selectLga()'>
+                                                     <?php  
+
+                                                            $sta = new State();
+                                                            $sta->autht = $_SESSION['token'];
+                                                            $staa = $sta->getState();
+
+                                                            foreach ($staa as $staas) {
+                                                                $id        = $staas['id'];
+                                                                $stat_name = $staas['name'];
+
+                                                                echo " <option value='$id'>$stat_name</option>";
+                                                            }
+
+
+                                                    ?>
+                                                </select>
+                                        </div>
+
+                                        <script>
+                                            function selectLga(){
+                                            
+                                                    var stateId = document.getElementById('state').value;
+                                                    if(stateId){
+                                                        $.ajax({
+                                                            type:'GET',
+                                                            url:'../model/ajaxStateLga.php',
+                                                            data:{ 'stateId': stateId },
+                                                            success:function(msg){
+                                                                $('#statelga').load('../model/ajaxStateLga.php?stateId='+ stateId);
+                                                            }
+                                                        });
+                                                    }
+                                                
+                                            }
+                                            
+                                        </script>
+
+
+                                        <div class="form-group">
+                                            <label for="state" class=" form-control-label">Service State LGA </label>
+                                           
+                                                    <select name="lga" id="statelga" class="form-control">
+                                                         <option>Select LGA</option>
+
+                                                    </select>
+                                        </div>
+
 
                                         <div class="form-group">
                                             <label for="loc" class=" form-control-label">Service Location Area </label>
@@ -89,55 +140,10 @@
                                                 </select>
                                         </div>
 
-                                        <div class="form-group">
-                                            <label for="state" class=" form-control-label">Service State LGA </label>
-                                           
-                                                    <select name="lga" id="state" class="form-control">
-                                                     <?php  
-
-                                                            $lga = new State();
-                                                            $lga->autht = $_SESSION['token'];
-                                                            $lgaa = $lga->getStateLga();
-
-                                                            foreach ($lgaa as $lgaas) {
-                                                                $id        =  $lgaas['id'];
-                                                                $lga_name  =  $lgaas['localGovernment'];
-                                                                foreach($lga_name as $lga_names){
-                                                                    $ids      =  $lga_names['id'];
-                                                                    $namelga  =  $lga_names['lga1'];
-                                                                    echo "<option value='$ids'>$namelga</option>";
-                                                                }
-
-                                                               
-                                                            }
+                                        
 
 
-                                                    ?>
-                                                </select>
-                                        </div>
-
-
-                                        <div class="form-group">
-                                            <label for="state" class=" form-control-label">Service State </label>
-                                           
-                                                    <select name="state" id="state" class="form-control">
-                                                     <?php  
-
-                                                            $sta = new State();
-                                                            $sta->autht = $_SESSION['token'];
-                                                            $staa = $sta->getState();
-
-                                                            foreach ($staa as $staas) {
-                                                                $id        = $staas['id'];
-                                                                $stat_name = $staas['name'];
-
-                                                                echo " <option value='$id'>$stat_name</option>";
-                                                            }
-
-
-                                                    ?>
-                                                </select>
-                                        </div>
+                                       
 
 
 

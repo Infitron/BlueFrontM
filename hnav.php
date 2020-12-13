@@ -5,10 +5,6 @@
         $user->userLogin('ton7@max.com','@Testing1');
         $user->autht = $_SESSION['token'];
         
-
-       
-        
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -50,7 +46,7 @@
             <div class="site-mobile-menu-body"></div>
         </div>
         <header class="site-navbar container py-0" role="banner" >
-            <!-- <div class="container"> -->
+            
             <div class="row align-items-center" >
                 <div class="col-6 col-xl-2">
                     <h1 class="mb-0 site-logo"><a href="index.php" class="text-white mb-0"><img src="images/logo1.png" /></a></h1>
@@ -74,7 +70,7 @@
                                              $cat_id = $cates['id'];
                                              $catn = $cates['categoryName'];
 
-                                              echo "<li><a href=\".\listings.php?id=\\".$cat_id."\">".$catn."</a></li>";
+                                              echo "<li><a href='list_cat_services.php?id=$cat_id'>$catn</a></li>";
                                         }
 
 
@@ -100,5 +96,5 @@
                     <a href="#" class="site-menu-toggle js-menu-toggle text-white"><span class="icon-menu h3"></span></a>
                 </div>
             </div>
-            <!-- </div> -->
+            
         </header>

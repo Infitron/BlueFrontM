@@ -252,7 +252,7 @@
                                 include("view/dashboard.php");
                             } 
 
-                            // User Profilw
+                            // User Profile
                             if (isset($_GET['up'])) {
                                 include("view/profile.php");
                             } if (isset($_GET['uep'])) {
@@ -278,6 +278,8 @@
                             // User Service and Product
                             if (isset($_GET['ups'])) {
                                 include("view/uservice.php");
+                            }if (isset($_GET['us'])) {
+                                include("view/uservices.php");
                             }if (isset($_GET['aus'])) {
                                 include("view/auservice.php");
                             }if (isset($_GET['eus'])) {
@@ -286,7 +288,9 @@
                                 include("view/vuservice.php");
                             }if (isset($_GET['ls'])) {
                                 include("view/listservice.php");
-                            }
+                            }if (isset($_GET['ss'])) {
+                                include("view/auserdetails.php");
+                            } 
 
 
                             // User Eearning

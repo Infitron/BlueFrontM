@@ -1,4 +1,4 @@
-w<?php
+<?php
 
 
 class User extends Api{
@@ -280,7 +280,7 @@ class User extends Api{
 			}
 
 
-			public function getClientDetails($id){
+			public function getUserIdClient($id){
 
 					$url = $this->url_user_client.'/'.$id;
 					$make_call = $this->callAPI('GET', $url, false, $this->autht);
@@ -297,6 +297,27 @@ class User extends Api{
 					}
 
 			}
+
+
+			public function getClientDetails($id){
+
+				$url = $this->url_user_client.'/'.$id;
+				$make_call = $this->callAPI('GET', $url, false, $this->autht);
+				$response = json_decode($make_call, true);
+				$status  =  $response['status'];
+				$message = $response['message'];
+				
+				if(http_response_code(200) || $status == 200 ||  $status == 201 ){
+
+						 return $message;
+				}else{
+
+					echo "<script>alert('User Have no data')</script>";
+				}
+
+		}
+
+
 
 			public function getClients(){
 
@@ -352,6 +373,25 @@ class User extends Api{
 					}
 
 			}
+
+			public function getUserIdArtisans($id){
+
+				$url = $this->url_user_artisan."/".$id;
+				$make_call = $this->callAPI('GET', $url, false, $this->autht);
+				$response = json_decode($make_call, true);
+				$status  =  $response['status'];
+				$message = $response['message'];
+				
+				if(http_response_code(200) || $status == 200 ||  $status == 201 ){
+
+						 return $message;
+				}else{
+
+					echo "<script>alert('User Have no data')</script>";
+				}
+
+		}
+
 
 
 			public function getUserArtisan($id){

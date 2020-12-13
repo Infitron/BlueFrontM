@@ -16,8 +16,4 @@
 	require_once("order.php");
 	require_once("quote.php");
 
-	//require_once("test.php");
-	
-
-
 ?>

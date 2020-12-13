@@ -9,7 +9,6 @@
         public $clientId;
         public $item;
         public $descr;
-        public $quantity;
         public $price;
         public $discount;
         public $vat;
@@ -27,6 +26,13 @@
         public $idNavigation;
         public $orderStatus;
         public $projects;
+
+        //Post Variable 
+        public $name;
+        public $quantity;
+        public $unitPrice;
+        public $totalPrice;
+
         public $eachItem = array();
 
 
@@ -78,16 +84,23 @@
 
 
                 $data_array =  array(
-                    
+                     "item"  => array(
+
+                                        "name"          => $this->eachItem[0],
+                                        "quantity"      => $this->eachItem[1],
+                                        "unitPrice"     => $this->eachItem[2],
+                                        "totalPrice"    => $this->eachItem[3]
+
+                                    ),
                       "discount"    => $this->discount,
-                      "address1"    => $this->address1,
+                      "workmanShip" => $this->workmanShip,
+                      "total"       => $this->total,
                       "bookingId"   => $this->bookingId,
                       "createdDate" => $this->createdDate, 
                       "orderDate"   => $this->orderDate 
     
                    
                 );
-    
     
                 $url = $this->url_user_quote;
                 $get_data = $this->callAPI("POST", $url, json_encode($data_array), $this->autht);
@@ -98,7 +111,7 @@
                 if(http_response_code(200) || $status == 200 || $status == 201){
     
                                 //print_r($message); die();
-                                 echo "<script>alert('Service Created Successfully')</script>";
+                                 echo "<script>alert('Quote Created Successfully')</script>";
                 }
             }
 

@@ -308,6 +308,8 @@
                                 include("view/vservices.php");
                             }if (isset($_GET['ls'])) {
                                 include("view/listservice.php");
+                            }if (isset($_GET['ss'])) {
+                                include("view/auserdetails.php");
                             } 
                             
                              //User Order
@@ -316,6 +318,9 @@
                             }if (isset($_GET['oms'])) {
                                 include("view/saorder.php");
                             }
+
+
+                            
 
                         ?>
 

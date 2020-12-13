@@ -28,6 +28,31 @@
 			}
 
 		}
+
+		public function getSearchCatId($subCatId){
+
+			if(isset($subCatId) && !empty($subCatId)){
+
+				$url = $this->url_user_search."?SubCatId=".$subCatId;
+			    $get_data = $this->callAPI("GET", $url, false, $this->autht);
+			    $response = json_decode($get_data, true);
+				$errors = $response['status'];
+				$data = array();
+
+			    if ($errors == 200 || $errors == 201 || $errors == 404){
+
+			       $data = $response['message'];
+			    
+			    }else{
+			        echo "Unable to get Categories";
+			    }    
+			    
+			    return $data;
+
+			}
+
+		}
+
 		public function getSearch($subCatId,$stateId,$LgId){
 
 			if(isset($subCatId) && isset($stateId) && isset($LgId)){

@@ -58,7 +58,7 @@
                                                 <i class="zmdi zmdi-shopping-cart"></i>
                                             </div>
                                             <div class="text">
-                                                <h2>388,688</h2>
+                                                <h2></h2>
                                                 <span>Total Service Purchase</span>
                                             </div>
                                         </div>
@@ -74,8 +74,8 @@
                                                 <i class="zmdi zmdi-calendar-note"></i>
                                             </div>
                                             <div class="text">
-                                                <h2>1,086</h2>
-                                                <span>Login Count</span>
+                                                <h2></h2>
+                                                <span>Login History</span>
                                             </div>
                                         </div>
                                         
@@ -87,10 +87,10 @@
                                     <div class="overview__inner">
                                         <div class="overview-box clearfix">
                                             <div class="icon">
-                                                <i class="zmdi zmdi-money"></i>
+                                                <i class="zmdi">&#8358;</i>
                                             </div>
                                             <div class="text">
-                                                <h2>$1,060,386</h2>
+                                                <h2>0.00</h2>
                                                 <span>Total Amount Spend</span>
                                             </div>
                                         </div>

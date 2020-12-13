@@ -18,11 +18,14 @@
 		 public $url_user_projct 		= "https://api.bluecollarhub.com.ng/api/v1.1/Project";
 		 public $url_user_acategory 	= "https://api.bluecollarhub.com.ng/api/v1.1/Category";
 		 public $url_user_aSubcategory 	= "https://api.bluecollarhub.com.ng/api/v1.1/SubCategory";
+		 public $url_user_CatSub 		= "https://api.bluecollarhub.com.ng/api/v1.1/SubCategory/GetSubs?CategoryId=";
+
 		 public $url_user_location 		= "https://api.bluecollarhub.com.ng/api/v1.1/Location";
 		 public $url_user_search 		= "https://api.bluecollarhub.com.ng/api/v1.1/Search";
 		 public $url_user_complaint 	= "https://api.bluecollarhub.com.ng/api/v1.1/Complaint";
 		 public $url_user_complaintId 	= "https://api.bluecollarhub.com.ng/api/v1.1";
 		 public $url_user_state 		= "https://api.bluecollarhub.com.ng/api/v1.1/StateLocalGovernment/State/AllState";
+		 public $url_user_lga 			= "https://api.bluecollarhub.com.ng/api/v1.1/StateLocalGovernment/LocalGoverment/AllLocalGovernment";
 		 public $url_state 				= "https://api.bluecollarhub.com.ng/api/v1.1/StateLocalGovernment/ThisState";
 		 public $autht;
 

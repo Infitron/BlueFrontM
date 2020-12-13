@@ -10,6 +10,8 @@
         $user->autht = $_SESSION['token'];
         $user_data = $user->getUserArtisan($aid);
 
+
+
         $aid                   = $user_data['id'];
         $userId                = $user_data['userId'];
         $firstName             = $user_data['firstName'];

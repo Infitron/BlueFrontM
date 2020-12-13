@@ -25,8 +25,12 @@
          }
 
 
-?>
+         $Countser = new Service();
+         $Countser->autht = $_SESSION['token'];
+         $countUserService = $Countser->countServiceByArtisan($aid)
 
+
+?> 
 
 
 <div class="row m-t-25">
@@ -54,7 +58,7 @@
                                                 <i class="zmdi zmdi-shopping-cart"></i>
                                             </div>
                                             <div class="text">
-                                                <h2>388,688</h2>
+                                                <h2><?php echo  $countUserService; ?></h2>
                                                 <span>Total Own Service</span>
                                             </div>
                                         </div>
@@ -86,7 +90,7 @@
                                                 <i class="zmdi">&#8358;</i>
                                             </div>
                                             <div class="text">
-                                                <h2>1,060,386</h2>
+                                                <h2>0.00</h2>
                                                 <span>Total Amount Earned</span>
                                             </div>
                                         </div>

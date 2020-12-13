@@ -71,8 +71,10 @@
 
                                 $user = new User();
                                 $user->autht = $_SESSION['token'];
-                                $artisanId = $user->findArtisanById($_SESSION['user_id']);
-                                $user_data = $user->getUserArtisan($artisanId);
+                               // $artisanId = $user->findArtisanById($_SESSION['user_id']);
+                               // $user_data = $user->getUserArtisan($artisanId);
+
+                               $user_data = $user->getUserIdArtisans($_SESSION['user_id']);
 
                                 $_SESSION['aid']                   = $user_data['id'];
                                 $_SESSION['userId']                = $user_data['userId'];
@@ -116,8 +118,10 @@
 
                                 $user = new User();
                                 $user->autht = $_SESSION['token'];
-                                $clientId = $user->findClientById($_SESSION['user_id']);
-                                $user_data = $user->getClientDetails($clientId);
+                                //$clientId = $user->findClientById($_SESSION['user_id']);
+                                //$user_data = $user->getClientDetails($clientId);
+
+                                $user_data = $user->getUserIdClient($_SESSION['user_id']);
 
                                 $_SESSION['cid']                   = $user_data['id'];
                                 $_SESSION['userId']                = $user_data['userId'];

@@ -56,15 +56,15 @@
                                     
                                       <div class="form-group">
                                             <label for="name" class=" form-control-label">Discount</label>
-                                            <input type="text" id="qnum" name="qnum" placeholder="" class="form-control">
+                                            <input type="text" id="" name="dis" placeholder="" class="form-control">
                                       </div>
                                       <div class="form-group">
                                             <label for="name" class=" form-control-label">Workmanship</label>
-                                            <input type="text" id="qnum" name="qnum" placeholder="" class="form-control">
+                                            <input type="text" id="" name="wm" placeholder="" class="form-control">
                                       </div>
                                       <div class="form-group">
                                             <label for="name" class=" form-control-label">Total</label>
-                                            <input type="text" id="qnum" name="qnum" placeholder="" class="form-control">
+                                            <input type="text" id="" name="total" placeholder="" class="form-control">
                                       </div>
                                         
                                         <input type="hidden" name="oid" value="<?php echo $oid; ?>" />
